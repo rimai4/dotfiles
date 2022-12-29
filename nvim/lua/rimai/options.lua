@@ -30,3 +30,5 @@ vim.opt.writebackup = false
 
 -- save undo file
 vim.o.undofile = true
+
+vim.o.cursorline = true

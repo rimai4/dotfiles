@@ -66,8 +66,11 @@ map("n", "<leader>f", "<cmd>Format<CR>")
 -- Escape terminal
 map("t", "<Esc>", "<C-\\><C-n>")
 
--- Remap C-W to s for easy split manipulation
-map("n", "s", "<C-w>")
+-- Split navigation with Control-hjkl
+map("n", "<C-h>", "<C-w>h")
+map("n", "<C-j>", "<C-w>j")
+map("n", "<C-k>", "<C-w>k")
+map("n", "<C-l>", "<C-w>l")
 
 -- Clear search results with enter
 map("n", "<CR>", "<cmd>noh<CR><CR>")
@@ -98,3 +101,11 @@ map("n", "<leader>7", "<cmd>BufferLineGoToBuffer 7<CR>")
 map("n", "<leader>8", "<cmd>BufferLineGoToBuffer 8<CR>")
 map("n", "<leader>9", "<cmd>BufferLineGoToBuffer 9<CR>")
 
+-- Don't replace register after pasting
+map("v", "p", '"_dP')
+
+-- Substitute commands
+map("n", "s", "<cmd>lua require('substitute').operator()<cr>")
+map("n", "ss", "<cmd>lua require('substitute').line()<cr>")
+map("n", "S", "<cmd>lua require('substitute').eol()<cr>")
+map("x", "s", "<cmd>lua require('substitute').visual()<cr>")

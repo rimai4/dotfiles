@@ -3,18 +3,17 @@ return require('packer').startup(function(use)
 
   use 'morhetz/gruvbox'
 
-  use 'jose-elias-alvarez/null-ls.nvim'
+  use 'maxmellon/vim-jsx-pretty'
   use 'lewis6991/gitsigns.nvim'
   use 'tpope/vim-commentary'
-  use 'tpope/vim-fugitive'
-  use 'maxmellon/vim-jsx-pretty'
   use 'nvim-tree/nvim-web-devicons'
-  use 'MunifTanjim/nui.nvim'
   use 'nvim-lualine/lualine.nvim'
-  use 'vim-scripts/ReplaceWithRegister'
-  use 'tpope/vim-endwise'
   use 'machakann/vim-sandwich'
   use 'windwp/nvim-autopairs'
+  use 'windwp/nvim-ts-autotag'
+  use 'RRethy/nvim-treesitter-endwise'
+  use 'gbprod/substitute.nvim'
+  use 'jose-elias-alvarez/null-ls.nvim'
 
   use {
     'nvim-telescope/telescope.nvim',

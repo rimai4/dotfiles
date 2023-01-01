@@ -49,6 +49,7 @@ map("n", "<leader>sw", "<cmd>Telescope grep_string<CR>", { desc = '[S]earch by [
 map("n", "<leader>sg", "<cmd>Telescope live_grep<CR>", { desc = '[S]earch by [G]rep'})
 map("n", "<leader>sh", "<cmd>Telescope help_tags<CR>", { desc = '[S]earch [H]elp'})
 map("n", "<leader>sd", "<cmd>Telescope diagnostics<CR>", { desc = '[S]earch [D]iagnostics'})
+map("n", "<leader>ss", "<cmd>Telescope lsp_document_symbols<CR>", { desc = '[S]earch [S]ymbols'})
 
 -- Neotree
 map("n", "<leader>b", "<cmd>Neotree toggle<CR>")
@@ -62,9 +63,6 @@ map("n", "<leader>yy", '"+yy')
 
 -- Format
 map("n", "<leader>f", "<cmd>Format<CR>")
-
--- Escape terminal
-map("t", "<Esc>", "<C-\\><C-n>")
 
 -- Split navigation with Control-hjkl
 map("n", "<C-h>", "<C-w>h")
@@ -90,22 +88,11 @@ map("n", "<leader>w", "<cmd>bd<CR>")
 map("n", "-", "<C-x>")
 map("n", "+", "<C-a>")
 
--- Go to buffer number
-map("n", "<leader>1", "<cmd>BufferLineGoToBuffer 1<CR>")
-map("n", "<leader>2", "<cmd>BufferLineGoToBuffer 2<CR>")
-map("n", "<leader>3", "<cmd>BufferLineGoToBuffer 3<CR>")
-map("n", "<leader>4", "<cmd>BufferLineGoToBuffer 4<CR>")
-map("n", "<leader>5", "<cmd>BufferLineGoToBuffer 5<CR>")
-map("n", "<leader>6", "<cmd>BufferLineGoToBuffer 6<CR>")
-map("n", "<leader>7", "<cmd>BufferLineGoToBuffer 7<CR>")
-map("n", "<leader>8", "<cmd>BufferLineGoToBuffer 8<CR>")
-map("n", "<leader>9", "<cmd>BufferLineGoToBuffer 9<CR>")
+-- Terminal
+-- map("t", "<leader><Space>", "<cmd>ToggleTerm<CR>")
+-- map("n", "<leader><Space>", "<cmd>ToggleTerm<CR>")
+map("t", "<Esc>", "<C-\\><C-n>")
 
 -- Don't replace register after pasting
 map("v", "p", '"_dP')
 
--- Substitute commands
-map("n", "s", "<cmd>lua require('substitute').operator()<cr>")
-map("n", "ss", "<cmd>lua require('substitute').line()<cr>")
-map("n", "S", "<cmd>lua require('substitute').eol()<cr>")
-map("x", "s", "<cmd>lua require('substitute').visual()<cr>")

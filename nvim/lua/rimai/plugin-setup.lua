@@ -1,8 +1,9 @@
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  use 'morhetz/gruvbox'
+  use 'sainnhe/sonokai'
 
+  use 'akinsho/toggleterm.nvim'
   use 'maxmellon/vim-jsx-pretty'
   use 'lewis6991/gitsigns.nvim'
   use 'tpope/vim-commentary'
@@ -12,7 +13,7 @@ return require('packer').startup(function(use)
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
   use 'RRethy/nvim-treesitter-endwise'
-  use 'gbprod/substitute.nvim'
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'jose-elias-alvarez/null-ls.nvim'
 
   use {

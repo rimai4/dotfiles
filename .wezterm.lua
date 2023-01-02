@@ -4,6 +4,7 @@ return {
   hide_tab_bar_if_only_one_tab = true,
 	font_size = 20,
 	color_scheme = "Sonokai (Gogh)",
+  force_reverse_video_cursor = true,
 	font = wezterm.font("Liga SFMono Nerd Font"),
 	keys = {
 		{

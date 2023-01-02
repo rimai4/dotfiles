@@ -7,3 +7,4 @@
 `$/.prettierrc.yaml` - global prettier file
 
 `$/.wezterm.lua` - wezterm config file
+

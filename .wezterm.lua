@@ -1,10 +1,11 @@
 local wezterm = require("wezterm")
 
 return {
-  hide_tab_bar_if_only_one_tab = true,
 	font_size = 20,
-	color_scheme = "Sonokai (Gogh)",
+  window_decorations = "RESIZE",
   force_reverse_video_cursor = true,
+  hide_tab_bar_if_only_one_tab = true,
+  color_scheme = "Sonokai (Gogh)",
 	font = wezterm.font("Liga SFMono Nerd Font"),
 	keys = {
 		{

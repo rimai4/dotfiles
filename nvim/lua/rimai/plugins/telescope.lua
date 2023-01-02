@@ -3,6 +3,11 @@ local layout = require("telescope.actions.layout")
 
 require("telescope").setup({
 	defaults = {
+    layout_config = {
+      horizontal = {
+        preview_cutoff = 0,
+      },
+    },
 		mappings = {
 			i = {
 				["<C-k>"] = actions.preview_scrolling_up,

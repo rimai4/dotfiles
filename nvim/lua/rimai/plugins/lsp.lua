@@ -19,16 +19,13 @@ lsp.configure("sumneko_lua", {
 	},
 })
 
-local cmp = require("cmp")
-local cmp_mappings = lsp.defaults.cmp_mappings({
-	["<Tab>"] = cmp.mapping.confirm({ select = true }),
-	["<C-Space>"] = cmp.mapping.complete(),
-})
-
-cmp_mappings["<CR>"] = nil
-
 lsp.setup_nvim_cmp({
-	mapping = cmp_mappings,
+  sources = {
+    {name = 'path'},
+    {name = 'nvim_lsp', keyword_length = 1},
+    {name = 'buffer', keyword_length = 2},
+    {name = 'luasnip', keyword_length = 2},
+  }
 })
 
 lsp.on_attach(function(client, bufnr)

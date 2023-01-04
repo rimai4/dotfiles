@@ -1,5 +1,5 @@
 require("toggleterm").setup{
   direction = "float",
-  open_mapping = "<leader><Space>",
+  open_mapping = "=",
   insert_mappings = false
 }

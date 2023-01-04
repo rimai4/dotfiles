@@ -7,6 +7,7 @@ return {
   hide_tab_bar_if_only_one_tab = true,
   color_scheme = "Sonokai (Gogh)",
 	font = wezterm.font("Liga SFMono Nerd Font"),
+  harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
 	keys = {
 		{
 			key = "w",

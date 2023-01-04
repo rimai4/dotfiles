@@ -90,6 +90,8 @@ map("n", "+", "<C-a>")
 
 -- Terminal
 map("t", "<Esc>", "<C-\\><C-n>")
+map("t", "<S-Up>", "<cmd>res +5<CR>")
+map("t", "<S-Down>", "<cmd>res -5<CR>")
 
 -- Don't replace register after pasting
 map("v", "p", '"_dP')
@@ -97,3 +99,4 @@ map("v", "p", '"_dP')
 -- Typescript commands
 map("n", "<leader>rn", "<cmd>TypescriptRenameFile<CR>")
 map("n", "<leader>oi", "<cmd>TypescriptOrganizeImports<CR>")
+

@@ -1,5 +1,5 @@
 require("toggleterm").setup{
-  direction = "float",
-  open_mapping = "=",
-  insert_mappings = false
+  open_mapping = "<C-CR>",
+  direction = "horizontal",
+  insert_mappings = false,
 }

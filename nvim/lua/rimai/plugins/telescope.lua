@@ -5,7 +5,7 @@ require("telescope").setup({
 	defaults = {
     layout_config = {
       horizontal = {
-        preview_cutoff = 0,
+        preview_cutoff = 80,
       },
     },
 		mappings = {

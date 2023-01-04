@@ -89,10 +89,11 @@ map("n", "-", "<C-x>")
 map("n", "+", "<C-a>")
 
 -- Terminal
--- map("t", "<leader><Space>", "<cmd>ToggleTerm<CR>")
--- map("n", "<leader><Space>", "<cmd>ToggleTerm<CR>")
 map("t", "<Esc>", "<C-\\><C-n>")
 
 -- Don't replace register after pasting
 map("v", "p", '"_dP')
 
+-- Typescript commands
+map("n", "<leader>rn", "<cmd>TypescriptRenameFile<CR>")
+map("n", "<leader>oi", "<cmd>TypescriptOrganizeImports<CR>")

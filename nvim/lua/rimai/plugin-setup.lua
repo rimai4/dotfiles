@@ -14,6 +14,7 @@ return require('packer').startup(function(use)
   use 'windwp/nvim-ts-autotag'
   use 'RRethy/nvim-treesitter-endwise'
   use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use 'jose-elias-alvarez/typescript.nvim'
   use 'jose-elias-alvarez/null-ls.nvim'
 
   use {

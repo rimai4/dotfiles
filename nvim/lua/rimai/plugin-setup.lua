@@ -4,7 +4,6 @@ return require('packer').startup(function(use)
   use 'sainnhe/sonokai'
 
   use 'akinsho/toggleterm.nvim'
-  use 'maxmellon/vim-jsx-pretty'
   use 'lewis6991/gitsigns.nvim'
   use 'tpope/vim-commentary'
   use 'nvim-tree/nvim-web-devicons'

@@ -9,6 +9,30 @@ return {
 	font = wezterm.font("Liga SFMono Nerd Font"),
   harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
 	keys = {
+    {
+      key = 'RightArrow',
+      mods = 'CMD',
+      action = wezterm.action.SendKey {
+        key = 'e',
+        mods = 'CTRL',
+      },
+    },
+    {
+      key = 'LeftArrow',
+      mods = 'CMD',
+      action = wezterm.action.SendKey {
+        key = 'a',
+        mods = 'CTRL',
+      },
+    },
+    {
+      key = 'Backspace',
+      mods = 'CMD',
+      action = wezterm.action.SendKey {
+        key = 'u',
+        mods = 'CTRL',
+      },
+    },
 		{
 			key = "w",
 			mods = "CMD",
@@ -26,22 +50,22 @@ return {
 		},
 		{
 			key = "LeftArrow",
-			mods = "CMD",
+			mods = "CMD|ALT",
 			action = wezterm.action.ActivatePaneDirection("Left"),
 		},
 		{
 			key = "RightArrow",
-			mods = "CMD",
+			mods = "CMD|ALT",
 			action = wezterm.action.ActivatePaneDirection("Right"),
 		},
 		{
 			key = "UpArrow",
-			mods = "CMD",
+			mods = "CMD|ALT",
 			action = wezterm.action.ActivatePaneDirection("Up"),
 		},
 		{
 			key = "DownArrow",
-			mods = "CMD",
+			mods = "CMD|ALT",
 			action = wezterm.action.ActivatePaneDirection("Down"),
 		},
 		{

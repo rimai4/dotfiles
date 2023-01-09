@@ -52,7 +52,7 @@ map("n", "<leader>sd", "<cmd>Telescope diagnostics<CR>", { desc = '[S]earch [D]i
 map("n", "<leader>ss", "<cmd>Telescope lsp_document_symbols<CR>", { desc = '[S]earch [S]ymbols'})
 
 -- Neotree
-map("n", "<leader>b", "<cmd>Neotree toggle<CR>")
+map("n", "<leader>b", "<cmd>Telescope file_browser<CR>")
 map("n", "<leader>n", "<cmd>Neotree reveal<CR>")
 
 -- Paste to clipboard
@@ -90,6 +90,8 @@ map("n", "+", "<C-a>")
 
 -- Terminal
 map("t", "<Esc>", "<C-\\><C-n>")
+map("n", "<S-Up>", "<cmd>res +5<CR>")
+map("n", "<S-Down>", "<cmd>res -5<CR>")
 map("t", "<S-Up>", "<cmd>res +5<CR>")
 map("t", "<S-Down>", "<cmd>res -5<CR>")
 

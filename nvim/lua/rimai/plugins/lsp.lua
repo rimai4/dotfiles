@@ -46,7 +46,7 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
   vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 
-  vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+  vim.keymap.set("n", "?", vim.lsp.buf.code_action, opts)
   vim.keymap.set("n", "<leader>i", vim.lsp.buf.hover, opts)
   vim.keymap.set("n", "<C-h>", vim.lsp.buf.hover, opts)
 

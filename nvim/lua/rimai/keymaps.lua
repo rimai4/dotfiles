@@ -73,10 +73,6 @@ map("n", "<C-l>", "<C-w>l")
 -- Clear search results with enter
 map("n", "<CR>", "<cmd>noh<CR><CR>")
 
--- Insert blank lines
-map("n", "[<Space>", ':<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "\']+1"<CR>')
-map("n", "]<Space>", ':<C-u>put =repeat(nr2char(10),v:count)<Bar>execute "\'[-1"<CR>')
-
 -- Move between buffers with arrow keys
 map("n", "<Left>", "<cmd>bp<CR>")
 map("n", "<Right>", "<cmd>bn<CR>")
@@ -102,5 +98,21 @@ map("v", "p", '"_dP')
 map("n", "<leader>rn", "<cmd>TypescriptRenameFile<CR>")
 map("n", "<leader>oi", "<cmd>TypescriptOrganizeImports<CR>")
 
--- Line below in insert mode
+-- Insert blank lines
+map("n", "[<Space>", ':<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "\']+1"<CR>')
+map("n", "]<Space>", ':<C-u>put =repeat(nr2char(10),v:count)<Bar>execute "\'[-1"<CR>')
 map("i", "<C-CR>", '<Esc>o')
+
+-- Select first match with *
+map("n", "*", "*N")
+
+-- Switch case
+map("n", "<leader>`", "~")
+
+-- Substitute word under cursor, press . for next substitution
+map("n", "<leader>c", ":let @/='\\<'.expand('<cword>').'\\>'<CR>cgn")
+map("x", "<leader>c", '"sy:let @/=@s<CR>cgn')
+
+-- File-wide substitute word under cursor
+map("n", "<leader>C", ":%s/<C-r><C-w>//<Left>")
+map("x", "<leader>C", '"sy:%s/<C-r>s//<Left>')

@@ -4,6 +4,7 @@ require("rimai/keymaps")
 require("rimai/options")
 require("rimai/colorscheme")
 require("rimai/commands")
+require("rimai/abbreviations")
 
 require("rimai/plugins/telescope")
 require("rimai/plugins/treesitter")

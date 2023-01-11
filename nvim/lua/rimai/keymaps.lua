@@ -50,10 +50,10 @@ map("n", "<leader>sg", "<cmd>Telescope live_grep<CR>", { desc = '[S]earch by [G]
 map("n", "<leader>sh", "<cmd>Telescope help_tags<CR>", { desc = '[S]earch [H]elp' })
 map("n", "<leader>sd", "<cmd>Telescope diagnostics<CR>", { desc = '[S]earch [D]iagnostics' })
 map("n", "<leader>ss", "<cmd>Telescope lsp_document_symbols<CR>", { desc = '[S]earch [S]ymbols' })
+map("n", "<leader>b", "<cmd>Telescope file_browser<CR>")
 
 -- Neotree
-map("n", "<leader>b", "<cmd>Telescope file_browser<CR>")
-map("n", "<leader>n", "<cmd>Neotree reveal<CR>")
+map("n", "<leader>n", "<cmd>Neotree reveal toggle<CR>")
 
 -- Paste to clipboard
 map("v", "<leader>y", '"+y')

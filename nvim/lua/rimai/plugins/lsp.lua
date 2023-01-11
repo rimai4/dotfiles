@@ -1,4 +1,5 @@
 local lsp = require("lsp-zero")
+local cmp = require('cmp')
 
 lsp.preset("recommended")
 
@@ -26,6 +27,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 lsp.setup_nvim_cmp({
   mapping = cmp_mappings,
   select_behavior = "insert",
+  preselect = cmp.PreselectMode.None,
   sources = {
     { name = "path" },
     { name = "nvim_lsp", keyword_length = 1 },

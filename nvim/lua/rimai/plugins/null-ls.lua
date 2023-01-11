@@ -6,6 +6,7 @@ local formatting = null_ls.builtins.formatting
 null_ls.setup({
   sources = {
     formatting.prettierd,
+    formatting.stylua,
     require("typescript.extensions.null-ls.code-actions"),
   },
 })

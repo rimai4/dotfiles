@@ -1,9 +1,9 @@
 local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+	local options = { noremap = true }
+	if opts then
+		options = vim.tbl_extend("force", options, opts)
+	end
+	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 vim.g.mapleader = " "
@@ -42,18 +42,16 @@ map("v", "<A-Down>", ":m '>+1<CR>gv=gv")
 map("v", "<A-Up>", ":m '<-2<CR>gv=gv")
 
 -- Telescope
-map("n", "<leader>sf", "<cmd>Telescope find_files<CR>", { desc = '[S]earch [F]iles' })
+map("n", "<leader>sf", "<cmd>Telescope find_files<CR>", { desc = "[S]earch [F]iles" })
 map("n", "\\", "<cmd>Telescope find_files<CR>", { desc = "[\\] - Search files" })
-map("n", "<leader>sb", "<cmd>Telescope buffers<CR>", { desc = '[S]earch [B]uffers' })
-map("n", "<leader>sw", "<cmd>Telescope grep_string<CR>", { desc = '[S]earch by [W]ord' })
-map("n", "<leader>sg", "<cmd>Telescope live_grep<CR>", { desc = '[S]earch by [G]rep' })
-map("n", "<leader>sh", "<cmd>Telescope help_tags<CR>", { desc = '[S]earch [H]elp' })
-map("n", "<leader>sd", "<cmd>Telescope diagnostics<CR>", { desc = '[S]earch [D]iagnostics' })
-map("n", "<leader>ss", "<cmd>Telescope lsp_document_symbols<CR>", { desc = '[S]earch [S]ymbols' })
+map("n", "<leader>sb", "<cmd>Telescope buffers<CR>", { desc = "[S]earch [B]uffers" })
+map("n", "<leader>sw", "<cmd>Telescope grep_string<CR>", { desc = "[S]earch by [W]ord" })
+map("n", "<leader>sg", "<cmd>Telescope live_grep<CR>", { desc = "[S]earch by [G]rep" })
+map("n", "<leader>sh", "<cmd>Telescope help_tags<CR>", { desc = "[S]earch [H]elp" })
+map("n", "<leader>sd", "<cmd>Telescope diagnostics<CR>", { desc = "[S]earch [D]iagnostics" })
+map("n", "<leader>ss", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "[S]earch [S]ymbols" })
 map("n", "<leader>b", "<cmd>Telescope file_browser<CR>")
-
--- Neotree
-map("n", "<leader>n", "<cmd>Neotree reveal toggle<CR>")
+map("n", "<leader>n", "<cmd>Telescope file_browser path=%:p:h<CR>")
 
 -- Paste to clipboard
 map("v", "<leader>y", '"+y')
@@ -101,7 +99,7 @@ map("n", "<leader>oi", "<cmd>TypescriptOrganizeImports<CR>")
 -- Insert blank lines
 map("n", "[<Space>", ':<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "\']+1"<CR>')
 map("n", "]<Space>", ':<C-u>put =repeat(nr2char(10),v:count)<Bar>execute "\'[-1"<CR>')
-map("i", "<C-CR>", '<Esc>o')
+map("i", "<C-CR>", "<Esc>o")
 
 -- Select first match with *
 map("n", "*", "*N")

@@ -41,7 +41,6 @@ require("telescope").setup({
 		file_browser = {
 			hijack_netrw = true,
 			display_stat = false,
-			path = "%:p:h",
 			mappings = {
 				i = {
 					["<C-d>"] = fb_actions.remove,

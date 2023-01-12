@@ -114,3 +114,7 @@ map("x", "<leader>c", '"sy:let @/=@s<CR>cgn')
 -- File-wide substitute word under cursor
 map("n", "<leader>C", ":%s/<C-r><C-w>//<Left>")
 map("x", "<leader>C", '"sy:%s/<C-r>s//<Left>')
+
+-- Skip word in insert mode
+map("i", "<A-Right>", "<S-Right>")
+map("i", "<A-Left>", "<S-Left>")

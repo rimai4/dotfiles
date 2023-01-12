@@ -6,6 +6,9 @@ require("toggleterm").setup({
 		width = function()
 			return vim.o.columns
 		end,
+		height = function()
+			return vim.o.lines
+		end,
 	},
 })
 

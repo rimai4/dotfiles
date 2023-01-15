@@ -1,8 +1,26 @@
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 
+	-- Colorschemes
 	use("sainnhe/sonokai")
 	use({ "ellisonleao/gruvbox.nvim" })
+
+	use("jose-elias-alvarez/null-ls.nvim")
+	use("maxmellon/vim-jsx-pretty")
+	use("akinsho/toggleterm.nvim")
+	use("nvim-tree/nvim-web-devicons")
+	use("nvim-lualine/lualine.nvim")
+	use("machakann/vim-sandwich")
+	use("windwp/nvim-ts-autotag")
+	use("RRethy/nvim-treesitter-endwise")
+	use("nvim-treesitter/nvim-treesitter-textobjects")
+
+	use({
+		"jose-elias-alvarez/typescript.nvim",
+		config = function()
+			require("typescript").setup({})
+		end,
+	})
 
 	use({
 		"akinsho/git-conflict.nvim",
@@ -12,19 +30,19 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	use("maxmellon/vim-jsx-pretty")
-	use("akinsho/toggleterm.nvim")
-	use("lewis6991/gitsigns.nvim")
-	use("tpope/vim-commentary")
-	use("nvim-tree/nvim-web-devicons")
-	use("nvim-lualine/lualine.nvim")
-	use("machakann/vim-sandwich")
-	use("windwp/nvim-autopairs")
-	use("windwp/nvim-ts-autotag")
-	use("RRethy/nvim-treesitter-endwise")
-	use("nvim-treesitter/nvim-treesitter-textobjects")
-	use("jose-elias-alvarez/typescript.nvim")
-	use("jose-elias-alvarez/null-ls.nvim")
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	})
+
+	use({
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup()
+		end,
+	})
 
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -33,7 +51,6 @@ return require("packer").startup(function(use)
 			"nvim-lua/plenary.nvim",
 		},
 	})
-
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use("nvim-telescope/telescope-file-browser.nvim")
 
@@ -45,6 +62,13 @@ return require("packer").startup(function(use)
 	use({
 		"akinsho/bufferline.nvim",
 		tag = "v3.*",
+	})
+
+	use({
+		"windwp/nvim-autopairs",
+		config = function()
+			require("nvim-autopairs").setup({})
+		end,
 	})
 
 	use({

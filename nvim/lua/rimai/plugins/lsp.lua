@@ -1,5 +1,9 @@
 local lsp = require("lsp-zero")
 local cmp = require("cmp")
+local ls = require("luasnip")
+local s = ls.snippet
+local t = ls.text_node
+local i = ls.insert_node
 
 lsp.preset("recommended")
 
@@ -19,6 +23,15 @@ lsp.configure("sumneko_lua", {
 		},
 	},
 })
+
+-- Example snippet
+-- ls.add_snippets("javascript", {
+-- 	s("cl", {
+-- 		t("console.log("),
+-- 		i(1),
+-- 		t(")"),
+-- 	}),
+-- })
 
 local cmp_mappings = lsp.defaults.cmp_mappings({
 	["<CR>"] = nil,

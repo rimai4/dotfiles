@@ -1,72 +1,81 @@
-return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
+return require("packer").startup(function(use)
+	use("wbthomason/packer.nvim")
 
-  use 'sainnhe/sonokai'
+	use("sainnhe/sonokai")
+	use({ "ellisonleao/gruvbox.nvim" })
 
-  use 'akinsho/toggleterm.nvim'
-  use 'lewis6991/gitsigns.nvim'
-  use 'tpope/vim-commentary'
-  use 'nvim-tree/nvim-web-devicons'
-  use 'nvim-lualine/lualine.nvim'
-  use 'machakann/vim-sandwich'
-  use 'windwp/nvim-autopairs'
-  use 'windwp/nvim-ts-autotag'
-  use 'RRethy/nvim-treesitter-endwise'
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
-  use 'jose-elias-alvarez/typescript.nvim'
-  use 'jose-elias-alvarez/null-ls.nvim'
+	use({
+		"akinsho/git-conflict.nvim",
+		tag = "*",
+		config = function()
+			require("git-conflict").setup()
+		end,
+	})
 
-  use {
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.0',
-    requires = {
-      'nvim-lua/plenary.nvim'
-    }
-  }
+	use("maxmellon/vim-jsx-pretty")
+	use("akinsho/toggleterm.nvim")
+	use("lewis6991/gitsigns.nvim")
+	use("tpope/vim-commentary")
+	use("nvim-tree/nvim-web-devicons")
+	use("nvim-lualine/lualine.nvim")
+	use("machakann/vim-sandwich")
+	use("windwp/nvim-autopairs")
+	use("windwp/nvim-ts-autotag")
+	use("RRethy/nvim-treesitter-endwise")
+	use("nvim-treesitter/nvim-treesitter-textobjects")
+	use("jose-elias-alvarez/typescript.nvim")
+	use("jose-elias-alvarez/null-ls.nvim")
 
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use "nvim-telescope/telescope-file-browser.nvim"
+	use({
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.0",
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
+	})
 
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
-  }
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	use("nvim-telescope/telescope-file-browser.nvim")
 
-  use {
-    'akinsho/bufferline.nvim',
-    tag = 'v3.*'
-  }
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
+	})
 
-  use {
-  "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    }
-  }
+	use({
+		"akinsho/bufferline.nvim",
+		tag = "v3.*",
+	})
 
-  use {
-    'VonHeikemen/lsp-zero.nvim',
-    requires = {
-      -- LSP Support
-      {'neovim/nvim-lspconfig'},
-      {'williamboman/mason.nvim'},
-      {'williamboman/mason-lspconfig.nvim'},
+	use({
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+		},
+	})
 
-      -- Autocompletion
-      {'hrsh7th/nvim-cmp'},
-      {'hrsh7th/cmp-buffer'},
-      {'hrsh7th/cmp-path'},
-      {'saadparwaiz1/cmp_luasnip'},
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'hrsh7th/cmp-nvim-lua'},
+	use({
+		"VonHeikemen/lsp-zero.nvim",
+		requires = {
+			-- LSP Support
+			{ "neovim/nvim-lspconfig" },
+			{ "williamboman/mason.nvim" },
+			{ "williamboman/mason-lspconfig.nvim" },
 
-      -- Snippets
-      {'L3MON4D3/LuaSnip'},
-      {'rafamadriz/friendly-snippets'},
-    }
-  }
+			-- Autocompletion
+			{ "hrsh7th/nvim-cmp" },
+			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-path" },
+			{ "saadparwaiz1/cmp_luasnip" },
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-nvim-lua" },
 
+			-- Snippets
+			{ "L3MON4D3/LuaSnip" },
+			{ "rafamadriz/friendly-snippets" },
+		},
+	})
 end)

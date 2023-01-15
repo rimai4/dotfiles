@@ -53,11 +53,14 @@ map("n", "<leader>ss", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "[S]e
 map("n", "<leader>b", "<cmd>Telescope file_browser<CR>")
 map("n", "<leader>n", "<cmd>Telescope file_browser path=%:p:h<CR>")
 
--- Paste to clipboard
-map("v", "<leader>y", '"+y')
-map("n", "<leader>y", '"+y')
-map("n", "<leader>Y", '"+yg_')
-map("n", "<leader>yy", '"+yy')
+-- Neotree
+map("n", "<leader>ft", "<cmd>Neotree toggle<CR>")
+
+-- Yank to clipboard
+map("v", "y", '"+y')
+map("n", "y", '"+y')
+map("n", "Y", '"+yg_')
+map("n", "yy", '"+yy')
 
 -- Format
 map("n", "<leader>f", "<cmd>Format<CR>")
@@ -118,3 +121,6 @@ map("x", "<leader>C", '"sy:%s/<C-r>s//<Left>')
 -- Skip word in insert mode
 map("i", "<A-Right>", "<S-Right>")
 map("i", "<A-Left>", "<S-Left>")
+
+-- List git conflicts
+map("n", "<leader>lc", "<cmd>GitConflictListQf<CR>")

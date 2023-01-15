@@ -48,5 +48,17 @@ require("nvim-treesitter.configs").setup({
 				["<leader>A"] = "@parameter.inner",
 			},
 		},
+		move = {
+			enable = true,
+			set_jumps = true, -- whether to set jumps in the jumplist
+			goto_next_start = {
+				["]a"] = "@parameter.inner",
+				["]f"] = "@function.outer",
+			},
+			goto_previous_start = {
+				["[a"] = "@parameter.inner",
+				["[f"] = "@function.outer",
+			},
+		},
 	},
 })

@@ -48,7 +48,7 @@ lsp.setup_nvim_cmp({
 		{ name = "luasnip", keyword_length = 2 },
 	},
 	completion = {
-		completeopt = "menu,menuone,noselect",
+		completeopt = "menuone,noselect",
 	},
 })
 
@@ -62,7 +62,6 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 
 	vim.keymap.set("n", "?", vim.lsp.buf.code_action, opts)
-	vim.keymap.set("n", "<leader>i", vim.lsp.buf.hover, opts)
 
 	-- disable mappings
 	vim.keymap.set("n", "K", "<C-u>zz", opts)

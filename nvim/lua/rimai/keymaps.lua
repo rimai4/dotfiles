@@ -1,9 +1,9 @@
 local function map(mode, lhs, rhs, opts)
-	local options = { noremap = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+  local options = { noremap = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 -- Swap ; and :
@@ -83,10 +83,14 @@ map("n", "<leader>w", "<cmd>bd<CR>")
 map("n", "-", "<C-x>")
 map("n", "+", "<C-a>")
 
--- Terminal
+-- Escape terminal
 map("t", "<Esc>", "<C-\\><C-n>")
+
+-- Resize terminal & splits
 map("n", "<S-Up>", "<cmd>res +5<CR>")
 map("n", "<S-Down>", "<cmd>res -5<CR>")
+map("n", "<S-Left>", "<cmd>vert res -5<CR>")
+map("n", "<S-Right>", "<cmd>vert res +5<CR>")
 map("t", "<S-Up>", "<cmd>res +5<CR>")
 map("t", "<S-Down>", "<cmd>res -5<CR>")
 

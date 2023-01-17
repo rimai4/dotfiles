@@ -6,8 +6,6 @@ local function map(mode, lhs, rhs, opts)
 	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-vim.g.mapleader = " "
-
 -- Swap ; and :
 map("n", ";", ":")
 map("n", ":", ";")
@@ -54,7 +52,7 @@ map("n", "<leader>b", "<cmd>Telescope file_browser<CR>")
 map("n", "<leader>n", "<cmd>Telescope file_browser path=%:p:h<CR>")
 
 -- Neotree
-map("n", "<leader>ft", "<cmd>Neotree toggle<CR>")
+map("n", "<leader>tt", "<cmd>Neotree toggle<CR>")
 
 -- Yank to clipboard
 map("v", "y", '"+y')

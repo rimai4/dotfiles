@@ -70,7 +70,7 @@ map("n", "<C-k>", "<C-w>k")
 map("n", "<C-l>", "<C-w>l")
 
 -- Clear search results with enter
-map("n", "<CR>", "<cmd>noh<CR><CR>")
+map("n", "<Esc>", "<cmd>noh<CR><Esc>")
 
 -- Move between buffers with arrow keys
 map("n", "<Left>", "<cmd>bp<CR>")
@@ -80,8 +80,8 @@ map("n", "<Right>", "<cmd>bn<CR>")
 map("n", "<leader>w", "<cmd>bd<CR>")
 
 -- Increment/decrement numbers
-map("n", "-", "<C-x>")
-map("n", "+", "<C-a>")
+map("n", "+", "<C-x>")
+map("n", "-", "<C-a>")
 
 -- Escape terminal
 map("t", "<Esc>", "<C-\\><C-n>")
@@ -96,10 +96,6 @@ map("t", "<S-Down>", "<cmd>res -5<CR>")
 
 -- Don't replace register after pasting
 map("v", "p", '"_dP')
-
--- Typescript commands
-map("n", "<leader>rn", "<cmd>TypescriptRenameFile<CR>")
-map("n", "<leader>oi", "<cmd>TypescriptOrganizeImports<CR>")
 
 -- Insert blank lines
 map("n", "[<Space>", ':<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "\']+1"<CR>')

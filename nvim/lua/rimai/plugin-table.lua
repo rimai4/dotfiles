@@ -20,7 +20,7 @@ return {
   },
   {
     "jose-elias-alvarez/typescript.nvim",
-    opts = {},
+    config = true,
   },
   {
     "akinsho/git-conflict.nvim",

@@ -80,8 +80,8 @@ map("n", "<Right>", "<cmd>bn<CR>")
 map("n", "<leader>w", "<cmd>bd<CR>")
 
 -- Increment/decrement numbers
-map("n", "+", "<C-x>")
-map("n", "-", "<C-a>")
+map("n", "-", "<C-x>")
+map("n", "+", "<C-a>")
 
 -- Escape terminal
 map("t", "<Esc>", "<C-\\><C-n>")

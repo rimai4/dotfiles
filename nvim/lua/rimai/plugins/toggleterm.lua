@@ -20,3 +20,9 @@ function gitui_toggle()
 end
 
 vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua gitui_toggle()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>tr",
+  "<cmd>ToggleTerm direction=vertical size=60<CR>",
+  { noremap = true, silent = true }
+)

@@ -69,6 +69,12 @@ map("n", "<C-j>", "<C-w>j")
 map("n", "<C-k>", "<C-w>k")
 map("n", "<C-l>", "<C-w>l")
 
+-- Split navigation in terminal mode
+map("t", "<C-h>", "<C-\\><C-n><C-w>h")
+map("t", "<C-j>", "<C-\\><C-n><C-w>j")
+map("t", "<C-k>", "<C-\\><C-n><C-w>k")
+map("t", "<C-l>", "<C-\\><C-n><C-w>l")
+
 -- Clear search results with enter
 map("n", "<Esc>", "<cmd>noh<CR><Esc>")
 
@@ -93,6 +99,8 @@ map("n", "<S-Left>", "<cmd>vert res -5<CR>")
 map("n", "<S-Right>", "<cmd>vert res +5<CR>")
 map("t", "<S-Up>", "<cmd>res +5<CR>")
 map("t", "<S-Down>", "<cmd>res -5<CR>")
+map("t", "<S-Left>", "<cmd>vert res +5<CR>")
+map("t", "<S-Right>", "<cmd>vert res -5<CR>")
 
 -- Don't replace register after pasting
 map("v", "p", '"_dP')

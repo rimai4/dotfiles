@@ -5,7 +5,6 @@ local neotree_opts = require("rimai/plugins/neo-tree")
 return {
   "jose-elias-alvarez/null-ls.nvim",
   "maxmellon/vim-jsx-pretty",
-  "akinsho/toggleterm.nvim",
   "nvim-tree/nvim-web-devicons",
   "machakann/vim-sandwich",
   "windwp/nvim-ts-autotag",

@@ -4,7 +4,7 @@ local fb_actions = require("telescope").extensions.file_browser.actions
 
 require("telescope").setup({
   defaults = {
-    file_ignore_patterns = { "yarn.lock" },
+    file_ignore_patterns = { "yarn.lock", ".git" },
     layout_config = {
       horizontal = {
         preview_cutoff = 80,

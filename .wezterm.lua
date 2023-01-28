@@ -14,6 +14,11 @@ return {
   keys = {
     { key = "x", mods = "CMD", action = wezterm.action.ActivateCopyMode },
     {
+      key = "z",
+      mods = "CMD",
+      action = wezterm.action.TogglePaneZoomState,
+    },
+    {
       key = "Enter",
       mods = "CMD",
       action = wezterm.action.SplitHorizontal,
@@ -85,17 +90,12 @@ return {
     {
       key = "UpArrow",
       mods = "SHIFT",
-      action = wezterm.action.AdjustPaneSize({ "Up", 5 }),
+      action = wezterm.action.AdjustPaneSize({ "Up", 3 }),
     },
     {
       key = "DownArrow",
       mods = "SHIFT",
-      action = wezterm.action.AdjustPaneSize({ "Down", 5 }),
-    },
-    {
-      key = "z",
-      mods = "CMD",
-      action = wezterm.action.TogglePaneZoomState,
+      action = wezterm.action.AdjustPaneSize({ "Down", 3 }),
     },
   },
 }

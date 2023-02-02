@@ -19,8 +19,9 @@ map("", "L", "$")
 -- Don't put single chars in register
 map("n", "x", '"_x')
 
--- Map jk to Escape
+-- Map jk and <C-]> to Escape
 map("i", "jk", "<Esc>")
+map("i", "<C-]>", "<Esc>")
 
 -- Page up/down & center
 map("n", "K", "<C-u>zz")
@@ -130,3 +131,6 @@ map("i", "<A-Left>", "<S-Left>")
 
 -- List git conflicts
 map("n", "<leader>lc", "<cmd>GitConflictListQf<CR>")
+
+-- Make word uppercase
+map("n", "<leader>u", "gUiw")

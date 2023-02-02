@@ -11,8 +11,13 @@ return {
     saturation = 0.8,
     brightness = 0.7,
   },
+  quick_select_patterns = {
+    '"[^"]+"',
+  },
   keys = {
     { key = "x", mods = "CMD", action = wezterm.action.ActivateCopyMode },
+    { key = "s", mods = "CMD", action = wezterm.action.QuickSelect },
+    { key = "r", mods = "CMD", action = wezterm.action.RotatePanes("Clockwise") },
     {
       key = "z",
       mods = "CMD",

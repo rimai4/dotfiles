@@ -3,6 +3,7 @@ local lualine_opts = require("rimai/plugins/lualine")
 local neotree_opts = require("rimai/plugins/neo-tree")
 
 return {
+  "RRethy/vim-illuminate",
   "jose-elias-alvarez/null-ls.nvim",
   "maxmellon/vim-jsx-pretty",
   "nvim-tree/nvim-web-devicons",

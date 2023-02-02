@@ -18,7 +18,10 @@ require("telescope").setup({
         ["<Esc>"] = actions.close,
       },
     },
-    preview_cutoff = 1,
+    preview_cutoff = 60,
+    preview = {
+      hide_on_startup = true,
+    },
   },
   pickers = {
     buffers = {

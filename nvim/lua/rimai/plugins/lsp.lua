@@ -43,7 +43,7 @@ lsp.setup_nvim_cmp({
   preselect = cmp.PreselectMode.None,
   sources = {
     { name = "path" },
-    { name = "nvim_lsp", keyword_length = 1, max_item_count = 8 },
+    { name = "nvim_lsp", keyword_length = 1 },
     { name = "buffer", keyword_length = 2 },
     { name = "luasnip", keyword_length = 2 },
     { name = "nvim_lsp_signature_help" },

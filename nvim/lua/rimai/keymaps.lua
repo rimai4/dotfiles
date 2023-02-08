@@ -133,3 +133,9 @@ map("n", "<leader>lc", "<cmd>GitConflictListQf<CR>")
 
 -- Make word uppercase
 map("n", "<leader>u", "gUiw")
+
+-- Quickfix list mappings
+map("n", "<leader>co", "<cmd>copen<CR>")
+map("n", "<leader>cc", "<cmd>cclose<CR>")
+map("n", "<leader>cn", "<cmd>cnext<CR>")
+map("n", "<leader>cp", "<cmd>cprevious<CR>")

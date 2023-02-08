@@ -49,11 +49,10 @@ map("n", "<leader>sg", "<cmd>Telescope live_grep<CR>", { desc = "[S]earch by [G]
 map("n", "<leader>sh", "<cmd>Telescope help_tags<CR>", { desc = "[S]earch [H]elp" })
 map("n", "<leader>sd", "<cmd>Telescope diagnostics<CR>", { desc = "[S]earch [D]iagnostics" })
 map("n", "<leader>ss", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "[S]earch [S]ymbols" })
-map("n", "<leader>b", "<cmd>Telescope file_browser<CR>")
 map("n", "<leader>n", "<cmd>Telescope file_browser path=%:p:h<CR>")
 
 -- Neotree
-map("n", "<leader>tt", "<cmd>Neotree toggle<CR>")
+map("n", "<leader>b", "<cmd>Neotree toggle<CR>")
 
 -- Yank to clipboard
 map("v", "y", '"+y')
@@ -62,7 +61,7 @@ map("n", "Y", '"+yg_')
 map("n", "yy", '"+yy')
 
 -- Format
-map("n", "<leader>f", "<cmd>Format<CR>")
+map("n", "<leader>f", "<cmd>Format<CR>", { desc = "[F]ormat [F]ile" })
 
 -- Split navigation with Control-hjkl
 map("n", "<C-h>", "<C-w>h")

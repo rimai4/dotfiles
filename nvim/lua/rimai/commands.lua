@@ -8,5 +8,8 @@ api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- Format on save
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
 
+vim.cmd([[
+  nmap <leader>t <Plug>(operator-sandwich-add)at
+]])

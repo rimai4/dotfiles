@@ -139,3 +139,6 @@ map("n", "<leader>co", "<cmd>copen<CR>")
 map("n", "<leader>cc", "<cmd>cclose<CR>")
 map("n", "<leader>cn", "<cmd>cnext<CR>")
 map("n", "<leader>cp", "<cmd>cprevious<CR>")
+
+-- Join lines (J is already used for vertical navigation)
+map("n", "<leader>j", "J")

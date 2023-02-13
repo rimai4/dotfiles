@@ -26,6 +26,15 @@ require("nvim-treesitter.configs").setup({
   autotag = {
     enable = true,
   },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "<CR>",
+      scope_incremental = false,
+      node_incremental = "<CR>",
+      node_decremental = "<BS>",
+    },
+  },
   textobjects = {
     select = {
       enable = true,

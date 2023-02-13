@@ -4,6 +4,7 @@ local neotree_opts = require("rimai/plugins/neo-tree")
 
 return {
   "RRethy/vim-illuminate",
+  "lukas-reineke/indent-blankline.nvim",
   "jose-elias-alvarez/null-ls.nvim",
   "maxmellon/vim-jsx-pretty",
   "nvim-tree/nvim-web-devicons",

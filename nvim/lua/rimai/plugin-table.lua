@@ -12,8 +12,9 @@ return {
   "windwp/nvim-ts-autotag",
   "RRethy/nvim-treesitter-endwise",
   "nvim-treesitter/nvim-treesitter-textobjects",
+  "kevinhwang91/nvim-hlslens",
   { "nvim-lualine/lualine.nvim", opts = lualine_opts },
-  { "akinsho/bufferline.nvim", branch = "v3.0.0", opts = bufferline_opts },
+  { "akinsho/bufferline.nvim",   branch = "v3.0.0",  opts = bufferline_opts },
   {
     "sainnhe/sonokai",
     lazy = false,
@@ -21,10 +22,6 @@ return {
   },
   {
     "jose-elias-alvarez/typescript.nvim",
-    config = true,
-  },
-  {
-    "akinsho/git-conflict.nvim",
     config = true,
   },
   {

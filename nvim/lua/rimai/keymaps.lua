@@ -27,10 +27,6 @@ map("i", "<C-]>", "<Esc>")
 map("n", "K", "<C-u>zz")
 map("n", "J", "<C-d>zz")
 
--- Center cursor when navigating search results
-map("n", "n", "nzzzv")
-map("n", "N", "Nzzzv")
-
 -- Delete word in insert mode
 map("i", "<A-BS>", "<C-w>")
 
@@ -109,9 +105,6 @@ map("v", "p", '"_dP')
 map("n", "[<Space>", ':<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "\']+1"<CR>')
 map("n", "]<Space>", ':<C-u>put =repeat(nr2char(10),v:count)<Bar>execute "\'[-1"<CR>')
 map("i", "<C-CR>", "<Esc>o")
-
--- Select first match with *
-map("n", "*", "*N")
 
 -- Switch case
 map("n", "<leader>`", "~")

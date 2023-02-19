@@ -8,6 +8,7 @@ null_ls.setup({
     formatting.prettierd,
     formatting.stylua,
     formatting.black,
+    formatting.isort,
     require("typescript.extensions.null-ls.code-actions"),
   },
 })

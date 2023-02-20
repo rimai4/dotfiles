@@ -11,5 +11,5 @@ api.nvim_create_autocmd("TextYankPost", {
 vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
 
 vim.cmd([[
-  nmap <leader>t <Plug>(operator-sandwich-add)at
+  nmap <leader>t <Plug>(operator-sandwich-add)att
 ]])

@@ -135,3 +135,6 @@ map("n", "]q", "<cmd>cnext<CR>")
 
 -- Join lines (J is already used for vertical navigation)
 map("n", "<leader>j", "J")
+
+-- Add single space in normal mode
+map("n", "<leader><space>", "a<space><esc>")

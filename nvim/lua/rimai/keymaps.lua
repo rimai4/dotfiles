@@ -78,8 +78,9 @@ map("n", "<Esc>", "<cmd>noh<CR><Esc>")
 map("n", "<Left>", "<cmd>bp<CR>")
 map("n", "<Right>", "<cmd>bn<CR>")
 
--- Close buffer
+-- Close buffer/close all except current buffer
 map("n", "<leader>w", "<cmd>bd<CR>")
+map("n", "<leader>W", "<cmd>%bd|e#|bd#<CR>")
 
 -- Increment/decrement numbers
 map("n", "-", "<C-x>")

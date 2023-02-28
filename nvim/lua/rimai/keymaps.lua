@@ -45,6 +45,7 @@ map("n", "<leader>sg", "<cmd>Telescope live_grep<CR>", { desc = "[S]earch by [G]
 map("n", "<leader>sh", "<cmd>Telescope help_tags<CR>", { desc = "[S]earch [H]elp" })
 map("n", "<leader>sd", "<cmd>Telescope diagnostics<CR>", { desc = "[S]earch [D]iagnostics" })
 map("n", "<leader>ss", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "[S]earch [S]ymbols" })
+map("n", "<leader>sr", "<cmd>Telescope resume<CR>", { desc = "[S]earch [R]esume" })
 map("n", "<leader>n", "<cmd>Telescope file_browser path=%:p:h<CR>")
 
 -- Neotree
@@ -90,14 +91,10 @@ map("n", "+", "<C-a>")
 map("t", "<Esc>", "<C-\\><C-n>")
 
 -- Resize terminal & splits
-map("n", "<S-Up>", "<cmd>res +5<CR>")
-map("n", "<S-Down>", "<cmd>res -5<CR>")
-map("n", "<S-Left>", "<cmd>vert res -5<CR>")
-map("n", "<S-Right>", "<cmd>vert res +5<CR>")
-map("t", "<S-Up>", "<cmd>res +5<CR>")
-map("t", "<S-Down>", "<cmd>res -5<CR>")
-map("t", "<S-Left>", "<cmd>vert res +5<CR>")
-map("t", "<S-Right>", "<cmd>vert res -5<CR>")
+map("n", "<A-Up>", "<cmd>res +5<CR>")
+map("n", "<A-Down>", "<cmd>res -5<CR>")
+map("n", "<A-Left>", "<cmd>vert res -5<CR>")
+map("n", "<A-Right>", "<cmd>vert res +5<CR>")
 
 -- Don't replace register after pasting
 map("v", "p", '"_dP')

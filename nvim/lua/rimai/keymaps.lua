@@ -90,12 +90,6 @@ map("n", "+", "<C-a>")
 -- Escape terminal
 map("t", "<Esc>", "<C-\\><C-n>")
 
--- Resize terminal & splits
-map("n", "<A-Up>", "<cmd>res +5<CR>")
-map("n", "<A-Down>", "<cmd>res -5<CR>")
-map("n", "<A-Left>", "<cmd>vert res -5<CR>")
-map("n", "<A-Right>", "<cmd>vert res +5<CR>")
-
 -- Don't replace register after pasting
 map("v", "p", '"_dP')
 

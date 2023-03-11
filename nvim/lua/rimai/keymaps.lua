@@ -75,9 +75,9 @@ map("t", "<C-l>", "<C-\\><C-n><C-w>l")
 -- Clear search results with enter
 map("n", "<Esc>", "<cmd>noh<CR><Esc>")
 
--- Move between buffers with arrow keys
-map("n", "<Left>", "<cmd>bp<CR>")
-map("n", "<Right>", "<cmd>bn<CR>")
+-- Move between buffers with <C-h> and <C-l>
+map("n", "<C-h>", "<cmd>bp<CR>")
+map("n", "<C-l>", "<cmd>bn<CR>")
 
 -- Close buffer/close all except current buffer
 map("n", "<leader>w", "<cmd>bd<CR>")

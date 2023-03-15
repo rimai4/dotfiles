@@ -24,6 +24,8 @@ map("i", "jk", "<Esc>")
 map("i", "<C-]>", "<Esc>")
 
 -- Page up/down & center
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
 map("n", "K", "<C-u>zz")
 map("n", "J", "<C-d>zz")
 
@@ -44,7 +46,8 @@ map("n", "<leader>sw", "<cmd>Telescope grep_string<CR>", { desc = "[S]earch by [
 map("n", "<leader>sg", "<cmd>Telescope live_grep<CR>", { desc = "[S]earch by [G]rep" })
 map("n", "<leader>sh", "<cmd>Telescope help_tags<CR>", { desc = "[S]earch [H]elp" })
 map("n", "<leader>sd", "<cmd>Telescope diagnostics<CR>", { desc = "[S]earch [D]iagnostics" })
-map("n", "<leader>ss", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "[S]earch [S]ymbols" })
+map("n", "<leader>ss", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "[S]earch [s]ymbols" })
+map("n", "<leader>sS", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", { desc = "[S]earch workspace [S]ymbols" })
 map("n", "<leader>sr", "<cmd>Telescope resume<CR>", { desc = "[S]earch [R]esume" })
 map("n", "<leader>n", "<cmd>Telescope file_browser path=%:p:h<CR>")
 
@@ -112,9 +115,6 @@ map("x", "<leader>C", '"sy:%s/<C-r>s//<Left>')
 -- Skip word in insert mode
 map("i", "<A-Right>", "<S-Right>")
 map("i", "<A-Left>", "<S-Left>")
-
--- List git conflicts
-map("n", "<leader>lc", "<cmd>GitConflictListQf<CR>")
 
 -- Make word uppercase
 map("n", "<leader>u", "gUiw")

@@ -68,7 +68,13 @@ lsp.on_attach(function(client, bufnr)
   -- disable mappings
   vim.keymap.set("n", "K", "<C-u>zz", opts)
 
-  vim.keymap.set("n", "<leader>oi", function()
+  vim.keymap.set("n", "<leader>ir", function()
+    require("typescript").actions.removeUnused()
+  end)
+  vim.keymap.set("n", "<leader>ia", function()
+    require("typescript").actions.addMissingImports()
+  end)
+  vim.keymap.set("n", "<leader>io", function()
     require("typescript").actions.organizeImports()
   end)
 

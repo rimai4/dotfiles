@@ -61,7 +61,7 @@ map("n", "Y", '"+yg_')
 map("n", "yy", '"+yy')
 
 -- Format
-map("n", "<leader>f", "<cmd>Format<CR>", { desc = "[F]ormat [F]ile" })
+map("n", "<leader>f", "<cmd>Format<CR>", { desc = "[F]ormat file" })
 
 -- Split navigation with Control-hjkl
 map("n", "<C-h>", "<C-w>h")
@@ -130,3 +130,13 @@ map("n", "<leader>j", "J")
 
 -- Add single space in normal mode
 map("n", "<leader><space>", "a<space><esc>")
+
+-- Apply macro over visual selection
+vim.cmd([[
+  xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+  function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+  endfunction
+]])

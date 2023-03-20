@@ -3,18 +3,26 @@ require("lazy-setup")
 -- set leader so plugin mappings are correct
 vim.g.mapleader = " "
 
-local plugin_table = require("rimai/plugin-table")
-require("lazy").setup(plugin_table)
+if vim.g.vscode then
+  local plugin_table = require("rimai/plugin-table-vscode")
+  require("lazy").setup(plugin_table)
 
-require("rimai/keymaps")
-require("rimai/options")
-require("rimai/colorscheme")
-require("rimai/commands")
-require("rimai/abbreviations")
+  require("rimai/keymaps-vscode")
+  require("rimai/plugins/treesitter-vscode")
+else
+  local plugin_table = require("rimai/plugin-table")
+  require("lazy").setup(plugin_table)
 
--- plugins with more complex setup
-require("rimai/plugins/telescope")
-require("rimai/plugins/treesitter")
-require("rimai/plugins/null-ls")
-require("rimai/plugins/lsp")
-require("rimai/plugins/hlslens")
+  require("rimai/keymaps")
+  require("rimai/options")
+  require("rimai/colorscheme")
+  require("rimai/commands")
+  require("rimai/abbreviations")
+
+  -- plugins with more complex setup
+  require("rimai/plugins/telescope")
+  require("rimai/plugins/treesitter")
+  require("rimai/plugins/null-ls")
+  require("rimai/plugins/lsp")
+  require("rimai/plugins/hlslens")
+end

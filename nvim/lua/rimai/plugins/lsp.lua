@@ -42,9 +42,9 @@ lsp.setup_nvim_cmp({
   preselect = cmp.PreselectMode.None,
   sources = {
     { name = "path" },
-    { name = "nvim_lsp", keyword_length = 1 },
-    { name = "buffer", keyword_length = 2 },
-    { name = "luasnip", keyword_length = 2 },
+    { name = "nvim_lsp",               keyword_length = 1 },
+    { name = "buffer",                 keyword_length = 2 },
+    { name = "luasnip",                keyword_length = 2 },
     { name = "nvim_lsp_signature_help" },
   },
   completion = {
@@ -55,34 +55,33 @@ lsp.setup_nvim_cmp({
 lsp.on_attach(function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+  -- diagnostics
   vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
   vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-
   vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 
+  vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
   vim.keymap.set("n", "<Tab>", vim.lsp.buf.hover)
-
   vim.keymap.set("n", "?", vim.lsp.buf.code_action, opts)
+  vim.keymap.set("n", "<leader>C", vim.lsp.buf.rename, opts)
 
-  -- disable mappings
+  -- set K navigate mapping
   vim.keymap.set("n", "K", "<C-u>zz", opts)
 
+  -- typescript imports
   vim.keymap.set("n", "<leader>ir", function()
     require("typescript").actions.removeUnused()
-  end)
+  end, { desc = "[I]mports - [R]emove unused" })
   vim.keymap.set("n", "<leader>ia", function()
     require("typescript").actions.addMissingImports()
-  end)
+  end, { desc = "[I]mports - [A]dd missing" })
   vim.keymap.set("n", "<leader>io", function()
     require("typescript").actions.organizeImports()
-  end)
+  end, { desc = "[I]mports - [O]rganize" })
 
   vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()' ]])
 end)
 
 lsp.setup()
 
-vim.diagnostic.config({
-  signs = true,
-})
+vim.diagnostic.config({ signs = true })

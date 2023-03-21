@@ -25,4 +25,5 @@ else
   require("rimai/plugins/null-ls")
   require("rimai/plugins/lsp")
   require("rimai/plugins/hlslens")
+  require("rimai/plugins/fterm")
 end

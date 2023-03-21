@@ -90,9 +90,6 @@ map("n", "<leader>W", "<cmd>%bd|e#|bd#<CR>")
 map("n", "-", "<C-x>")
 map("n", "+", "<C-a>")
 
--- Escape terminal
-map("t", "<Esc>", "<C-\\><C-n>")
-
 -- Don't replace register after pasting
 map("v", "p", '"_dP')
 
@@ -140,3 +137,7 @@ vim.cmd([[
   execute ":'<,'>normal @".nr2char(getchar())
   endfunction
 ]])
+
+-- Toggle floating terminal
+map("n", "<A-i>", '<cmd>lua require("FTerm").toggle()<cr>')
+map("t", "<A-i>", '<cmd>lua require("FTerm").toggle()<cr>')

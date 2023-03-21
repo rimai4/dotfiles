@@ -13,18 +13,9 @@ return {
   "RRethy/nvim-treesitter-endwise",
   "nvim-treesitter/nvim-treesitter-textobjects",
   "kevinhwang91/nvim-hlslens",
-  {
-    "akinsho/toggleterm.nvim",
-    tag = "*",
-    config = function()
-      require("toggleterm").setup({
-        insert_mappings = false,
-        open_mapping = "<C-m>",
-      })
-    end,
-  },
+  "numToStr/FTerm.nvim",
   { "nvim-lualine/lualine.nvim", opts = lualine_opts },
-  { "akinsho/bufferline.nvim",   branch = "v3.0.0",  opts = bufferline_opts },
+  { "akinsho/bufferline.nvim", branch = "v3.0.0", opts = bufferline_opts },
   {
     "sainnhe/sonokai",
     lazy = false,

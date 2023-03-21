@@ -41,6 +41,7 @@ map("v", "<A-Up>", ":m '<-2<CR>gv=gv")
 -- Telescope
 map("n", "<leader>sf", "<cmd>Telescope find_files<CR>", { desc = "[S]earch [F]iles" })
 map("n", "\\", "<cmd>Telescope find_files hidden=true<CR>", { desc = "[\\] - Search files" })
+map("n", "<leader>n", "<cmd>Telescope file_browser path=%:p:h<CR>")
 map("n", "<leader>sb", "<cmd>Telescope buffers<CR>", { desc = "[S]earch [B]uffers" })
 map("n", "<leader>sw", "<cmd>Telescope grep_string<CR>", { desc = "[S]earch by [W]ord" })
 map("n", "<leader>sg", "<cmd>Telescope live_grep<CR>", { desc = "[S]earch by [G]rep" })
@@ -49,7 +50,7 @@ map("n", "<leader>sd", "<cmd>Telescope diagnostics<CR>", { desc = "[S]earch [D]i
 map("n", "<leader>ss", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "[S]earch [s]ymbols" })
 map("n", "<leader>sS", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", { desc = "[S]earch workspace [S]ymbols" })
 map("n", "<leader>sr", "<cmd>Telescope resume<CR>", { desc = "[S]earch [R]esume" })
-map("n", "<leader>n", "<cmd>Telescope file_browser path=%:p:h<CR>")
+map("n", "<leader>sc", "<cmd>Telescope command_history<CR>", { desc = "[S]earch [C]ommand history" })
 
 -- Neotree
 map("n", "<leader>b", "<cmd>Neotree toggle<CR>")

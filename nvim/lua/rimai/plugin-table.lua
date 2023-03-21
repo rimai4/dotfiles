@@ -13,14 +13,18 @@ return {
   "RRethy/nvim-treesitter-endwise",
   "nvim-treesitter/nvim-treesitter-textobjects",
   "kevinhwang91/nvim-hlslens",
-  { "numToStr/FTerm.nvim", opts = {
-    dimensions = {
-      height = 0.9,
-      width = 0.9,
+  {
+    "numToStr/FTerm.nvim",
+    opts = {
+      hl = "BufferVisible",
+      dimensions = {
+        height = 0.9,
+        width = 0.9,
+      },
     },
-  } },
+  },
   { "nvim-lualine/lualine.nvim", opts = lualine_opts },
-  { "akinsho/bufferline.nvim", branch = "v3.0.0", opts = bufferline_opts },
+  { "akinsho/bufferline.nvim",   branch = "v3.0.0",  opts = bufferline_opts },
   {
     "sainnhe/sonokai",
     lazy = false,

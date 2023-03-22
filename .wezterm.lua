@@ -1,13 +1,13 @@
 local wezterm = require("wezterm")
 
 return {
-  font_size = 16,
+  font_size = 17,
   check_for_updates = false,
   window_decorations = "RESIZE",
   force_reverse_video_cursor = true,
   hide_tab_bar_if_only_one_tab = true,
   color_scheme = "Sonokai (Gogh)",
-  font = wezterm.font("Liga SFMono Nerd Font"),
+  font = wezterm.font("Liga SFMono Nerd Font", { weight = "Medium" }),
   inactive_pane_hsb = {
     saturation = 0.8,
     brightness = 0.7,

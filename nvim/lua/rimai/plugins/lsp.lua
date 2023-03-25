@@ -33,7 +33,7 @@ lsp.configure("sumneko_lua", {
 -- })
 
 local cmp_mappings = lsp.defaults.cmp_mappings({
-  ["<CR>"] = nil,
+  ["<CR>"] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }),
 })
 
 lsp.setup_nvim_cmp({

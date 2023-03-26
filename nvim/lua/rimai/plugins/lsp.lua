@@ -65,8 +65,9 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "?", vim.lsp.buf.code_action, opts)
   vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
-  -- set K navigate mapping
+  -- Map K and C-i so they are not overwritten
   vim.keymap.set("n", "K", "<C-u>zz", opts)
+  vim.keymap.set("n", "<C-i>", "<C-i>", opts)
 
   -- typescript imports
   vim.keymap.set("n", "<leader>ir", function()

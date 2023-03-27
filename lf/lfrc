@@ -1,0 +1,34 @@
+set icons true
+set drawbox
+set hidden true
+set ignorecase true
+set previewer ~/.config/lf/pv.sh
+map i $~/.config/lf/pv.sh $f | less -RX
+
+cmd delete ${{
+  clear
+  echo "Delete the following files? [N/y]"
+  echo
+  echo $fx
+  read ans
+  [ "$ans" = "y" ] && rm -rf $fx
+}}
+
+# Remove default bindings
+map m
+map d
+
+map x cut
+
+map mf push %touch<space>
+map md push %mkdir<space>
+
+map R reload
+map C clear
+map D delete
+
+map gd cd ~/Desktop
+map gD cd ~/Downloads
+map gc cd ~/.config
+map gh cd ~
+map R $vidir

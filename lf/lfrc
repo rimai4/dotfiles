@@ -59,7 +59,6 @@ map gl cd ~/.config/lf
 map gf cd ~/.config/fish
 map gp cd ~/projects
 map gh cd ~
-map R $vidir
 
 map J half-down
 map K half-up

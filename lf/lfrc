@@ -2,9 +2,11 @@ set icons true
 set drawbox
 set hidden true
 set ignorecase true
+set incfilter true
 set previewer ~/.config/lf/pv.sh
 map i $~/.config/lf/pv.sh $f | less -RX
 
+# Commands
 cmd delete ${{
   clear
   echo "Delete the following files? [N/y]"
@@ -17,24 +19,48 @@ cmd delete ${{
 cmd mkdir %mkdir "$@"
 cmd touch %touch "$@"
 
+cmd batch_rename ${{
+  if [ -n "$fs" ]; then
+    fs="$(basename -a $fs)"
+  else
+    fs="$(ls)"
+  fi
+  qmv -f do $fs
+}}
+
 # Remove default bindings
 map m
 map d
+map f
+map r
 
-map x cut
+# Renaming
+map A rename
+map r push A<a-b><a-b><a-f>
+map R batch_rename
 
+# Filtering
+map f filter
+map F setfilter
+
+# Create file/directory
 map mf push %touch<space>
 map md push %mkdir<space>
 
-map R reload
+map x cut
 map C clear
 map D delete
 
+# Navigate
 map gd cd ~/Desktop
 map gD cd ~/Downloads
 map gc cd ~/.config
+map gl cd ~/.config/lf
+map gf cd ~/.config/fish
+map gp cd ~/projects
 map gh cd ~
 map R $vidir
 
 map J half-down
 map K half-up
+

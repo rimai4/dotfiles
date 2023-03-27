@@ -28,6 +28,16 @@ cmd batch_rename ${{
   qmv -f do $fs
 }}
 
+cmd fzf_jump ${{
+    res="$(fd -t d | fzf --reverse --header='Jump to directory' | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    if [ -d "$res" ] ; then
+        cmd="cd"
+    else
+        exit 0
+    fi
+    lf -remote "send $id $cmd \"$res\""
+}}
+
 # Remove default bindings
 map m
 map d
@@ -62,4 +72,5 @@ map gh cd ~
 
 map J half-down
 map K half-up
+map <c-f> fzf_jump
 

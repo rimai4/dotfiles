@@ -3,10 +3,10 @@ local fterm = require("FTerm")
 local gitui = fterm:new({
   ft = "fterm_gitui",
   cmd = "gitui",
-  hl = "BufferVisible",
+  border = "double",
   dimensions = {
-    height = 0.95,
-    width = 0.95,
+    height = 0.9,
+    width = 0.9,
   },
 })
 

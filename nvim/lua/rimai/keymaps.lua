@@ -41,7 +41,7 @@ map("v", "<A-Up>", ":m '<-2<CR>gv=gv")
 -- Telescope
 map("n", "<leader>sf", "<cmd>Telescope find_files<CR>", { desc = "[S]earch [F]iles" })
 map("n", "\\", "<cmd>Telescope find_files hidden=true<CR>", { desc = "[\\] - Search files" })
-map("n", "<leader>n", "<cmd>Telescope file_browser path=%:p:h<CR>")
+map("n", "<A-n>", "<cmd>Telescope file_browser path=%:p:h<CR>")
 map("n", "<leader>sb", "<cmd>Telescope buffers<CR>", { desc = "[S]earch [B]uffers" })
 map("n", "<leader>sw", "<cmd>Telescope grep_string<CR>", { desc = "[S]earch by [W]ord" })
 map("n", "<leader>sg", "<cmd>Telescope live_grep<CR>", { desc = "[S]earch by [G]rep" })
@@ -54,7 +54,7 @@ map("n", "<leader>sR", "<cmd>Telescope lsp_references<CR>", { desc = "[S]earch w
 map("n", "<leader>sc", "<cmd>Telescope command_history<CR>", { desc = "[S]earch [C]ommand history" })
 
 -- Neotree
-map("n", "<leader>b", "<cmd>Neotree toggle<CR>")
+map("n", "<A-b>", "<cmd>Neotree toggle<CR>")
 
 -- Yank to clipboard
 map("v", "y", '"+y')

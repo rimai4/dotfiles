@@ -94,8 +94,7 @@ map md push %mkdir<space>
 # Extract archive
 map x extract
 
-# Cut/clear/delete
-map C clear
+# Delete
 map D delete
 
 # Cd shortcuts

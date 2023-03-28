@@ -28,7 +28,27 @@ cmd batch_rename ${{
   qmv -f do $fs
 }}
 
-cmd fzf_jump ${{
+cmd fzf_directory ${{
+    res="$(fd -t d | fzf --reverse --header='Jump to directory' | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    if [ -d "$res" ] ; then
+        cmd="cd"
+    else
+        exit 0
+    fi
+    lf -remote "send $id $cmd \"$res\""
+}}
+
+cmd fzf_file ${{
+    res="$(fd -t f | fzf --reverse --header='Jump to file' | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    if [ -f "$res" ] ; then
+        cmd="select"
+    else
+        exit 0
+    fi
+    lf -remote "send $id $cmd \"$res\""
+}}
+
+cmd fzf_directory ${{
     res="$(fd -t d | fzf --reverse --header='Jump to directory' | sed 's/\\/\\\\/g;s/"/\\"/g')"
     if [ -d "$res" ] ; then
         cmd="cd"
@@ -50,18 +70,23 @@ map r push A<a-b><a-b><a-f>
 map R batch_rename
 
 # Filtering
-map f filter
+map fi filter
 map F setfilter
+
+# Nested file/directory search
+map ff fzf_file
+map fd fzf_directory
 
 # Create file/directory
 map mf push %touch<space>
 map md push %mkdir<space>
 
+# Cut/clear/delete
 map x cut
 map C clear
 map D delete
 
-# Navigate
+# Cd shortcuts
 map gd cd ~/Desktop
 map gD cd ~/Downloads
 map gc cd ~/.config
@@ -70,7 +95,7 @@ map gf cd ~/.config/fish
 map gp cd ~/projects
 map gh cd ~
 
+# Move half page up/down
 map J half-down
 map K half-up
-map <c-f> fzf_jump
 

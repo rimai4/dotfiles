@@ -42,9 +42,9 @@ lsp.setup_nvim_cmp({
   preselect = cmp.PreselectMode.None,
   sources = {
     { name = "path" },
-    { name = "nvim_lsp",               keyword_length = 1 },
-    { name = "buffer",                 keyword_length = 2 },
-    { name = "luasnip",                keyword_length = 2 },
+    { name = "nvim_lsp", keyword_length = 1 },
+    { name = "buffer", keyword_length = 2 },
+    { name = "luasnip", keyword_length = 2 },
     { name = "nvim_lsp_signature_help" },
   },
   completion = {
@@ -61,7 +61,7 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-  vim.keymap.set("n", "<Tab>", vim.lsp.buf.hover)
+  vim.keymap.set("n", "<Tab>", vim.lsp.buf.hover, opts)
   vim.keymap.set("n", "?", vim.lsp.buf.code_action, opts)
   vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 

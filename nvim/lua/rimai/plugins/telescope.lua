@@ -1,6 +1,5 @@
 local actions = require("telescope.actions")
 local layout = require("telescope.actions.layout")
-local fb_actions = require("telescope").extensions.file_browser.actions
 
 require("telescope").setup({
   defaults = {
@@ -41,23 +40,6 @@ require("telescope").setup({
       },
     },
   },
-  extensions = {
-    file_browser = {
-      hijack_netrw = true,
-      display_stat = false,
-      hidden = true,
-      mappings = {
-        i = {
-          ["<C-d>"] = fb_actions.remove,
-          ["<C-c>"] = fb_actions.create,
-          ["<C-r>"] = fb_actions.rename,
-          ["<C-y>"] = fb_actions.copy,
-          -- move cannot be mapped
-        },
-      },
-    },
-  },
 })
 
 require("telescope").load_extension("fzf")
-require("telescope").load_extension("file_browser")

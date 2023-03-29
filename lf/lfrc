@@ -38,7 +38,7 @@ cmd fzf_directory ${{
     lf -remote "send $id $cmd \"$res\""
 }}
 
-cmd fzf_file ${{
+cmd fzf_nested_file ${{
     res="$(fd -t f | fzf --reverse --header='Jump to file' | sed 's/\\/\\\\/g;s/"/\\"/g')"
     if [ -f "$res" ] ; then
         cmd="select"
@@ -48,7 +48,7 @@ cmd fzf_file ${{
     lf -remote "send $id $cmd \"$res\""
 }}
 
-cmd fzf_directory ${{
+cmd fzf_nested_directory ${{
     res="$(fd -t d | fzf --reverse --header='Jump to directory' | sed 's/\\/\\\\/g;s/"/\\"/g')"
     if [ -d "$res" ] ; then
         cmd="cd"
@@ -56,6 +56,28 @@ cmd fzf_directory ${{
         exit 0
     fi
     lf -remote "send $id $cmd \"$res\""
+}}
+
+cmd fzf_project_file ${{
+  project_dir="$(git rev-parse --show-toplevel)"
+  res="$(fd -t f . $project_dir | fzf --reverse --header='Jump to file' | sed 's/\\/\\\\/g;s/"/\\"/g')"
+  if [ -f "$res" ] ; then
+      cmd="select"
+  else
+      exit 0
+  fi
+  lf -remote "send $id $cmd \"$res\""
+}}
+
+cmd fzf_project_directory ${{
+  project_dir="$(git rev-parse --show-toplevel)"
+  res="$(fd -t d . $project_dir | fzf --reverse --header='Jump to directory' | sed 's/\\/\\\\/g;s/"/\\"/g')"
+  if [ -d "$res" ] ; then
+      cmd="cd"
+  else
+      exit 0
+  fi
+  lf -remote "send $id $cmd \"$res\""
 }}
 
 cmd extract ${{
@@ -84,8 +106,10 @@ map fi filter
 map F setfilter
 
 # Nested file/directory search
-map ff fzf_file
-map fd fzf_directory
+map ff fzf_project_file
+map fd fzf_project_directory
+map fnf fzf_nested_file
+map fnd fzf_nested_directory
 
 # Create file/directory
 map mf push %touch<space>
@@ -110,3 +134,4 @@ map gh cd ~
 map J half-down
 map K half-up
 
+map <a-n> quit

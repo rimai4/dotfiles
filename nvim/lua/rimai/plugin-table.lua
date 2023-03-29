@@ -13,6 +13,7 @@ return {
   "RRethy/nvim-treesitter-endwise",
   "nvim-treesitter/nvim-treesitter-textobjects",
   "kevinhwang91/nvim-hlslens",
+  "samjwill/nvim-unception",
   {
     "numToStr/FTerm.nvim",
     opts = {
@@ -61,7 +62,6 @@ return {
     "nvim-telescope/telescope-fzf-native.nvim",
     build = "make",
   },
-  "nvim-telescope/telescope-file-browser.nvim",
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",

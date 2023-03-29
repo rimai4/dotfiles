@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 
 return {
-  font_size = 17,
+  font_size = 16,
   check_for_updates = false,
   window_decorations = "RESIZE",
   force_reverse_video_cursor = true,

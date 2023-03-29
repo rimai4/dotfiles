@@ -35,6 +35,6 @@ end)
 vim.api.nvim_create_autocmd("User", {
   pattern = "UnceptionEditRequestReceived",
   callback = function()
-    lf:toggle()
+    lf:close(true)
   end,
 })

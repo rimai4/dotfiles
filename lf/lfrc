@@ -16,8 +16,15 @@ cmd delete ${{
   [ "$ans" = "y" ] && rm -rf $fx
 }}
 
-cmd mkdir %mkdir "$@"
-cmd touch %touch "$@"
+cmd mkdir ${{
+  $(mkdir $@) 
+  lf -remote "send $id select $PWD/$@"
+}}
+
+cmd touch ${{
+  $(touch $@) 
+  lf -remote "send $id select $PWD/$@"
+}}
 
 cmd batch_rename ${{
   if [ -n "$fs" ]; then
@@ -112,8 +119,8 @@ map fnf fzf_nested_file
 map fnd fzf_nested_directory
 
 # Create file/directory
-map mf push %touch<space>
-map md push %mkdir<space>
+map mf push :touch<space>
+map md push :mkdir<space>
 
 # Extract archive
 map x extract

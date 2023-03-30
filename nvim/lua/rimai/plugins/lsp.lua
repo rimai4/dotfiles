@@ -62,7 +62,7 @@ lsp.on_attach(function(client, bufnr)
 
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
   vim.keymap.set("n", "<Tab>", vim.lsp.buf.hover, opts)
-  vim.keymap.set("n", "?", vim.lsp.buf.code_action, opts)
+  vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
   vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
   -- Map K and C-i so they are not overwritten

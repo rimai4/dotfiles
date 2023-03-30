@@ -142,3 +142,4 @@ map J half-down
 map K half-up
 
 map <a-n> quit
+map <esc> quit

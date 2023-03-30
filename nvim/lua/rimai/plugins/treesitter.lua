@@ -11,6 +11,7 @@ require("nvim-treesitter.configs").setup({
     "scss",
     "json",
     "python",
+    "markdown",
   },
   sync_install = false,
   auto_install = true,

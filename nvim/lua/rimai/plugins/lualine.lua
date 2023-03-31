@@ -9,8 +9,8 @@ return {
       },
     },
     lualine_c = {},
-    lualine_x = {},
-    lualine_y = { "branch", "diagnostics" },
-    lualine_z = { "location" },
+    lualine_x = { "diagnostics" },
+    lualine_y = { "branch" },
+    lualine_z = {},
   },
 }

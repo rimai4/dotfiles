@@ -1,19 +1,55 @@
 local bufferline_opts = require("rimai/plugins/bufferline")
 local lualine_opts = require("rimai/plugins/lualine")
-local neotree_opts = require("rimai/plugins/neo-tree")
 
 return {
-  "RRethy/vim-illuminate",
-  "lukas-reineke/indent-blankline.nvim",
   "jose-elias-alvarez/null-ls.nvim",
   "maxmellon/vim-jsx-pretty",
   "nvim-tree/nvim-web-devicons",
-  "machakann/vim-sandwich",
   "windwp/nvim-ts-autotag",
   "RRethy/nvim-treesitter-endwise",
   "nvim-treesitter/nvim-treesitter-textobjects",
   "kevinhwang91/nvim-hlslens",
   "samjwill/nvim-unception",
+  {
+    "sainnhe/sonokai",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "echasnovski/mini.surround",
+    version = "*",
+    config = function()
+      require("mini.surround").setup()
+    end,
+  },
+  {
+    "echasnovski/mini.cursorword",
+    version = "*",
+    config = function()
+      require("mini.cursorword").setup()
+    end,
+  },
+  {
+    "echasnovski/mini.pairs",
+    version = "*",
+    config = function()
+      require("mini.pairs").setup()
+    end,
+  },
+  {
+    "echasnovski/mini.comment",
+    version = "*",
+    config = function()
+      require("mini.comment").setup()
+    end,
+  },
+  {
+    "echasnovski/mini.indentscope",
+    version = "*",
+    config = function()
+      require("mini.indentscope").setup()
+    end,
+  },
   {
     "numToStr/FTerm.nvim",
     opts = {
@@ -27,24 +63,11 @@ return {
   { "nvim-lualine/lualine.nvim", opts = lualine_opts },
   { "akinsho/bufferline.nvim",   branch = "v3.0.0",  opts = bufferline_opts },
   {
-    "sainnhe/sonokai",
-    lazy = false,
-    priority = 1000,
-  },
-  {
     "jose-elias-alvarez/typescript.nvim",
     config = true,
   },
   {
-    "numToStr/Comment.nvim",
-    config = true,
-  },
-  {
     "lewis6991/gitsigns.nvim",
-    config = true,
-  },
-  {
-    "windwp/nvim-autopairs",
     config = true,
   },
   {
@@ -61,16 +84,6 @@ return {
   {
     "nvim-telescope/telescope-fzf-native.nvim",
     build = "make",
-  },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    },
-    opts = neotree_opts,
   },
   {
     "VonHeikemen/lsp-zero.nvim",

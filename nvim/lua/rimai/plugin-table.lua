@@ -2,14 +2,13 @@ local bufferline_opts = require("rimai/plugins/bufferline")
 local lualine_opts = require("rimai/plugins/lualine")
 
 return {
+  "samjwill/nvim-unception",
   "jose-elias-alvarez/null-ls.nvim",
-  "maxmellon/vim-jsx-pretty",
   "nvim-tree/nvim-web-devicons",
   "windwp/nvim-ts-autotag",
+  "kevinhwang91/nvim-hlslens",
   "RRethy/nvim-treesitter-endwise",
   "nvim-treesitter/nvim-treesitter-textobjects",
-  "kevinhwang91/nvim-hlslens",
-  "samjwill/nvim-unception",
   {
     "sainnhe/sonokai",
     lazy = false,
@@ -20,13 +19,6 @@ return {
     version = "*",
     config = function()
       require("mini.surround").setup()
-    end,
-  },
-  {
-    "echasnovski/mini.cursorword",
-    version = "*",
-    config = function()
-      require("mini.cursorword").setup()
     end,
   },
   {
@@ -44,13 +36,6 @@ return {
     end,
   },
   {
-    "echasnovski/mini.indentscope",
-    version = "*",
-    config = function()
-      require("mini.indentscope").setup()
-    end,
-  },
-  {
     "numToStr/FTerm.nvim",
     opts = {
       hl = "BufferVisible",
@@ -61,7 +46,7 @@ return {
     },
   },
   { "nvim-lualine/lualine.nvim", opts = lualine_opts },
-  { "akinsho/bufferline.nvim",   branch = "v3.0.0",  opts = bufferline_opts },
+  { "akinsho/bufferline.nvim", branch = "v3.0.0", opts = bufferline_opts },
   {
     "jose-elias-alvarez/typescript.nvim",
     config = true,

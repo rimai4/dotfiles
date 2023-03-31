@@ -11,13 +11,11 @@
   "friendly-snippets": { "branch": "main", "commit": "8d91ba2dc2421a54981115f61b914974f938fa77" },
   "gitsigns.nvim": { "branch": "main", "commit": "ca473e28382f1524aa3d2b6f04bcf54f2e6a64cb" },
   "lazy.nvim": { "branch": "main", "commit": "57cce98dfdb2f2dd05a0567d89811e6d0505e13b" },
-  "lsp-zero.nvim": { "branch": "main", "commit": "04c036594f1093576f0a80837e1c1eeedb67f49b" },
+  "lsp-zero.nvim": { "branch": "main", "commit": "416cc687ba7eedae1da36d8426ddd538c2ceb2f4" },
   "lualine.nvim": { "branch": "master", "commit": "e99d733e0213ceb8f548ae6551b04ae32e590c80" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "b64fdede85fd5e0b720ce722919e0a9b95ed6547" },
-  "mason.nvim": { "branch": "main", "commit": "86979dabf91bae92bddc3850eff06f5e7488b029" },
+  "mason.nvim": { "branch": "main", "commit": "28fe4925511cc679ae65046c1ecc3389249264d4" },
   "mini.comment": { "branch": "main", "commit": "9fc3fe43129e8c2611bd21b8f50af8c0d0742533" },
-  "mini.cursorword": { "branch": "main", "commit": "5729d3c62cadbd0e91c10396ae514ee6be588f61" },
-  "mini.indentscope": { "branch": "main", "commit": "f3bbd793fac80638bb5f4ef173eb514170aa22b3" },
   "mini.pairs": { "branch": "main", "commit": "4ebc1ff8d77fe75e8f219432302800ca29e17614" },
   "mini.surround": { "branch": "main", "commit": "6a4f31e2a380439315729f561d7e7898bde1fd52" },
   "null-ls.nvim": { "branch": "main", "commit": "0180603b6f3cee40f83c6fc226b9ac5f85e691c4" },
@@ -34,6 +32,5 @@
   "sonokai": { "branch": "master", "commit": "bf1e4d016a08cc3fb2a3060309d00e04dbd4fc22" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "580b6c48651cabb63455e97d7e131ed557b8c7e2" },
   "telescope.nvim": { "branch": "master", "commit": "b79cd6c88b3d96b0f49cb7d240807cd59b610cd8" },
-  "typescript.nvim": { "branch": "main", "commit": "f66d4472606cb24615dfb7dbc6557e779d177624" },
-  "vim-jsx-pretty": { "branch": "master", "commit": "6989f1663cc03d7da72b5ef1c03f87e6ddb70b41" }
+  "typescript.nvim": { "branch": "main", "commit": "f66d4472606cb24615dfb7dbc6557e779d177624" }
 }

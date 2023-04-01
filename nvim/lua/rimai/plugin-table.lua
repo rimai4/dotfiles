@@ -3,17 +3,16 @@ local lualine_opts = require("rimai/plugins/lualine")
 local neotree_opts = require("rimai/plugins/neo-tree")
 
 return {
-  "RRethy/vim-illuminate",
-  "lukas-reineke/indent-blankline.nvim",
-  "jose-elias-alvarez/null-ls.nvim",
-  "maxmellon/vim-jsx-pretty",
+  "samjwill/nvim-unception",
+  "kevinhwang91/nvim-hlslens",
   "nvim-tree/nvim-web-devicons",
   "machakann/vim-sandwich",
-  "windwp/nvim-ts-autotag",
   "RRethy/nvim-treesitter-endwise",
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+  },
   "nvim-treesitter/nvim-treesitter-textobjects",
-  "kevinhwang91/nvim-hlslens",
-  "samjwill/nvim-unception",
   {
     "numToStr/FTerm.nvim",
     opts = {
@@ -23,6 +22,10 @@ return {
         width = 0.9,
       },
     },
+  },
+  {
+    "numToStr/Comment.nvim",
+    config = true,
   },
   { "nvim-lualine/lualine.nvim", opts = lualine_opts },
   { "akinsho/bufferline.nvim",   branch = "v3.0.0",  opts = bufferline_opts },
@@ -36,20 +39,13 @@ return {
     config = true,
   },
   {
-    "numToStr/Comment.nvim",
-    config = true,
-  },
-  {
     "lewis6991/gitsigns.nvim",
     config = true,
   },
+  "windwp/nvim-ts-autotag",
   {
     "windwp/nvim-autopairs",
     config = true,
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -72,6 +68,7 @@ return {
     },
     opts = neotree_opts,
   },
+  "jose-elias-alvarez/null-ls.nvim",
   {
     "VonHeikemen/lsp-zero.nvim",
     dependencies = {

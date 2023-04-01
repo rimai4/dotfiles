@@ -8,8 +8,15 @@ api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- Format on save
-vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
+-- vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
+--
 
+-- Apply macro over visual selection
 vim.cmd([[
-  nmap <leader>t <Plug>(operator-sandwich-add)att
+  xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+  function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+  endfunction
 ]])

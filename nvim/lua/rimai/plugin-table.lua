@@ -3,16 +3,17 @@ local lualine_opts = require("rimai/plugins/lualine")
 local neotree_opts = require("rimai/plugins/neo-tree")
 
 return {
-  "samjwill/nvim-unception",
-  "kevinhwang91/nvim-hlslens",
-  "nvim-tree/nvim-web-devicons",
-  "machakann/vim-sandwich",
-  "RRethy/nvim-treesitter-endwise",
   {
     "sainnhe/sonokai",
     lazy = false,
     priority = 1000,
   },
+  "tpope/vim-fugitive",
+  "samjwill/nvim-unception",
+  "kevinhwang91/nvim-hlslens",
+  "nvim-tree/nvim-web-devicons",
+  "machakann/vim-sandwich",
+  "RRethy/nvim-treesitter-endwise",
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",

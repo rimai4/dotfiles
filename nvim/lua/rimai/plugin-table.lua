@@ -9,6 +9,11 @@ return {
   "machakann/vim-sandwich",
   "RRethy/nvim-treesitter-endwise",
   {
+    "sainnhe/sonokai",
+    lazy = false,
+    priority = 1000,
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
   },
@@ -29,11 +34,6 @@ return {
   },
   { "nvim-lualine/lualine.nvim", opts = lualine_opts },
   { "akinsho/bufferline.nvim",   branch = "v3.0.0",  opts = bufferline_opts },
-  {
-    "sainnhe/sonokai",
-    lazy = false,
-    priority = 1000,
-  },
   {
     "jose-elias-alvarez/typescript.nvim",
     config = true,

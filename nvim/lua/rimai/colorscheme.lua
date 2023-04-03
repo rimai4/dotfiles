@@ -1,8 +1,7 @@
 vim.cmd([[let g:sonokai_better_performance = 1]])
 vim.cmd([[let g:sonokai_disable_italic_comment = 1]])
+vim.cmd([[colorscheme sonokai]])
 
-local status, _ = pcall(vim.cmd, "colorscheme sonokai")
-if not status then
-  print("Colorscheme not found!")
-  return
-end
+-- Override highlight groups
+vim.api.nvim_set_hl(0, "@field", { link = "Delimiter" })
+vim.api.nvim_set_hl(0, "@conditional", { link = "Identifier" })

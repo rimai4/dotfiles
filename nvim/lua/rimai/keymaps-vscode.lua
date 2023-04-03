@@ -28,10 +28,6 @@ map("n", "y", '"+y')
 map("n", "Y", '"+yg_')
 map("n", "yy", '"+yy')
 
--- Move between buffers with <C-h> and <C-l>
-map("n", "<C-h>", "<cmd>bp<CR>")
-map("n", "<C-l>", "<cmd>bn<CR>")
-
 -- Increment/decrement numbers
 map("n", "-", "<C-x>")
 map("n", "+", "<C-a>")

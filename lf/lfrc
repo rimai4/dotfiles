@@ -109,7 +109,7 @@ map r push A<a-b><a-b><a-f>
 map R batch_rename
 
 # Filtering
-map fi filter
+map fi find
 map F setfilter
 
 # Nested file/directory search

@@ -122,3 +122,7 @@ map("t", "<A-i>", '<cmd>lua require("FTerm").toggle()<cr>')
 
 -- Add fugitive in a new tab
 map("n", "<A-g>", '<cmd>Gtabedit :<cr>')
+
+-- Git mappings
+map("n", "<leader>gs", '<cmd>Telescope git_status<cr>')
+

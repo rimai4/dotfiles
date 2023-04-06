@@ -5,7 +5,7 @@ local formatting = null_ls.builtins.formatting
 
 null_ls.setup({
   sources = {
-    -- formatting.prettierd,
+    formatting.prettierd,
     formatting.stylua,
     formatting.black,
     formatting.isort,

@@ -67,24 +67,14 @@ return {
       }),
     },
     {
-      key = "LeftArrow",
-      mods = "CMD|ALT",
-      action = wezterm.action.ActivatePaneDirection("Left"),
+      key = "[",
+      mods = "CMD",
+      action = wezterm.action.ActivatePaneDirection("Prev"),
     },
     {
-      key = "RightArrow",
-      mods = "CMD|ALT",
-      action = wezterm.action.ActivatePaneDirection("Right"),
-    },
-    {
-      key = "UpArrow",
-      mods = "CMD|ALT",
-      action = wezterm.action.ActivatePaneDirection("Up"),
-    },
-    {
-      key = "DownArrow",
-      mods = "CMD|ALT",
-      action = wezterm.action.ActivatePaneDirection("Down"),
+      key = "]",
+      mods = "CMD",
+      action = wezterm.action.ActivatePaneDirection("Next"),
     },
     {
       key = "RightArrow",

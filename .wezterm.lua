@@ -10,6 +10,16 @@ return {
   font = wezterm.font("SFMono Nerd Font"),
   colors = {
     background = "#2a2f38",
+    ansi = {
+      "#181a1c",
+      "#ff6578",
+      "#9dd274",
+      "#eacb64",
+      "#f69c5e",
+      "#ba9cf3",
+      "#72cce8",
+      "#e1e3e4",
+    },
   },
   inactive_pane_hsb = {
     saturation = 0.8,

@@ -68,8 +68,8 @@ map("n", "<leader>f", "<cmd>Format<CR>", { desc = "[F]ormat file" })
 map("n", "<Esc>", "<cmd>noh<CR><Esc>")
 
 -- Move between buffers with <C-h> and <C-l>
-map("n", "<C-h>", "<cmd>bp<CR>")
-map("n", "<C-l>", "<cmd>bn<CR>")
+map("n", "<A-,>", "<cmd>bp<CR>")
+map("n", "<A-.>", "<cmd>bn<CR>")
 
 -- Close buffer/close all except current buffer
 map("n", "<leader>w", "<cmd>bd<CR>")

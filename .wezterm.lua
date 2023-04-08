@@ -9,7 +9,7 @@ return {
   color_scheme = "Sonokai (Gogh)",
   font = wezterm.font("SFMono Nerd Font"),
   colors = {
-    background = "#2a2f38",
+    background = "#262e3c",
     ansi = {
       "#181a1c",
       "#ff6578",

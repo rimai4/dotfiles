@@ -81,6 +81,9 @@ lsp.on_attach(function(client, bufnr)
   end, { desc = "[I]mports - [O]rganize" })
 
   vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()' ]])
+
+  -- Disable semantic highlighting
+  client.server_capabilities.semanticTokensProvider = nil
 end)
 
 lsp.setup()

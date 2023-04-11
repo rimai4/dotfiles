@@ -8,7 +8,6 @@ return {
     lazy = false,
     priority = 1000,
   },
-  "tpope/vim-fugitive",
   "samjwill/nvim-unception",
   "kevinhwang91/nvim-hlslens",
   "nvim-tree/nvim-web-devicons",

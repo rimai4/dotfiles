@@ -116,13 +116,11 @@ map("n", "<leader>j", "J")
 -- Add single space after the cursor in normal mode
 map("n", "<leader><space>", "a<space><esc>")
 
--- Toggle floating terminal
-map("n", "<A-i>", '<cmd>lua require("FTerm").toggle()<cr>')
-map("t", "<A-i>", '<cmd>lua require("FTerm").toggle()<cr>')
-
--- Add fugitive in a new tab
-map("n", "<A-g>", '<cmd>Gtabedit :<cr>')
-
 -- Git mappings
 map("n", "<leader>gs", '<cmd>Telescope git_status<cr>')
 
+-- Move with Alt+hjkl in insert mode
+map("i", "<A-h>", '<Left>')
+map("i", "<A-j>", '<Down>')
+map("i", "<A-k>", '<Up>')
+map("i", "<A-l>", '<Right>')

@@ -18,6 +18,7 @@ vim.opt.autoread = true
 vim.opt.termguicolors = true
 
 vim.opt.signcolumn = "yes"
+vim.o.statuscolumn = "%s%=%{v:relnum?v:relnum:v:lnum} "
 
 vim.opt.wrap = false
 vim.opt.splitright = true

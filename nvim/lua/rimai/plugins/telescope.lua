@@ -5,6 +5,7 @@ require("telescope").setup({
   defaults = {
     file_ignore_patterns = { "yarn.lock", ".git" },
     prompt_prefix = "   ",
+    selection_caret = "  ",
     layout_config = {
       horizontal = {
         prompt_position = "top",

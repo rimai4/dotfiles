@@ -4,6 +4,13 @@ local layout = require("telescope.actions.layout")
 require("telescope").setup({
   defaults = {
     file_ignore_patterns = { "yarn.lock", ".git" },
+    prompt_prefix = "   ",
+    layout_config = {
+      horizontal = {
+        prompt_position = "top",
+      },
+    },
+    sorting_strategy = "ascending",
     mappings = {
       i = {
         ["<C-t>"] = layout.toggle_preview,

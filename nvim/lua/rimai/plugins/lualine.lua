@@ -1,3 +1,7 @@
+local function cwd()
+  return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+end
+
 return {
   options = { theme = "sonokai" },
   sections = {
@@ -9,8 +13,8 @@ return {
       },
     },
     lualine_c = {},
-    lualine_x = {},
-    lualine_y = { "branch", "diagnostics" },
-    lualine_z = { "location" },
+    lualine_x = { "branch", "diagnostics" },
+    lualine_y = { cwd },
+    lualine_z = {},
   },
 }

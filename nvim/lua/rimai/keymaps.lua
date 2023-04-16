@@ -75,10 +75,6 @@ map("n", "<A-.>", "<cmd>bn<CR>")
 map("n", "<leader>w", "<cmd>bd<CR>")
 map("n", "<leader>W", "<cmd>%bd|e#|bd#<CR>")
 
--- Increment/decrement numbers
-map("n", "-", "<C-x>")
-map("n", "+", "<C-a>")
-
 -- Don't replace register after pasting
 map("v", "p", '"_dP')
 

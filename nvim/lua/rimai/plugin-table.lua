@@ -48,6 +48,22 @@ return {
     config = true,
   },
   {
+    "monaqa/dial.nvim",
+    config = function()
+      vim.keymap.set("n", "+", require("dial.map").inc_normal(), { noremap = true })
+      vim.keymap.set("n", "-", require("dial.map").dec_normal(), { noremap = true })
+
+      local augend = require("dial.augend")
+      require("dial.config").augends:register_group({
+        default = {
+          augend.integer.alias.decimal,
+          augend.constant.alias.bool,
+          augend.constant.new({ elements = { "True", "False" } }),
+        },
+      })
+    end,
+  },
+  {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.0",
     dependencies = {

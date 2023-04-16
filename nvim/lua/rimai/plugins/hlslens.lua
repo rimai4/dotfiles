@@ -5,9 +5,6 @@ require("hlslens").setup({
 
 local kopts = { noremap = true, silent = true }
 
--- Mappings below will start hlslens when pressing *, #, n or N.
--- After hitting n or N the cursor will be centered via zz.
-
 vim.api.nvim_set_keymap(
   "n",
   "n",

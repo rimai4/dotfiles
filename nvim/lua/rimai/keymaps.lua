@@ -38,23 +38,6 @@ map("n", "<A-Up>", ":m .-2<CR>==")
 map("v", "<A-Down>", ":m '>+1<CR>gv=gv")
 map("v", "<A-Up>", ":m '<-2<CR>gv=gv")
 
--- Telescope
-map("n", "<leader>sf", "<cmd>Telescope find_files<CR>", { desc = "[S]earch [f]iles" })
-map("n", "\\", "<cmd>Telescope find_files hidden=true<CR>", { desc = "[\\] - Search files" })
-map("n", "<leader>sb", "<cmd>Telescope buffers<CR>", { desc = "[S]earch [b]uffers" })
-map("n", "<leader>sw", "<cmd>Telescope grep_string<CR>", { desc = "[S]earch by [w]ord" })
-map("n", "<leader>sg", "<cmd>Telescope live_grep<CR>", { desc = "[S]earch by [g]rep" })
-map("n", "<leader>sh", "<cmd>Telescope help_tags<CR>", { desc = "[S]earch [h]elp" })
-map("n", "<leader>sd", "<cmd>Telescope diagnostics<CR>", { desc = "[S]earch [d]iagnostics" })
-map("n", "<leader>sc", "<cmd>Telescope command_history<CR>", { desc = "[S]earch [c]ommand history" })
-map("n", "<leader>ss", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "[S]earch [s]ymbols" })
-map("n", "<leader>sS", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", { desc = "[S]earch workspace [S]ymbols" })
-map("n", "<leader>sr", "<cmd>Telescope resume<CR>", { desc = "[S]earch [r]esume" })
-map("n", "<leader>sR", "<cmd>Telescope lsp_references<CR>", { desc = "[S]earch workspace [R]eferences" })
-
--- Neotree
-map("n", "<A-b>", "<cmd>Neotree toggle right<CR>")
-
 -- Yank to clipboard
 map("v", "y", '"+y')
 map("n", "y", '"+y')
@@ -111,9 +94,6 @@ map("n", "<leader>j", "J")
 
 -- Add single space after the cursor in normal mode
 map("n", "<leader><space>", "a<space><esc>")
-
--- Git mappings
-map("n", "<leader>gs", '<cmd>Telescope git_status<cr>')
 
 -- Move with Alt+hjkl in insert mode
 map("i", "<A-h>", '<Left>')

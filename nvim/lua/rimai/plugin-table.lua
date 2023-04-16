@@ -1,17 +1,20 @@
-local bufferline_opts = require("rimai/plugins/bufferline")
-local lualine_opts = require("rimai/plugins/lualine")
-local neotree_opts = require("rimai/plugins/neo-tree")
-
 return {
   {
     "sainnhe/sonokai",
-    lazy = false,
+    lazy = true,
     priority = 1000,
   },
   "samjwill/nvim-unception",
   "kevinhwang91/nvim-hlslens",
   "nvim-tree/nvim-web-devicons",
-  "machakann/vim-sandwich",
+  {
+    "machakann/vim-sandwich",
+    keys = {
+      { "sa", mode = { "n", "v" } },
+      { "sr" },
+      { "sd" },
+    },
+  },
   "RRethy/nvim-treesitter-endwise",
   {
     "nvim-treesitter/nvim-treesitter",
@@ -27,13 +30,68 @@ return {
         width = 0.9,
       },
     },
+    config = function(_, opts)
+      local fterm = require("FTerm")
+      fterm.setup(opts)
+      require("rimai.plugins.fterm")
+    end,
+    keys = { "<A-i>", "<A-g>", "<A-n>" },
+  },
+  { "JoosepAlviste/nvim-ts-context-commentstring", lazy = true },
+  {
+    "echasnovski/mini.comment",
+    event = "VeryLazy",
+    opts = {
+      hooks = {
+        pre = function()
+          require("ts_context_commentstring.internal").update_commentstring({})
+        end,
+      },
+    },
+    config = function(_, opts)
+      require("mini.comment").setup(opts)
+    end,
   },
   {
-    "numToStr/Comment.nvim",
-    config = true,
+    "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
+    opts = function()
+      local function cwd()
+        return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+      end
+
+      return {
+        options = { theme = "sonokai" },
+        sections = {
+          lualine_a = { "mode" },
+          lualine_b = {
+            {
+              "filename",
+              path = 1,
+            },
+          },
+          lualine_c = {},
+          lualine_x = { "branch", "diagnostics" },
+          lualine_y = { cwd },
+          lualine_z = {},
+        },
+      }
+    end,
   },
-  { "nvim-lualine/lualine.nvim", opts = lualine_opts },
-  { "akinsho/bufferline.nvim",   branch = "v3.0.0",  opts = bufferline_opts },
+  {
+    "akinsho/bufferline.nvim",
+    branch = "v3.0.0",
+    opts = {
+      options = {
+        max_name_length = 15,
+        tab_size = 15,
+        show_buffer_icons = true,
+        show_buffer_close_icons = false,
+        show_close_icon = false,
+      },
+    },
+    event = "VeryLazy",
+  },
   {
     "jose-elias-alvarez/typescript.nvim",
     config = true,
@@ -41,11 +99,13 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     config = true,
+    event = { "BufReadPre", "BufNewFile" },
   },
   "windwp/nvim-ts-autotag",
   {
     "windwp/nvim-autopairs",
     config = true,
+    event = "VeryLazy",
   },
   {
     "monaqa/dial.nvim",
@@ -62,6 +122,7 @@ return {
         },
       })
     end,
+    keys = { "+", "-" },
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -69,6 +130,64 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
+    keys = {
+      { "<leader>sf", "<cmd>Telescope find_files<CR>", { desc = "[S]earch [f]iles" } },
+      { "\\", "<cmd>Telescope find_files hidden=true<CR>", { desc = "[\\] - Search files" } },
+      { "<leader>sb", "<cmd>Telescope buffers<CR>", { desc = "[S]earch [b]uffers" } },
+      { "<leader>sw", "<cmd>Telescope grep_string<CR>", { desc = "[S]earch by [w]ord" } },
+      { "<leader>sg", "<cmd>Telescope live_grep<CR>", { desc = "[S]earch by [g]rep" } },
+      { "<leader>sh", "<cmd>Telescope help_tags<CR>", { desc = "[S]earch [h]elp" } },
+      { "<leader>sd", "<cmd>Telescope diagnostics<CR>", { desc = "[S]earch [d]iagnostics" } },
+      { "<leader>sc", "<cmd>Telescope command_history<CR>", { desc = "[S]earch [c]ommand history" } },
+      { "<leader>ss", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "[S]earch [s]ymbols" } },
+      {
+        "<leader>sS",
+        "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>",
+        { desc = "[S]earch workspace [S]ymbols" },
+      },
+      { "<leader>sr", "<cmd>Telescope resume<CR>", { desc = "[S]earch [r]esume" } },
+      { "<leader>sR", "<cmd>Telescope lsp_references<CR>", { desc = "[S]earch workspace [R]eferences" } },
+      { "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "[G]it [S]tatus" },
+    },
+    opts = function()
+      local actions = require("telescope.actions")
+      local layout = require("telescope.actions.layout")
+
+      return {
+        defaults = {
+          file_ignore_patterns = { "yarn.lock", ".git" },
+          prompt_prefix = "   ",
+          selection_caret = "  ",
+          layout_config = {
+            horizontal = {
+              prompt_position = "top",
+            },
+          },
+          sorting_strategy = "ascending",
+          mappings = {
+            i = {
+              ["<C-t>"] = layout.toggle_preview,
+              ["<Esc>"] = actions.close,
+            },
+          },
+        },
+        pickers = {
+          buffers = {
+            show_all_buffers = true,
+            sort_lastused = false,
+            mappings = {
+              i = {
+                ["<C-d>"] = "delete_buffer",
+              },
+            },
+          },
+        },
+      }
+    end,
+    config = function(_, opts)
+      require("telescope").setup(opts)
+      require("telescope").load_extension("fzf")
+    end,
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
@@ -82,7 +201,20 @@ return {
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     },
-    opts = neotree_opts,
+    opts = function()
+      vim.cmd("let g:neo_tree_remove_legacy_commands = 1")
+
+      return {
+        close_if_last_window = false,
+        filesystem = {
+          follow_current_file = true,
+          use_libuv_file_watcher = true,
+        },
+      }
+    end,
+    keys = {
+      { "<A-b>", "<cmd>Neotree toggle right<CR>" },
+    },
   },
   "jose-elias-alvarez/null-ls.nvim",
   {

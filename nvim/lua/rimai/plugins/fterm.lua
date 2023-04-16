@@ -10,6 +10,10 @@ local gitui = fterm:new({
   },
 })
 
+-- Toggle floating terminal
+vim.keymap.set("n", "<A-i>", '<cmd>lua require("FTerm").toggle()<cr>')
+vim.keymap.set("t", "<A-i>", '<cmd>lua require("FTerm").toggle()<cr>')
+
 -- Toggle gitui terminal
 vim.keymap.set("t", "<A-g>", function()
   gitui:toggle()
@@ -17,10 +21,6 @@ end)
 vim.keymap.set("n", "<A-g>", function()
   gitui:toggle()
 end)
-
--- Toggle floating terminal
-vim.keymap.set("n", "<A-i>", '<cmd>lua require("FTerm").toggle()<cr>')
-vim.keymap.set("t", "<A-i>", '<cmd>lua require("FTerm").toggle()<cr>')
 
 -- Toggle lf terminal
 vim.keymap.set("n", "<A-n>", function()

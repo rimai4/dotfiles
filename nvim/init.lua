@@ -20,10 +20,8 @@ else
   require("rimai/abbreviations")
 
   -- plugins with more complex setup
-  require("rimai/plugins/telescope")
   require("rimai/plugins/treesitter")
   require("rimai/plugins/null-ls")
   require("rimai/plugins/lsp")
   require("rimai/plugins/hlslens")
-  require("rimai/plugins/fterm")
 end

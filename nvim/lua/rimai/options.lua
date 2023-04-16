@@ -33,3 +33,5 @@ vim.opt.writebackup = false
 vim.o.undofile = true
 
 vim.o.cursorline = true
+
+vim.o.shortmess = "I"

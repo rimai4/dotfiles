@@ -18,10 +18,4 @@ else
   require("rimai/colorscheme")
   require("rimai/commands")
   require("rimai/abbreviations")
-
-  -- plugins with more complex setup
-  require("rimai/plugins/treesitter")
-  require("rimai/plugins/null-ls")
-  require("rimai/plugins/lsp")
-  require("rimai/plugins/hlslens")
 end

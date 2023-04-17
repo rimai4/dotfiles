@@ -76,9 +76,14 @@ map("x", "<leader>c", '"sy:let @/=@s<CR>cgn')
 map("n", "<leader>C", ":%s/<C-r><C-w>//<Left>")
 map("x", "<leader>C", '"sy:%s/<C-r>s//<Left>')
 
--- Skip word in insert mode
+-- Skip word in insert and command mode
 map("i", "<A-Right>", "<S-Right>")
 map("i", "<A-Left>", "<S-Left>")
+map("c", "<A-Right>", "<S-Right>")
+map("c", "<A-Left>", "<S-Left>")
+
+-- Go to start of command
+map("c", "<C-A>", "<Home>")
 
 -- Make word uppercase
 map("n", "<leader>u", "gUiw")

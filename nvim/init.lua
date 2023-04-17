@@ -4,18 +4,14 @@ require("lazy-setup")
 vim.g.mapleader = " "
 
 if vim.g.vscode then
-  local plugin_table = require("rimai/plugin-table-vscode")
-  require("lazy").setup(plugin_table)
-
-  require("rimai/keymaps-vscode")
-  require("rimai/plugins/treesitter-vscode")
+  require("lazy").setup("vscode-plugins")
+  require("keymaps-vscode")
 else
-  local plugin_table = require("rimai/plugin-table")
-  require("lazy").setup(plugin_table)
+  require("lazy").setup("plugins")
 
-  require("rimai/keymaps")
-  require("rimai/options")
-  require("rimai/colorscheme")
-  require("rimai/commands")
-  require("rimai/abbreviations")
+  require("colorscheme")
+  require("options")
+  require("keymaps")
+  require("commands")
+  require("abbreviations")
 end

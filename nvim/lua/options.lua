@@ -1,11 +1,17 @@
+-- Line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+-- Highlight current line
+vim.o.cursorline = true
+
+-- Tabs & indent
 vim.opt.autoindent = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
+-- Always keep 5 lines visible
 vim.opt.scrolloff = 5
 
 vim.opt.gdefault = true
@@ -32,6 +38,8 @@ vim.opt.writebackup = false
 -- save undo file
 vim.o.undofile = true
 
-vim.o.cursorline = true
-
-vim.o.shortmess = "I"
+-- Don't show intro message & message when opening file with lf
+vim.opt.shortmess = {
+  I = true,
+  o = true,
+}

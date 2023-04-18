@@ -9,6 +9,7 @@ return {
 			default = {
 				augend.integer.alias.decimal,
 				augend.constant.alias.bool,
+        augend.semver.alias.semver,
 				augend.constant.new({ elements = { "True", "False" } }),
 			},
 		})

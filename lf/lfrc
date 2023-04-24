@@ -8,10 +8,11 @@ map i $~/.config/lf/pv.sh $f | less -RX
 
 # Commands
 cmd delete ${{
+  set -f
   clear
   echo "Delete the following files? [N/y]"
   echo
-  echo $fx | tr -s '[:blank:]' '\n' | head | sort
+  printf "$fx\n"
   read ans
   [ "$ans" = "y" ] && rm -rf $fx
 }}

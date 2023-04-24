@@ -78,6 +78,10 @@ cmd extract ${{
   esac
 }}
 
+cmd remove_whitespace ${{
+  mv "$f" "${f// /-}" 
+}}
+
 # Remove default bindings
 map m
 map r
@@ -119,3 +123,5 @@ map K half-up
 
 map <a-n> quit
 map <esc> quit
+
+map - remove_whitespace

@@ -35,9 +35,6 @@ return {
 		lsp.ensure_installed({
 			"tsserver",
 			"solargraph",
-			"isort",
-			"pyright",
-			"black",
 			"gopls",
 		})
 

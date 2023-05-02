@@ -56,7 +56,7 @@ map("n", "<A-.>", "<cmd>bn<CR>")
 
 -- Close buffer/close all except current buffer
 map("n", "<leader>w", "<cmd>bd<CR>")
-map("n", "<leader>W", "<cmd>%bd|e#|bd#<CR>")
+map("n", "<leader>W", "<cmd>%bd!|e#|bd#<CR>")
 
 -- Don't replace register after pasting
 map("v", "p", '"_dP')

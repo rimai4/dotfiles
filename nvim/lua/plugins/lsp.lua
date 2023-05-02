@@ -52,7 +52,7 @@ return {
 			vim.keymap.set("n", "<A-/>", vim.lsp.buf.code_action, opts)
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
-			-- typescript imports
+			-- Typescript imports
 			vim.keymap.set("n", "<leader>ir", function()
 				require("typescript").actions.removeUnused()
 			end, { desc = "[I]mports - [R]emove unused" })
@@ -65,8 +65,16 @@ return {
 
 			vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()' ]])
 
+      -- Prevent C-i from being overwritten (no where this happens as there is no call to lsp.default_keymaps)
+      vim.keymap.set("n", "<C-i>", "<C-i>", opts)
+
 			-- Disable semantic highlighting
 			client.server_capabilities.semanticTokensProvider = nil
+
+      -- Disable virtual text
+			vim.diagnostic.config({
+				virtual_text = false,
+			})
 		end)
 
 		-- Configure lua language server for neovim
@@ -74,15 +82,15 @@ return {
 
 		lsp.setup()
 
-    -----------------------------------------------------------------
-    -----------------------------------------------------------------
-    -- Configure nvim-cmp
+		-----------------------------------------------------------------
+		-----------------------------------------------------------------
+		-- Configure nvim-cmp
 
 		local cmp = require("cmp")
 		local cmp_action = require("lsp-zero").cmp_action()
 
-    -- Load snippets
-    require('luasnip.loaders.from_vscode').lazy_load()
+		-- Load snippets
+		require("luasnip.loaders.from_vscode").lazy_load()
 
 		cmp.setup({
 			mapping = {

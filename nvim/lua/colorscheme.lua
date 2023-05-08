@@ -1,9 +1,4 @@
-vim.cmd([[let g:sonokai_style = 'atlantis']])
-vim.cmd([[let g:sonokai_colors_override = {'bg0': ['#2a2f38', '235'] }]])
-vim.cmd([[let g:sonokai_better_performance = 1]])
-vim.cmd([[let g:sonokai_disable_italic_comment = 1]])
-vim.cmd([[colorscheme sonokai]])
+vim.cmd.colorscheme "catppuccin"
 
--- Override highlight groups
-vim.api.nvim_set_hl(0, "@field", { link = "Delimiter" })
-vim.api.nvim_set_hl(0, "@conditional", { link = "Identifier" })
+-- Slightly increase the luminosity of non-active lines
+vim.cmd([[highlight LineNr guifg=#565b76]])

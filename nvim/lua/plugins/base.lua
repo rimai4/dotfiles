@@ -1,12 +1,20 @@
-
 return {
 	{
-		"sainnhe/sonokai",
-		lazy = true,
-		priority = 1000,
+		"catppuccin/nvim",
+		name = "catppuccin",
+		opts = {
+			flavour = "macchiato",
+			no_italic = true,
+			integrations = {
+				cmp = true,
+				treesitter = true,
+				telescope = true,
+        gitsigns = true,
+			},
+		},
 	},
 	{
-	  "samjwill/nvim-unception",
+		"samjwill/nvim-unception",
 	},
 	{
 		"nvim-tree/nvim-web-devicons",

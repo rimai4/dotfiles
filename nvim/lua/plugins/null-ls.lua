@@ -11,6 +11,7 @@ return {
 				formatting.stylua,
 				formatting.black,
 				formatting.isort,
+				formatting.goimports,
 				require("typescript.extensions.null-ls.code-actions"),
 			},
 		}

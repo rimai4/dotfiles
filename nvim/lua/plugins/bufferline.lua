@@ -9,6 +9,7 @@ return {
 			show_buffer_close_icons = false,
 			show_close_icon = false,
 		},
+		highlights = require("catppuccin.groups.integrations.bufferline").get(),
 	},
 	event = "VeryLazy",
 }

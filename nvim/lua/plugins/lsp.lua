@@ -65,11 +65,11 @@ return {
 
 			vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()' ]])
 
-      -- Prevent C-i from being overwritten (no where this happens as there is no call to lsp.default_keymaps)
+      -- Prevent C-i from being overwritten (no idea where this happens as there is no call to lsp.default_keymaps)
       vim.keymap.set("n", "<C-i>", "<C-i>", opts)
 
 			-- Disable semantic highlighting
-			client.server_capabilities.semanticTokensProvider = nil
+			-- client.server_capabilities.semanticTokensProvider = nil
 
       -- Disable virtual text
 			vim.diagnostic.config({

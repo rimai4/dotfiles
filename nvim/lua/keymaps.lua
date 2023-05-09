@@ -17,6 +17,8 @@ map("n", "H", "^")
 map("n", "L", "$")
 map("v", "H", "^")
 map("v", "L", "$")
+map("s", "H", "H")
+map("s", "L", "L")
 
 -- Don't put single char deletes in register
 map("n", "x", '"_x')

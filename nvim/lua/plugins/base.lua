@@ -9,7 +9,7 @@ return {
 				cmp = true,
 				treesitter = true,
 				telescope = true,
-        gitsigns = true,
+				gitsigns = true,
 			},
 		},
 	},
@@ -30,8 +30,7 @@ return {
 	},
 	{ "JoosepAlviste/nvim-ts-context-commentstring", lazy = true },
 	{
-		"jose-elias-alvarez/typescript.nvim",
-		config = true,
+		"yioneko/nvim-vtsls",
 		event = "VeryLazy",
 	},
 	{

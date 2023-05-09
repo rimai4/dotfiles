@@ -33,9 +33,9 @@ return {
 		lsp.preset({})
 
 		lsp.ensure_installed({
-			"tsserver",
-			"solargraph",
 			"gopls",
+      "tsserver",
+      "pyright",
 		})
 
 		lsp.on_attach(function(client, bufnr)
@@ -73,7 +73,7 @@ return {
 
       -- Disable virtual text
 			vim.diagnostic.config({
-				virtual_text = false,
+				virtual_text = true,
 			})
 		end)
 
@@ -95,8 +95,10 @@ return {
 		cmp.setup({
 			mapping = {
 				["<CR>"] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }),
-				["<Tab>"] = cmp_action.luasnip_supertab(),
-				["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
+        ['<Tab>'] = cmp_action.tab_complete(),
+        ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
+        ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+        ['<C-b>'] = cmp_action.luasnip_jump_backward(),
 			},
 			select_behavior = "insert",
 			preselect = cmp.PreselectMode.None,

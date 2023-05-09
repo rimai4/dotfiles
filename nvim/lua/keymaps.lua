@@ -12,11 +12,13 @@ map("n", ":", ";")
 map("v", ";", ":")
 map("v", ":", ";")
 
--- Go to start and end of line
-map("", "H", "^")
-map("", "L", "$")
+-- Go to start and end of line with H and L
+map("n", "H", "^")
+map("n", "L", "$")
+map("v", "H", "^")
+map("v", "L", "$")
 
--- Don't put single chars in register
+-- Don't put single char deletes in register
 map("n", "x", '"_x')
 
 -- Map jk and <C-]> to Escape

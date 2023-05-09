@@ -1,10 +1,17 @@
 return {
 	"VonHeikemen/lsp-zero.nvim",
+	branch = "v2.x",
 	event = "InsertEnter",
 	dependencies = {
 		-- LSP Support
 		{ "neovim/nvim-lspconfig" },
-		{ "williamboman/mason.nvim" },
+		{
+			-- Optional
+			"williamboman/mason.nvim",
+			build = function()
+				vim.cmd([[ MasonUpdate ]])
+			end,
+		},
 		{ "williamboman/mason-lspconfig.nvim" },
 
 		-- Autocompletion
@@ -22,44 +29,13 @@ return {
 	},
 	config = function()
 		local lsp = require("lsp-zero")
-		local cmp = require("cmp")
 
-		lsp.preset("recommended")
+		lsp.preset({})
 
 		lsp.ensure_installed({
-			"tsserver",
-			"solargraph",
-		})
-
-		-- Fix undefined global 'vim'
-		lsp.configure("lua_ls", {
-			settings = {
-				Lua = {
-					diagnostics = {
-						globals = { "vim" },
-					},
-				},
-			},
-		})
-
-		local cmp_mappings = lsp.defaults.cmp_mappings({
-			["<CR>"] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }),
-		})
-
-		lsp.setup_nvim_cmp({
-			mapping = cmp_mappings,
-			select_behavior = "insert",
-			preselect = cmp.PreselectMode.None,
-			sources = {
-				{ name = "path" },
-				{ name = "nvim_lsp", keyword_length = 1 },
-				{ name = "buffer", keyword_length = 2 },
-				{ name = "luasnip", keyword_length = 2 },
-				{ name = "nvim_lsp_signature_help" },
-			},
-			completion = {
-				completeopt = "menuone,noselect",
-			},
+			"gopls",
+      "tsserver",
+      "pyright",
 		})
 
 		lsp.on_attach(function(client, bufnr)
@@ -76,11 +52,7 @@ return {
 			vim.keymap.set("n", "<A-/>", vim.lsp.buf.code_action, opts)
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
-			-- Map K and C-i so they are not overwritten
-			vim.keymap.set("n", "K", "<C-u>zz", opts)
-			vim.keymap.set("n", "<C-i>", "<C-i>", opts)
-
-			-- typescript imports
+			-- Typescript imports
 			vim.keymap.set("n", "<leader>ir", function()
 				require("typescript").actions.removeUnused()
 			end, { desc = "[I]mports - [R]emove unused" })
@@ -93,10 +65,56 @@ return {
 
 			vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()' ]])
 
+      -- Prevent C-i from being overwritten (no idea where this happens as there is no call to lsp.default_keymaps)
+      vim.keymap.set("n", "<C-i>", "<C-i>", opts)
+
 			-- Disable semantic highlighting
-			client.server_capabilities.semanticTokensProvider = nil
+			-- client.server_capabilities.semanticTokensProvider = nil
+
+      -- Disable virtual text
+			vim.diagnostic.config({
+				virtual_text = true,
+			})
 		end)
 
+		-- Configure lua language server for neovim
+		require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+
 		lsp.setup()
+
+		-----------------------------------------------------------------
+		-----------------------------------------------------------------
+		-- Configure nvim-cmp
+
+		local cmp = require("cmp")
+		local cmp_action = require("lsp-zero").cmp_action()
+
+		-- Load snippets
+		require("luasnip.loaders.from_vscode").lazy_load()
+
+		cmp.setup({
+			mapping = {
+				["<CR>"] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }),
+        ['<Tab>'] = cmp_action.tab_complete(),
+        ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
+        ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+        ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+			},
+			select_behavior = "insert",
+			preselect = cmp.PreselectMode.None,
+			sources = {
+				{ name = "path" },
+				{ name = "nvim_lsp", keyword_length = 1 },
+				{ name = "buffer", keyword_length = 2 },
+				{ name = "luasnip", keyword_length = 2 },
+				{ name = "nvim_lsp_signature_help" },
+			},
+			completion = {
+				completeopt = "menuone,noselect",
+			},
+			window = {
+				completion = cmp.config.window.bordered(),
+			},
+		})
 	end,
 }

@@ -12,11 +12,13 @@ map("n", ":", ";")
 map("v", ";", ":")
 map("v", ":", ";")
 
--- Go to start and end of line
-map("", "H", "^")
-map("", "L", "$")
+-- Go to start and end of line with H and L
+map("n", "H", "^")
+map("n", "L", "$")
+map("v", "H", "^")
+map("v", "L", "$")
 
--- Don't put single chars in register
+-- Don't put single char deletes in register
 map("n", "x", '"_x')
 
 -- Map jk and <C-]> to Escape
@@ -56,7 +58,7 @@ map("n", "<A-.>", "<cmd>bn<CR>")
 
 -- Close buffer/close all except current buffer
 map("n", "<leader>w", "<cmd>bd<CR>")
-map("n", "<leader>W", "<cmd>%bd|e#|bd#<CR>")
+map("n", "<leader>W", "<cmd>%bd!|e#|bd#<CR>")
 
 -- Don't replace register after pasting
 map("v", "p", '"_dP')

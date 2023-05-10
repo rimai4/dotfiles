@@ -66,9 +66,9 @@ return {
 			)
 			vim.keymap.set(
 				"n",
-				"<leader>trn",
+				"<leader>rf",
 				"<cmd>VtsExec rename_file<CR>",
-				{ desc = "[T]ypescript [R]ename [F]ile" }
+				{ desc = "[R]ename [F]ile" }
 			)
 			vim.keymap.set(
 				"n",

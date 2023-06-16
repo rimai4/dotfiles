@@ -34,8 +34,7 @@ return {
 
 		lsp.ensure_installed({
 			"gopls",
-      "tsserver",
-      "pyright",
+			"pyright",
 		})
 
 		lsp.on_attach(function(client, bufnr)
@@ -53,25 +52,40 @@ return {
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
 			-- Typescript imports
-			vim.keymap.set("n", "<leader>ir", function()
-				require("typescript").actions.removeUnused()
-			end, { desc = "[I]mports - [R]emove unused" })
-			vim.keymap.set("n", "<leader>ia", function()
-				require("typescript").actions.addMissingImports()
-			end, { desc = "[I]mports - [A]dd missing" })
-			vim.keymap.set("n", "<leader>io", function()
-				require("typescript").actions.organizeImports()
-			end, { desc = "[I]mports - [O]rganize" })
+			vim.keymap.set(
+				"n",
+				"<leader>ir",
+				"<cmd>VtsExec remove_unused_imports<CR>",
+				{ desc = "[I]mports - [R]emove unused" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>ia",
+				"<cmd>VtsExec add_missing_imports<CR>",
+				{ desc = "[I]mports - [A]dd missing" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>rf",
+				"<cmd>VtsExec rename_file<CR>",
+				{ desc = "[R]ename [F]ile" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>io",
+				"<cmd>VtsExec organize_imports<CR>",
+				{ desc = "[I]mports - [O]rganize" }
+			)
 
 			vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()' ]])
 
-      -- Prevent C-i from being overwritten (no idea where this happens as there is no call to lsp.default_keymaps)
-      vim.keymap.set("n", "<C-i>", "<C-i>", opts)
+			-- Prevent C-i from being overwritten (no idea where this happens as there is no call to lsp.default_keymaps)
+			vim.keymap.set("n", "<C-i>", "<C-i>", opts)
 
 			-- Disable semantic highlighting
 			-- client.server_capabilities.semanticTokensProvider = nil
 
-      -- Disable virtual text
+			-- Disable virtual text
 			vim.diagnostic.config({
 				virtual_text = true,
 			})
@@ -95,10 +109,10 @@ return {
 		cmp.setup({
 			mapping = {
 				["<CR>"] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }),
-        ['<Tab>'] = cmp_action.tab_complete(),
-        ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
-        ['<C-f>'] = cmp_action.luasnip_jump_forward(),
-        ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+				["<Tab>"] = cmp_action.tab_complete(),
+				["<S-Tab>"] = cmp_action.select_prev_or_fallback(),
+				["<C-f>"] = cmp_action.luasnip_jump_forward(),
+				["<C-b>"] = cmp_action.luasnip_jump_backward(),
 			},
 			select_behavior = "insert",
 			preselect = cmp.PreselectMode.None,
@@ -111,9 +125,6 @@ return {
 			},
 			completion = {
 				completeopt = "menuone,noselect",
-			},
-			window = {
-				completion = cmp.config.window.bordered(),
 			},
 		})
 	end,

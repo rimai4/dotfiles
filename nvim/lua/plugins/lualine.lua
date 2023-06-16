@@ -7,9 +7,9 @@ return {
 		end
 
 		return {
-      options = {
-        theme = "catppuccin"
-      },
+			options = {
+				theme = "catppuccin",
+			},
 			sections = {
 				lualine_a = { "mode" },
 				lualine_b = {

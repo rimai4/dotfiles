@@ -9,7 +9,7 @@ return {
 				cmp = true,
 				treesitter = true,
 				telescope = true,
-        gitsigns = true,
+				gitsigns = true,
 			},
 		},
 	},
@@ -27,11 +27,13 @@ return {
 			{ "sr" },
 			{ "sd" },
 		},
+		config = function()
+			vim.cmd([[ call operator#sandwich#set('all', 'all', 'highlight', 0) ]])
+		end,
 	},
 	{ "JoosepAlviste/nvim-ts-context-commentstring", lazy = true },
 	{
-		"jose-elias-alvarez/typescript.nvim",
-		config = true,
+		"yioneko/nvim-vtsls",
 		event = "VeryLazy",
 	},
 	{

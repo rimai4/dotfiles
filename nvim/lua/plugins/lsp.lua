@@ -126,9 +126,6 @@ return {
 			completion = {
 				completeopt = "menuone,noselect",
 			},
-			window = {
-				completion = cmp.config.window.bordered(),
-			},
 		})
 	end,
 }

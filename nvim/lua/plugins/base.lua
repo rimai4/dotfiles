@@ -31,7 +31,7 @@ return {
 			vim.cmd([[ call operator#sandwich#set('all', 'all', 'highlight', 0) ]])
 		end,
 	},
-	{ "JoosepAlviste/nvim-ts-context-commentstring", lazy = true },
+	{ "JoosepAlviste/nvim-ts-context-commentstring" },
 	{
 		"yioneko/nvim-vtsls",
 		event = "VeryLazy",

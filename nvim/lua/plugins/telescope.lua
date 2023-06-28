@@ -29,7 +29,7 @@ return {
 
 		return {
 			defaults = {
-				file_ignore_patterns = { "yarn.lock", ".git" },
+				file_ignore_patterns = { "yarn.lock", ".git", "node_modules" },
 				prompt_prefix = "   ",
 				selection_caret = "  ",
 				layout_config = {

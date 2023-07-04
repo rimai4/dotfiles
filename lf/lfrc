@@ -36,8 +36,8 @@ cmd batch_rename ${{
   qmv -f do $fs
 }}
 
-cmd fzf_directory ${{
-    res="$(fd -t d | fzf --reverse --header='Jump to directory' | sed 's/\\/\\\\/g;s/"/\\"/g')"
+cmd fzf_select_project ${{
+    res="$(fd -t d -d 3 . ~/projects | fzf --reverse --header='Select project' | sed 's/\\/\\\\/g;s/"/\\"/g')"
     if [ -d "$res" ] ; then
         cmd="cd"
     else
@@ -51,6 +51,17 @@ cmd fzf_project_file ${{
   res="$(fd -t f . $project_dir | fzf --reverse --header='Jump to file' | sed 's/\\/\\\\/g;s/"/\\"/g')"
   if [ -f "$res" ] ; then
       cmd="select"
+  else
+      exit 0
+  fi
+  lf -remote "send $id $cmd \"$res\""
+}}
+
+cmd fzf_project_directory ${{
+  project_dir="$(git rev-parse --show-toplevel)"
+  res="$(fd -t d . $project_dir | fzf --reverse --header='Jump to directory' | sed 's/\\/\\\\/g;s/"/\\"/g')"
+  if [ -d "$res" ] ; then
+      cmd="cd"
   else
       exit 0
   fi
@@ -98,6 +109,8 @@ map F setfilter
 # Nested file/directory search
 map <c-f> fzf_project_directory
 map <c-g> fzf_project_file
+map <c-p> fzf_select_project
+
 
 # Create file/directory
 map mf push :touch<space>

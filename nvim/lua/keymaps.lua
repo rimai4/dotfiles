@@ -32,6 +32,8 @@ map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 map("n", "K", "<C-u>zz")
 map("n", "J", "<C-d>zz")
+map("v", "K", "<C-u>zz")
+map("v", "J", "<C-d>zz")
 
 -- Delete word in insert mode
 map("i", "<A-BS>", "<C-w>")

@@ -12,6 +12,9 @@ return {
 				formatting.black,
 				formatting.isort,
 				formatting.goimports,
+				formatting.htmlbeautifier.with({
+					extra_args = { "--keep-blank-lines", "1" },
+				}),
 			},
 		}
 	end,

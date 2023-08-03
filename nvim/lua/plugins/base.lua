@@ -16,6 +16,7 @@ return {
 	{
 		"samjwill/nvim-unception",
 	},
+	{ "joeveiga/ng.nvim" },
 	{
 		"nvim-tree/nvim-web-devicons",
 		lazy = true,

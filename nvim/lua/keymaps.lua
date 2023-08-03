@@ -111,3 +111,7 @@ map("i", "<A-h>", '<Left>')
 map("i", "<A-j>", '<Down>')
 map("i", "<A-k>", '<Up>')
 map("i", "<A-l>", '<Right>')
+
+-- Unmap p in select mode (snippets)
+map("s", "p", "<Nop>")
+

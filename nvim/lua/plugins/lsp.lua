@@ -51,36 +51,41 @@ return {
 			vim.keymap.set("n", "<A-/>", vim.lsp.buf.code_action, opts)
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
-			-- Typescript imports
-			vim.keymap.set(
-				"n",
-				"<leader>ir",
-				"<cmd>VtsExec remove_unused_imports<CR>",
-				{ desc = "[I]mports - [R]emove unused" }
-			)
-			vim.keymap.set(
-				"n",
-				"<leader>ia",
-				"<cmd>VtsExec add_missing_imports<CR>",
-				{ desc = "[I]mports - [A]dd missing" }
-			)
-			vim.keymap.set(
-				"n",
-				"<leader>rf",
-				"<cmd>VtsExec rename_file<CR>",
-				{ desc = "[R]ename [F]ile" }
-			)
-			vim.keymap.set(
-				"n",
-				"<leader>io",
-				"<cmd>VtsExec organize_imports<CR>",
-				{ desc = "[I]mports - [O]rganize" }
-			)
-
-			vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()' ]])
-
 			-- Prevent C-i from being overwritten (no idea where this happens as there is no call to lsp.default_keymaps)
 			vim.keymap.set("n", "<C-i>", "<C-i>", opts)
+
+			-- Add Format command when lsp is attached
+			vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()' ]])
+
+			if client.name == "vtsls" then
+				-- Typescript imports
+				vim.keymap.set(
+					"n",
+					"<leader>ir",
+					"<cmd>VtsExec remove_unused_imports<CR>",
+					{ desc = "[I]mports - [R]emove unused" }
+				)
+				vim.keymap.set(
+					"n",
+					"<leader>ia",
+					"<cmd>VtsExec add_missing_imports<CR>",
+					{ desc = "[I]mports - [A]dd missing" }
+				)
+				vim.keymap.set("n", "<leader>rf", "<cmd>VtsExec rename_file<CR>", { desc = "[R]ename [F]ile" })
+				vim.keymap.set(
+					"n",
+					"<leader>io",
+					"<cmd>VtsExec organize_imports<CR>",
+					{ desc = "[I]mports - [O]rganize" }
+				)
+			end
+
+			-- Angular
+			if client.name == "angularls" then
+				local ng = require("ng")
+				vim.keymap.set("n", "<leader>at", ng.goto_template_for_component, opts)
+				vim.keymap.set("n", "<leader>ac", ng.goto_component_with_template_file, opts)
+			end
 
 			-- Disable semantic highlighting
 			-- client.server_capabilities.semanticTokensProvider = nil
@@ -101,10 +106,12 @@ return {
 		-- Configure nvim-cmp
 
 		local cmp = require("cmp")
+		local luasnip = require("luasnip")
 		local cmp_action = require("lsp-zero").cmp_action()
 
 		-- Load snippets
 		require("luasnip.loaders.from_vscode").lazy_load()
+		luasnip.filetype_extend("ruby", { "rails" })
 
 		cmp.setup({
 			mapping = {

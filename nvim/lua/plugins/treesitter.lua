@@ -5,6 +5,7 @@ return {
 		"RRethy/nvim-treesitter-endwise",
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		"windwp/nvim-ts-autotag",
+		"JoosepAlviste/nvim-ts-context-commentstring",
 	},
 	event = { "BufReadPost", "BufNewFile" },
 	opts = {
@@ -36,7 +37,7 @@ return {
 		},
 		autotag = {
 			enable = true,
-      enable_close_on_slash = false,
+			enable_close_on_slash = false,
 		},
 		context_commentstring = {
 			enable = true,
@@ -56,12 +57,14 @@ return {
 				enable = true,
 				lookahead = true,
 				keymaps = {
+          ["if"] = "@function.inner",
 					["af"] = "@function.outer",
-					["if"] = "@function.inner",
+          ["ic"] = "@class.inner",
 					["ac"] = "@class.outer",
-					["ic"] = "@class.inner",
+          ["ia"] = "@parameter.inner",
 					["aa"] = "@parameter.outer",
-					["ia"] = "@parameter.inner",
+					["iA"] = "@attribute.inner",
+          ["aA"] = "@attribute.outer",
 				},
 			},
 			swap = {

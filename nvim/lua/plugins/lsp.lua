@@ -32,11 +32,6 @@ return {
 
 		lsp.preset({})
 
-		lsp.ensure_installed({
-			"gopls",
-			"pyright",
-		})
-
 		lsp.on_attach(function(client, bufnr)
 			local opts = { buffer = bufnr, remap = false }
 
@@ -78,13 +73,6 @@ return {
 					"<cmd>VtsExec organize_imports<CR>",
 					{ desc = "[I]mports - [O]rganize" }
 				)
-			end
-
-			-- Angular
-			if client.name == "angularls" then
-				local ng = require("ng")
-				vim.keymap.set("n", "<leader>at", ng.goto_template_for_component, opts)
-				vim.keymap.set("n", "<leader>ac", ng.goto_component_with_template_file, opts)
 			end
 
 			-- Disable semantic highlighting

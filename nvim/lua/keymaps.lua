@@ -1,9 +1,9 @@
 local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+	local options = { noremap = true }
+	if opts then
+		options = vim.tbl_extend("force", options, opts)
+	end
+	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 -- Swap ; and :
@@ -23,9 +23,8 @@ map("s", "L", "L")
 -- Don't put single char deletes in register
 map("n", "x", '"_x')
 
--- Map jk and <C-]> to Escape
+-- Map jk to Escape
 map("i", "jk", "<Esc>")
-map("i", "<C-]>", "<Esc>")
 
 -- Page up/down & center
 map("n", "<C-d>", "<C-d>zz")
@@ -91,9 +90,6 @@ map("c", "<A-Left>", "<S-Left>")
 -- Go to start of command
 map("c", "<C-A>", "<Home>")
 
--- Make word uppercase
-map("n", "<leader>u", "gUiw")
-
 -- Quickfix list mappings
 map("n", "<leader>qo", "<cmd>copen<CR>")
 map("n", "<leader>qq", "<cmd>cclose<CR>")
@@ -106,12 +102,11 @@ map("n", "<leader>j", "J")
 -- Add single space after the cursor in normal mode
 map("n", "<leader><space>", "a<space><esc>")
 
--- Move with Alt+hjkl in insert mode
-map("i", "<A-h>", '<Left>')
-map("i", "<A-j>", '<Down>')
-map("i", "<A-k>", '<Up>')
-map("i", "<A-l>", '<Right>')
-
 -- Unmap p in select mode (snippets)
 map("s", "p", "<Nop>")
+
+-- Switch between angular files
+map("n", "<leader>ac", "<cmd>:lua require('nvim-quick-switcher').find('.component.ts')<CR>")
+map("n", "<leader>at", "<cmd>:lua require('nvim-quick-switcher').find('.component.html')<CR>")
+map("n", "<leader>as", "<cmd>:lua require('nvim-quick-switcher').find('.component.scss')<CR>")
 

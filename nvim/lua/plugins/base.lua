@@ -14,9 +14,17 @@ return {
 		},
 	},
 	{
+		"axelvc/template-string.nvim",
+		opts = {
+			remove_template_string = true,
+		},
+	},
+	{
+		"Everduin94/nvim-quick-switcher",
+	},
+	{
 		"samjwill/nvim-unception",
 	},
-	{ "joeveiga/ng.nvim" },
 	{
 		"nvim-tree/nvim-web-devicons",
 		lazy = true,
@@ -32,7 +40,6 @@ return {
 			vim.cmd([[ call operator#sandwich#set('all', 'all', 'highlight', 0) ]])
 		end,
 	},
-	{ "JoosepAlviste/nvim-ts-context-commentstring" },
 	{
 		"yioneko/nvim-vtsls",
 		event = "VeryLazy",

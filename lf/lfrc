@@ -27,6 +27,7 @@ cmd touch ${{
   lf -remote "send $id select $PWD/$@"
 }}
 
+# batch rename files in directory using vim
 cmd batch_rename ${{
   if [ -n "$fs" ]; then
     fs="$(basename -a $fs)"
@@ -36,6 +37,7 @@ cmd batch_rename ${{
   qmv -f do $fs
 }}
 
+# go to directory in ~/projects directory
 cmd fzf_select_project ${{
     res="$(fd -t d -d 3 . ~/projects | fzf --reverse --header='Select project' | sed 's/\\/\\\\/g;s/"/\\"/g')"
     if [ -d "$res" ] ; then
@@ -46,6 +48,7 @@ cmd fzf_select_project ${{
     lf -remote "send $id $cmd \"$res\""
 }}
 
+# select file in git project
 cmd fzf_project_file ${{
   project_dir="$(git rev-parse --show-toplevel)"
   res="$(fd -t f . $project_dir | fzf --reverse --header='Jump to file' | sed 's/\\/\\\\/g;s/"/\\"/g')"
@@ -57,6 +60,7 @@ cmd fzf_project_file ${{
   lf -remote "send $id $cmd \"$res\""
 }}
 
+# select directory in git project
 cmd fzf_project_directory ${{
   project_dir="$(git rev-parse --show-toplevel)"
   res="$(fd -t d . $project_dir | fzf --reverse --header='Jump to directory' | sed 's/\\/\\\\/g;s/"/\\"/g')"
@@ -68,17 +72,7 @@ cmd fzf_project_directory ${{
   lf -remote "send $id $cmd \"$res\""
 }}
 
-cmd fzf_project_directory ${{
-  project_dir="$(git rev-parse --show-toplevel)"
-  res="$(fd -t d . $project_dir | fzf --reverse --header='Jump to directory' | sed 's/\\/\\\\/g;s/"/\\"/g')"
-  if [ -d "$res" ] ; then
-      cmd="cd"
-  else
-      exit 0
-  fi
-  lf -remote "send $id $cmd \"$res\""
-}}
-
+# extract zip file in current directory
 cmd extract ${{
   set -f
   case $f in
@@ -110,7 +104,6 @@ map F setfilter
 map <c-f> fzf_project_directory
 map <c-g> fzf_project_file
 map <c-p> fzf_select_project
-
 
 # Create file/directory
 map mf push :touch<space>

@@ -110,3 +110,6 @@ map("n", "<leader>ac", "<cmd>:lua require('nvim-quick-switcher').find('.componen
 map("n", "<leader>at", "<cmd>:lua require('nvim-quick-switcher').find('.component.html')<CR>")
 map("n", "<leader>as", "<cmd>:lua require('nvim-quick-switcher').find('.component.scss')<CR>")
 
+-- Make word upper case
+map("n", "<leader>u", "gUiw")
+

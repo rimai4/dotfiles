@@ -7,6 +7,7 @@ api.nvim_create_autocmd("TextYankPost", {
 	group = yankGrp,
 })
 
+
 -- Apply macro over visual selection
 vim.cmd([[
   xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
@@ -24,3 +25,6 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt_local.buflisted = false
 	end,
 })
+
+-- Set html filetype for jinja files
+vim.cmd("autocmd BufRead,BufNewFile *.jinja.html set filetype=htmldjango")

@@ -1,6 +1,6 @@
 return {
 	"VonHeikemen/lsp-zero.nvim",
-	branch = "v2.x",
+	branch = "v3.x",
 	event = "InsertEnter",
 	dependencies = {
 		-- LSP Support
@@ -30,8 +30,6 @@ return {
 	config = function()
 		local lsp = require("lsp-zero")
 
-		lsp.preset({})
-
 		lsp.on_attach(function(client, bufnr)
 			local opts = { buffer = bufnr, remap = false }
 
@@ -47,7 +45,7 @@ return {
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
 			-- Prevent C-i from being overwritten (no idea where this happens as there is no call to lsp.default_keymaps)
-			vim.keymap.set("n", "<C-i>", "<C-i>", opts)
+			-- vim.keymap.set("n", "<C-i>", "<C-i>", opts)
 
 			-- Add Format command when lsp is attached
 			vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()' ]])
@@ -84,16 +82,25 @@ return {
 			})
 		end)
 
-		-- Configure lua language server for neovim
-		require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
-
-		lsp.setup()
+		-----------------------------------------------------------------
+		-----------------------------------------------------------------
+		-- Setup mason & configure language servers
+    require('mason').setup({})
+		require("mason-lspconfig").setup({
+			handlers = {
+				lsp.default_setup,
+				lua_ls = function()
+					local lua_opts = lsp.nvim_lua_ls()
+					require("lspconfig").lua_ls.setup(lua_opts)
+				end,
+			},
+		})
 
 		-----------------------------------------------------------------
 		-----------------------------------------------------------------
 		-- Configure nvim-cmp
-
 		local cmp = require("cmp")
+		local cmp_format = lsp.cmp_format()
 		local luasnip = require("luasnip")
 		local cmp_action = require("lsp-zero").cmp_action()
 
@@ -109,6 +116,7 @@ return {
 				["<C-f>"] = cmp_action.luasnip_jump_forward(),
 				["<C-b>"] = cmp_action.luasnip_jump_backward(),
 			},
+			formatting = cmp_format,
 			select_behavior = "insert",
 			preselect = cmp.PreselectMode.None,
 			sources = {

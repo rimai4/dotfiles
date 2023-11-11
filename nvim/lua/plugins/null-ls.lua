@@ -11,7 +11,8 @@ return {
 				formatting.prettierd,
 				formatting.stylua,
 				formatting.black,
-        formatting.ruff,
+				formatting.ruff,
+				formatting.djlint,
 				formatting.htmlbeautifier.with({
 					extra_args = { "--keep-blank-lines", "1" },
 				}),

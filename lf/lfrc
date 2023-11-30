@@ -3,6 +3,7 @@ set drawbox
 set hidden true
 set ignorecase true
 set incfilter true
+set sortby ctime
 set previewer ~/.config/lf/pv.sh
 map i $~/.config/lf/pv.sh $f | less -RX
 
@@ -14,7 +15,7 @@ cmd delete ${{
   echo
   printf "$fx\n"
   read ans
-  [ "$ans" = "y" ] && rm -rf $fx
+  [ "$ans" = "y" ] && rm -rf "$fx"
 }}
 
 cmd mkdir ${{
@@ -116,8 +117,8 @@ map x extract
 map D delete
 
 # Cd shortcuts
-map gd cd ~/Desktop
-map gD cd ~/Downloads
+map gd cd ~/Downloads
+map gD cd ~/Desktop
 map gc cd ~/.config
 map gl cd ~/.config/lf
 map gf cd ~/.config/fish

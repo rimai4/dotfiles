@@ -28,3 +28,4 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Set html filetype for jinja files
 vim.cmd("autocmd BufRead,BufNewFile *.jinja.html set filetype=htmldjango")
+vim.cmd("autocmd BufRead,BufNewFile *.djhtml set filetype=htmldjango")

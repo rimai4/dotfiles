@@ -49,7 +49,7 @@ return {
 				init_selection = "<CR>",
 				scope_incremental = false,
 				node_incremental = "<CR>",
-				node_decremental = "<BS>",
+				node_decremental = "<S-CR>",
 			},
 		},
 		textobjects = {
@@ -82,10 +82,12 @@ return {
 				goto_next_start = {
 					["]a"] = "@parameter.inner",
 					["]f"] = "@function.outer",
+					["]c"] = "@class.outer",
 				},
 				goto_previous_start = {
 					["[a"] = "@parameter.inner",
 					["[f"] = "@function.outer",
+					["[c"] = "@class.outer",
 				},
 			},
 		},

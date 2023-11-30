@@ -55,13 +55,8 @@ map("n", "<leader>f", "<cmd>Format<CR>", { desc = "[F]ormat file" })
 -- Clear search results with escape
 map("n", "<Esc>", "<cmd>noh<CR><Esc>")
 
--- Move between buffers with <C-h> and <C-l>
-map("n", "<A-,>", "<cmd>bp<CR>")
-map("n", "<A-.>", "<cmd>bn<CR>")
-
 -- Close buffer/close all except current buffer
 map("n", "<leader>w", "<cmd>bd<CR>")
-map("n", "<leader>W", "<cmd>%bd!|e#|bd#<CR>")
 
 -- Don't replace register after pasting
 map("v", "p", '"_dP')
@@ -99,17 +94,15 @@ map("n", "]q", "<cmd>cnext<CR>")
 -- Join lines (J is already used for vertical navigation)
 map("n", "<leader>j", "J")
 
--- Add single space after the cursor in normal mode
-map("n", "<leader><space>", "a<space><esc>")
+-- Add single space and paste after the cursor in normal mode
+map("n", "<leader>p", "a<space><esc>p")
 
 -- Unmap p in select mode (snippets)
 map("s", "p", "<Nop>")
 
--- Switch between angular files
-map("n", "<leader>ac", "<cmd>:lua require('nvim-quick-switcher').find('.component.ts')<CR>")
-map("n", "<leader>at", "<cmd>:lua require('nvim-quick-switcher').find('.component.html')<CR>")
-map("n", "<leader>as", "<cmd>:lua require('nvim-quick-switcher').find('.component.scss')<CR>")
-
 -- Make word upper case
 map("n", "<leader>u", "gUiw")
+
+-- Go to the alternate file
+map("n", "<BS>", "<C-^>")
 

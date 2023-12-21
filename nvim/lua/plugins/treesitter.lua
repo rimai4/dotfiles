@@ -5,7 +5,6 @@ return {
 		"RRethy/nvim-treesitter-endwise",
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		"windwp/nvim-ts-autotag",
-		"JoosepAlviste/nvim-ts-context-commentstring",
 	},
 	event = { "BufReadPost", "BufNewFile" },
 	opts = {
@@ -39,17 +38,13 @@ return {
 			enable = true,
 			enable_close_on_slash = false,
 		},
-		context_commentstring = {
-			enable = true,
-			enable_autocmd = false,
-		},
 		incremental_selection = {
 			enable = true,
 			keymaps = {
 				init_selection = "<CR>",
 				scope_incremental = false,
 				node_incremental = "<CR>",
-				node_decremental = "<S-CR>",
+				node_decremental = "<BS>",
 			},
 		},
 		textobjects = {
@@ -78,7 +73,7 @@ return {
 			},
 			move = {
 				enable = true,
-				set_jumps = true, -- whether to set jumps in the jumplist
+				set_jumps = true, -- set jumps in the jumplist
 				goto_next_start = {
 					["]a"] = "@parameter.inner",
 					["]f"] = "@function.outer",

@@ -15,7 +15,7 @@ cmd delete ${{
   echo
   printf "$fx\n"
   read ans
-  [ "$ans" = "y" ] && rm -rf "$fx"
+  [ "$ans" = "y" ] && rm -rf $fx
 }}
 
 cmd mkdir ${{
@@ -121,7 +121,7 @@ map gd cd ~/Downloads
 map gD cd ~/Desktop
 map gc cd ~/.config
 map gl cd ~/.config/lf
-map gf cd ~/.config/fish
+map gf cd ~/files
 map gp cd ~/projects
 map gh cd ~
 

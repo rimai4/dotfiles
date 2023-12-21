@@ -13,6 +13,7 @@ return {
 				formatting.black,
 				formatting.ruff,
 				formatting.djlint,
+        formatting.goimports,
 				formatting.htmlbeautifier.with({
 					extra_args = { "--keep-blank-lines", "1" },
 				}),

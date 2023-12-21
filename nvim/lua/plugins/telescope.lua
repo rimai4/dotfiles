@@ -1,9 +1,10 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	tag = "0.1.0",
+	tag = "0.1.4",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"debugloop/telescope-undo.nvim",
+		"nvim-telescope/telescope-file-browser.nvim",
 	},
 	keys = {
 		{ "<leader>sf", "<cmd>Telescope find_files<CR>", { desc = "[S]earch [f]iles" } },
@@ -21,10 +22,28 @@ return {
 			"<cmd>Telescope lsp_dynamic_workspace_symbols<CR>",
 			{ desc = "[S]earch workspace [S]ymbols" },
 		},
-		{ "<leader>sr", "<cmd>Telescope resume<CR>", { desc = "[S]earch [r]esume" } },
-		{ "<leader>sR", "<cmd>Telescope lsp_references<CR>", { desc = "[S]earch workspace [R]eferences" } },
+		{
+			"<leader>sr",
+			"<cmd>Telescope resume<CR>",
+			{ desc = "[S]earch [r]esume" },
+		},
+		{
+			"<leader>sR",
+			"<cmd>Telescope lsp_references<CR>",
+			{ desc = "[S]earch workspace [R]eferences" },
+		},
 		{ "<leader>su", "<cmd>Telescope undo<CR>", { desc = "[S]earch [U]ndo" } },
 		{ "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "[G]it [S]tatus" },
+		{
+			"<leader>so",
+			"<cmd>Telescope oldfiles<CR>",
+			{ desc = "[S]earch [O]ld files" },
+		},
+		{
+			"<leader>fb",
+			"<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>",
+			{ desc = "[F]ile [B]rowser" },
+		},
 	},
 	opts = function()
 		local actions = require("telescope.actions")
@@ -49,6 +68,9 @@ return {
 				},
 			},
 			pickers = {
+				oldfiles = {
+					cwd_only = true,
+				},
 				buffers = {
 					sort_lastused = false,
 					mappings = {
@@ -58,11 +80,17 @@ return {
 					},
 				},
 			},
+			extensions = {
+				file_browser = {
+					display_stat = false,
+				},
+			},
 		}
 	end,
 	config = function(_, opts)
 		require("telescope").setup(opts)
 		require("telescope").load_extension("fzf")
 		require("telescope").load_extension("undo")
+		require("telescope").load_extension("file_browser")
 	end,
 }

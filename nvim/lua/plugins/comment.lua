@@ -1,10 +1,17 @@
 return {
 	"terrortylor/nvim-comment",
+	dependencies = {
+		"JoosepAlviste/nvim-ts-context-commentstring",
+	},
 	event = "VeryLazy",
 	config = function()
+		require("ts_context_commentstring").setup({
+			enable_autocmd = false,
+		})
+
 		require("nvim_comment").setup({
 			hook = function()
-				require("ts_context_commentstring.internal").update_commentstring()
+				require("ts_context_commentstring").update_commentstring()
 			end,
 		})
 	end,

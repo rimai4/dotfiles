@@ -34,8 +34,9 @@ map("n", "J", "<C-d>zz")
 map("v", "K", "<C-u>zz")
 map("v", "J", "<C-d>zz")
 
--- Delete word in insert mode
+-- Delete word in insert/command mode
 map("i", "<A-BS>", "<C-w>")
+map("c", "<A-BS>", "<C-w>")
 
 -- Move lines
 map("n", "<A-Down>", ":m .+1<CR>==")
@@ -104,5 +105,10 @@ map("s", "p", "<Nop>")
 map("n", "<leader>u", "gUiw")
 
 -- Go to the alternate file
-map("n", "<BS>", "<C-^>")
+map("n", "<leader>a", "<C-6>")
 
+-- Move between splits
+map("n", "<A-h>", "<C-w>h")
+map("n", "<A-j>", "<C-w>j")
+map("n", "<A-k>", "<C-w>k")
+map("n", "<A-l>", "<C-w>l")

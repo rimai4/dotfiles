@@ -77,27 +77,6 @@ return {
 				)
 			end
 
-			if client.name == "angularls" then
-				vim.keymap.set(
-					"n",
-					"<leader>ac",
-					"<cmd>:lua require('nvim-quick-switcher').find('.component.ts')<CR>",
-					{ desc = "[A]angular - switch to [C]omponent" }
-				)
-				vim.keymap.set(
-					"n",
-					"<leader>at",
-					"<cmd>:lua require('nvim-quick-switcher').find('.component.html')<CR>",
-					{ desc = "[A]angular - switch to [T]emplate" }
-				)
-				vim.keymap.set(
-					"n",
-					"<leader>as",
-					"<cmd>:lua require('nvim-quick-switcher').find('.component.scss')<CR>",
-					{ desc = "[A]angular - switch to [S]tyles" }
-				)
-			end
-
 			-- Disable semantic highlighting
 			-- client.server_capabilities.semanticTokensProvider = nil
 

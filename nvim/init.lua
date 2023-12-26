@@ -9,7 +9,6 @@ if vim.g.vscode then
 else
   require("lazy").setup("plugins")
 
-  require("colorscheme")
   require("options")
   require("keymaps")
   require("commands")

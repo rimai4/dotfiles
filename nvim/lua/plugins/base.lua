@@ -23,9 +23,6 @@ return {
 		"Everduin94/nvim-quick-switcher",
 	},
 	{
-		"samjwill/nvim-unception",
-	},
-	{
 		"nvim-tree/nvim-web-devicons",
 		lazy = true,
 	},

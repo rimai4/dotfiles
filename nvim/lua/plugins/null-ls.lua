@@ -1,5 +1,5 @@
 return {
-	"jose-elias-alvarez/null-ls.nvim",
+	"nvimtools/none-ls.nvim",
 	event = { "BufReadPre", "BufNewFile" },
 	opts = function()
 		local null_ls = require("null-ls")
@@ -13,7 +13,7 @@ return {
 				formatting.black,
 				formatting.ruff,
 				formatting.djlint,
-        formatting.goimports,
+				formatting.goimports,
 				formatting.htmlbeautifier.with({
 					extra_args = { "--keep-blank-lines", "1" },
 				}),

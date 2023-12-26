@@ -51,7 +51,7 @@ map("n", "Y", '"+yg_')
 map("n", "yy", '"+yy')
 
 -- Format
-map("n", "<leader>f", "<cmd>Format<CR>", { desc = "[F]ormat file" })
+map("n", "<leader>ff", "<cmd>Format<CR>", { desc = "[F]ormat [F]ile" })
 
 -- Clear search results with escape
 map("n", "<Esc>", "<cmd>noh<CR><Esc>")

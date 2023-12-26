@@ -1,19 +1,5 @@
 return {
 	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		opts = {
-			flavour = "macchiato",
-			no_italic = true,
-			integrations = {
-				cmp = true,
-				treesitter = true,
-				telescope = true,
-				gitsigns = true,
-			},
-		},
-	},
-	{
 		"axelvc/template-string.nvim",
 		opts = {
 			remove_template_string = true,

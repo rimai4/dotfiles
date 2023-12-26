@@ -7,10 +7,8 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
 	opts = function()
-		vim.cmd("let g:neo_tree_remove_legacy_commands = 1")
-
 		return {
-			close_if_last_window = false,
+			close_if_last_window = true,
 			filesystem = {
 				follow_current_file = {
 					enabled = true,

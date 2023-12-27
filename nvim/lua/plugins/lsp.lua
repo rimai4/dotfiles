@@ -51,8 +51,10 @@ return {
 			-- C-i is used to move forward in the jump list
 			vim.keymap.set("n", "<C-i>", "<C-i>", opts)
 
-			-- Add Format command when lsp is attached
-			vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()' ]])
+			-- Add Format command to buffer when lsp is attached
+			vim.api.nvim_buf_create_user_command(0, "Format", function()
+				require("conform").format()
+			end, {})
 
 			-- Typescript imports
 			if client.name == "vtsls" then

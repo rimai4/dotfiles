@@ -1,0 +1,16 @@
+return {
+  'stevearc/conform.nvim',
+  opts = {
+    formatters_by_ft = {
+      lua = { "stylua" },
+      python = { "ruff_format" },
+      javascript = { "prettierd" },
+      typescript = { "prettierd" },
+      typescriptreact = { "prettierd" },
+      json = { "prettierd" },
+      html = { "prettierd" },
+      go = { "gofmt", "goimports" },
+      htmldjango = { "djlint" }
+    },
+  }
+}

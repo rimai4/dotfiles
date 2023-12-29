@@ -127,3 +127,7 @@ map("n", "<leader>t2h", "<cmd>2ToggleTerm direction=horizontal<CR>")
 map("n", "<leader>t3h", "<cmd>3ToggleTerm direction=horizontal<CR>")
 map("n", "<leader>t2v", "<cmd>2ToggleTerm direction=vertical<CR>")
 map("n", "<leader>t3v", "<cmd>3ToggleTerm direction=vertical<CR>")
+
+-- Switch tabs
+map("n", "[t", "gT")
+map("n", "]t", "gt")

@@ -38,6 +38,12 @@ map("v", "J", "<C-d>zz")
 map("i", "<A-BS>", "<C-w>")
 map("c", "<A-BS>", "<C-w>")
 
+-- Skip word in insert and command mode
+map("i", "<A-Right>", "<S-Right>")
+map("i", "<A-Left>", "<S-Left>")
+map("c", "<A-Right>", "<S-Right>")
+map("c", "<A-Left>", "<S-Left>")
+
 -- Move lines
 map("n", "<A-Down>", ":m .+1<CR>==")
 map("n", "<A-Up>", ":m .-2<CR>==")
@@ -56,7 +62,7 @@ map("n", "<leader>ff", "<cmd>Format<CR>", { desc = "[F]ormat [F]ile" })
 -- Clear search results with escape
 map("n", "<Esc>", "<cmd>noh<CR><Esc>")
 
--- Close buffer/close all except current buffer
+-- Close buffer
 map("n", "<leader>w", "<cmd>bd<CR>")
 
 -- Don't replace register after pasting
@@ -76,12 +82,6 @@ map("x", "<leader>c", '"sy:let @/=@s<CR>cgn')
 -- File-wide substitute word under cursor
 map("n", "<leader>C", ":%s/<C-r><C-w>//<Left>")
 map("x", "<leader>C", '"sy:%s/<C-r>s//<Left>')
-
--- Skip word in insert and command mode
-map("i", "<A-Right>", "<S-Right>")
-map("i", "<A-Left>", "<S-Left>")
-map("c", "<A-Right>", "<S-Right>")
-map("c", "<A-Left>", "<S-Left>")
 
 -- Go to start of command
 map("c", "<C-A>", "<Home>")
@@ -112,3 +112,18 @@ map("n", "<A-h>", "<C-w>h")
 map("n", "<A-j>", "<C-w>j")
 map("n", "<A-k>", "<C-w>k")
 map("n", "<A-l>", "<C-w>l")
+map("t", "<A-h>", "<C-\\><C-n><C-w>h")
+map("t", "<A-j>", "<C-\\><C-n><C-w>j")
+map("t", "<A-k>", "<C-\\><C-n><C-w>k")
+map("t", "<A-l>", "<C-\\><C-n><C-w>l")
+
+-- Escape in terminal mode
+map("t", "<Esc>", "<C-\\><C-n>")
+
+-- Open terminals
+map("n", "<leader>tt", "<cmd>ToggleTerm direction=tab<CR>")
+map("n", "<leader>tv", "<cmd>ToggleTerm direction=vertical<CR>")
+map("n", "<leader>t2h", "<cmd>2ToggleTerm direction=horizontal<CR>")
+map("n", "<leader>t3h", "<cmd>3ToggleTerm direction=horizontal<CR>")
+map("n", "<leader>t2v", "<cmd>2ToggleTerm direction=vertical<CR>")
+map("n", "<leader>t3v", "<cmd>3ToggleTerm direction=vertical<CR>")

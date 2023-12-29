@@ -1,12 +1,9 @@
-local api = vim.api
-
 -- Highlight on yank
-local yankGrp = api.nvim_create_augroup("YankHighlight", { clear = true })
-api.nvim_create_autocmd("TextYankPost", {
-	command = "silent! lua vim.highlight.on_yank()",
-	group = yankGrp,
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank()
+	end,
 })
-
 
 -- Apply macro over visual selection
 vim.cmd([[
@@ -26,6 +23,5 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
--- Set html filetype for jinja files
-vim.cmd("autocmd BufRead,BufNewFile *.jinja.html set filetype=htmldjango")
+-- Set htmldjango filetype
 vim.cmd("autocmd BufRead,BufNewFile *.djhtml set filetype=htmldjango")

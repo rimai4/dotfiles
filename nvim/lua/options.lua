@@ -46,3 +46,6 @@ vim.opt.shortmess = {
 
 -- Speed up loading ts_context_commentstring
 vim.g.skip_ts_context_commentstring_module = true
+
+-- Global status bar
+vim.opt.laststatus = 3

@@ -46,3 +46,8 @@ vim.opt.laststatus = 3
 
 -- Disable swap files
 vim.opt.swapfile = false
+
+-- Don't show intro message & message when opening file with lf
+vim.opt.shortmess = {
+	I = true,
+}

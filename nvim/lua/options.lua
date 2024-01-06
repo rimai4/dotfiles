@@ -38,12 +38,6 @@ vim.opt.writebackup = false
 -- save undo file
 vim.o.undofile = true
 
--- Don't show intro message & message when opening file with lf
-vim.opt.shortmess = {
-	I = true,
-	o = true,
-}
-
 -- Speed up loading ts_context_commentstring
 vim.g.skip_ts_context_commentstring_module = true
 

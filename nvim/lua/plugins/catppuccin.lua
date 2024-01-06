@@ -5,6 +5,7 @@ return {
 		vim.cmd.colorscheme("catppuccin")
 		-- Slightly increase the luminosity of non-active lines
 		vim.cmd([[highlight LineNr guifg=#606685]])
+		vim.cmd([[highlight WinSeparator guifg=#b7bdf8]])
 	end,
 	opts = {
 		flavour = "macchiato",

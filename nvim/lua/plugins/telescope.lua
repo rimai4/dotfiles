@@ -63,6 +63,7 @@ return {
 				mappings = {
 					i = {
 						["<C-t>"] = layout.toggle_preview,
+						["<C-s>"] = actions.file_split,
 						["<Esc>"] = actions.close,
 					},
 				},

@@ -29,8 +29,8 @@ return {
 		},
 		{
 			"<leader>sR",
-			"<cmd>Telescope lsp_references<CR>",
-			{ desc = "[S]earch workspace [R]eferences" },
+			"<cmd>Telescope registers<CR>",
+			{ desc = "[S]earch [R]egisters" },
 		},
 		{ "<leader>su", "<cmd>Telescope undo<CR>", { desc = "[S]earch [U]ndo" } },
 		{ "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "[G]it [S]tatus" },

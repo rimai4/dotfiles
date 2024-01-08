@@ -56,14 +56,8 @@ map("n", "y", '"+y')
 map("n", "Y", '"+yg_')
 map("n", "yy", '"+yy')
 
--- Format
-map("n", "<leader>ff", "<cmd>Format<CR>", { desc = "[F]ormat [F]ile" })
-
 -- Clear search results with escape
 map("n", "<Esc>", "<cmd>noh<CR><Esc>")
-
--- Close buffer
-map("n", "<leader>w", "<cmd>bd<CR>")
 
 -- Don't replace register after pasting
 map("v", "p", '"_dP')

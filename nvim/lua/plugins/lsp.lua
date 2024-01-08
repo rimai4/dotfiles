@@ -42,6 +42,8 @@ return {
 			vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+			-- This assumes that Telescope is already loaded
+			vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
 			vim.keymap.set("n", "<leader>d", vim.lsp.buf.type_definition, opts)
 			vim.keymap.set("n", "<Tab>", vim.lsp.buf.hover, opts)
 			vim.keymap.set("n", "<A-/>", vim.lsp.buf.code_action, opts)
@@ -51,10 +53,10 @@ return {
 			-- C-i is used to move forward in the jump list
 			vim.keymap.set("n", "<C-i>", "<C-i>", opts)
 
-			-- Add Format command to buffer when lsp is attached
-			vim.api.nvim_buf_create_user_command(0, "Format", function()
+			-- Format
+			vim.keymap.set("n", "<leader>ff", function()
 				require("conform").format()
-			end, {})
+			end, opts)
 
 			-- Typescript imports
 			if client.name == "vtsls" then
@@ -117,6 +119,7 @@ return {
 
 		-- Load snippets
 		require("luasnip.loaders.from_vscode").lazy_load()
+		-- Add extra rails snippets
 		luasnip.filetype_extend("ruby", { "rails" })
 
 		cmp.setup({
@@ -141,13 +144,5 @@ return {
 				completeopt = "menuone,noselect",
 			},
 		})
-
-		-- Autocomplete when searching with /
-		-- cmp.setup.cmdline('/', {
-		--   mapping = cmp.mapping.preset.cmdline(),
-		--   sources = {
-		--     { name = 'buffer' }
-		--   }
-		-- })
 	end,
 }

@@ -23,9 +23,6 @@ map("s", "L", "L")
 -- Don't put single char deletes in register
 map("n", "x", '"_x')
 
--- Map jk to Escape
-map("i", "jk", "<Esc>")
-
 -- Page up/down & center
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")

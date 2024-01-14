@@ -48,6 +48,7 @@ return {
 	opts = function()
 		local actions = require("telescope.actions")
 		local layout = require("telescope.actions.layout")
+		local fb_actions = require("telescope").extensions.file_browser.actions
 
 		return {
 			defaults = {
@@ -57,6 +58,7 @@ return {
 				layout_config = {
 					horizontal = {
 						prompt_position = "top",
+						preview_width = 0.55,
 					},
 				},
 				sorting_strategy = "ascending",
@@ -84,6 +86,12 @@ return {
 			extensions = {
 				file_browser = {
 					display_stat = false,
+					mappings = {
+						["i"] = {
+							["<S-CR>"] = fb_actions.create,
+							["<S-BS>"] = fb_actions.remove,
+						},
+					},
 				},
 			},
 		}

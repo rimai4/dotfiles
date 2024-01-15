@@ -5,6 +5,7 @@ return {
 		"RRethy/nvim-treesitter-endwise",
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		"windwp/nvim-ts-autotag",
+		"nvim-treesitter/nvim-treesitter-context",
 	},
 	event = { "BufReadPost", "BufNewFile" },
 	opts = {
@@ -89,5 +90,6 @@ return {
 	},
 	config = function(_, opts)
 		require("nvim-treesitter.configs").setup(opts)
+		require("treesitter-context").setup()
 	end,
 }

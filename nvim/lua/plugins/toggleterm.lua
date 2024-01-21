@@ -2,7 +2,7 @@ return {
 	"akinsho/toggleterm.nvim",
 	opts = {
 		open_mapping = [[<C-t>]],
-		direction = "tab",
+		direction = "vertical",
 		shade_terminals = false,
 		persist_mode = false,
 		size = function(term)

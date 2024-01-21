@@ -59,6 +59,7 @@ return {
 					horizontal = {
 						prompt_position = "top",
 						preview_width = 0.55,
+						width = 0.85,
 					},
 				},
 				sorting_strategy = "ascending",

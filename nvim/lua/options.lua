@@ -1,6 +1,15 @@
--- Line numbers
+vim.opt.gdefault = true
+vim.opt.updatetime = 300
+vim.opt.autoread = true
+vim.opt.termguicolors = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- Line numbers & status column
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.signcolumn = "yes"
+vim.o.statuscolumn = "%s%=%{v:relnum?v:relnum:v:lnum} "
 
 -- Highlight current line
 vim.o.cursorline = true
@@ -14,24 +23,14 @@ vim.opt.expandtab = true
 -- Always keep 5 lines visible
 vim.opt.scrolloff = 5
 
-vim.opt.gdefault = true
-
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-
-vim.opt.autoread = true
-
-vim.opt.termguicolors = true
-
-vim.opt.signcolumn = "yes"
-vim.o.statuscolumn = "%s%=%{v:relnum?v:relnum:v:lnum} "
-
+-- Don't wrap lines
 vim.opt.wrap = false
+
+-- Open horizontal split to the right & vertical split below
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
--- lsp
-vim.opt.updatetime = 300
+-- No backups
 vim.opt.backup = false
 vim.opt.writebackup = false
 

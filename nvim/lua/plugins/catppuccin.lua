@@ -11,6 +11,7 @@ return {
 		flavour = "macchiato",
 		no_italic = true,
 		integrations = {
+			flash = true,
 			cmp = true,
 			treesitter = true,
 			telescope = true,

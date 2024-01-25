@@ -6,10 +6,10 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- Line numbers & status column
-vim.opt.number = true
-vim.opt.relativenumber = true
+-- vim.opt.number = true
+-- vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
-vim.o.statuscolumn = "%s%=%{v:relnum?v:relnum:v:lnum} "
+-- vim.o.statuscolumn = "%s%=%{v:relnum?v:relnum:v:lnum} "
 
 -- Highlight current line
 vim.o.cursorline = true

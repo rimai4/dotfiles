@@ -41,12 +41,6 @@ map("i", "<A-Left>", "<S-Left>")
 map("c", "<A-Right>", "<S-Right>")
 map("c", "<A-Left>", "<S-Left>")
 
--- Move lines
-map("n", "<A-Down>", ":m .+1<CR>==")
-map("n", "<A-Up>", ":m .-2<CR>==")
-map("v", "<A-Down>", ":m '>+1<CR>gv=gv")
-map("v", "<A-Up>", ":m '<-2<CR>gv=gv")
-
 -- Yank to clipboard
 map("v", "y", '"+y')
 map("n", "y", '"+y')
@@ -122,3 +116,6 @@ map("n", "<leader>t3v", "<cmd>3ToggleTerm direction=vertical<CR>")
 -- Switch tabs
 map("n", "[t", "gT")
 map("n", "]t", "gt")
+
+-- Toggle line numbers
+map("n", "<leader>tl", "<cmd>set number!<CR>")

@@ -42,10 +42,10 @@ map("c", "<A-Right>", "<S-Right>")
 map("c", "<A-Left>", "<S-Left>")
 
 -- Yank to clipboard
-map("v", "y", '"+y')
-map("n", "y", '"+y')
-map("n", "Y", '"+yg_')
-map("n", "yy", '"+yy')
+map("v", "<leader>y", '"+y')
+map("n", "<leader>y", '"+y')
+map("n", "<leader>Y", '"+yg_')
+map("n", "<leader>yy", '"+yy')
 
 -- Clear search results with escape
 map("n", "<Esc>", "<cmd>noh<CR><Esc>")

@@ -8,9 +8,7 @@ return {
 	},
 	keys = {
 		{ "<leader>sf", "<cmd>Telescope find_files<CR>", { desc = "[S]earch [f]iles" } },
-		{ "\\", "<cmd>Telescope find_files hidden=true<CR>", { desc = "[\\] - Search files" } },
 		{ "<leader>sb", "<cmd>Telescope buffers<CR>", { desc = "[S]earch [b]uffers" } },
-		{ "<leader><space>", "<cmd>Telescope buffers<CR>" },
 		{ "<leader>sw", "<cmd>Telescope grep_string<CR>", { desc = "[S]earch by [w]ord" } },
 		{ "<leader>sg", "<cmd>Telescope live_grep<CR>", { desc = "[S]earch by [g]rep" } },
 		{ "<leader>sh", "<cmd>Telescope help_tags<CR>", { desc = "[S]earch [h]elp" } },
@@ -32,17 +30,17 @@ return {
 			"<cmd>Telescope registers<CR>",
 			{ desc = "[S]earch [R]egisters" },
 		},
-		{ "<leader>su", "<cmd>Telescope undo<CR>", { desc = "[S]earch [U]ndo" } },
+		{ "<leader>su", "<cmd>Telescope undo<CR>", { desc = "[S]earch [u]ndo" } },
 		{ "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "[G]it [S]tatus" },
 		{
 			"<leader>so",
 			"<cmd>Telescope oldfiles<CR>",
-			{ desc = "[S]earch [O]ld files" },
+			{ desc = "[S]earch [o]ld files" },
 		},
 		{
 			"<leader>fb",
 			"<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>",
-			{ desc = "[F]ile [B]rowser" },
+			{ desc = "[F]ile [b]rowser" },
 		},
 	},
 	opts = function()

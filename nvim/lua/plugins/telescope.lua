@@ -80,6 +80,7 @@ return {
 							["<C-d>"] = "delete_buffer",
 						},
 					},
+					path_display = { "tail" },
 				},
 			},
 			extensions = {

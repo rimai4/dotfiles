@@ -1,5 +1,10 @@
 return {
 	"akinsho/toggleterm.nvim",
+  keys = {
+    {"<C-t>"},
+    {"<leader>tt"},
+    {"<leader>tv"},
+  },
 	opts = {
 		open_mapping = [[<C-t>]],
 		direction = "vertical",

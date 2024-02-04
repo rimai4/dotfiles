@@ -122,3 +122,6 @@ map("n", "<leader>tl", "<cmd>set number!<CR>")
 
 -- Save with <leader>w to prevent quitting accidentally
 map("n", "<leader>w", "<cmd>w<CR>")
+
+-- Remap M to m (m is used for flash)
+map("n", "M", "m")

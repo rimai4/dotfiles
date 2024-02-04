@@ -32,7 +32,7 @@ return {
 
 		-----------------------------------------------------------------
 		-----------------------------------------------------------------
-		-- Add lsp keybindings when lsp attaches to buffer
+		-- Add keybindings when lsp attaches to buffer
 		lsp.on_attach(function(client, bufnr)
 			local opts = { buffer = bufnr, remap = false }
 
@@ -45,8 +45,8 @@ return {
 			-- This assumes that Telescope is already loaded
 			vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
 			vim.keymap.set("n", "<leader>d", vim.lsp.buf.type_definition, opts)
-			vim.keymap.set("n", "<Tab>", vim.lsp.buf.hover, opts)
-			vim.keymap.set("n", "<A-/>", vim.lsp.buf.code_action, opts)
+      -- use <leader>k for hover as K is used for navigation
+			vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, opts)
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
 			-- Prevent C-i from being overwritten (no idea where this happens as there is no call to lsp.default_keymaps)
@@ -125,8 +125,6 @@ return {
 		cmp.setup({
 			mapping = {
 				["<CR>"] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }),
-				["<Tab>"] = cmp_action.tab_complete(),
-				["<S-Tab>"] = cmp_action.select_prev_or_fallback(),
 				["<C-f>"] = cmp_action.luasnip_jump_forward(),
 				["<C-b>"] = cmp_action.luasnip_jump_backward(),
 			},

@@ -9,6 +9,7 @@ return {
 	keys = {
 		{ "<leader>sf", "<cmd>Telescope find_files<CR>", { desc = "[S]earch [f]iles" } },
 		{ "<leader>sb", "<cmd>Telescope buffers<CR>", { desc = "[S]earch [b]uffers" } },
+		{ "gb", "<cmd>Telescope buffers<CR>", { desc = "[g]o to [b]uffers" } },
 		{ "<leader>sw", "<cmd>Telescope grep_string<CR>", { desc = "[S]earch by [w]ord" } },
 		{ "<leader>sg", "<cmd>Telescope live_grep<CR>", { desc = "[S]earch by [g]rep" } },
 		{ "<leader>sh", "<cmd>Telescope help_tags<CR>", { desc = "[S]earch [h]elp" } },
@@ -86,6 +87,7 @@ return {
 			extensions = {
 				file_browser = {
 					display_stat = false,
+					hidden = true,
 					mappings = {
 						["i"] = {
 							["<S-CR>"] = fb_actions.create,

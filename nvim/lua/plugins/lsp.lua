@@ -45,8 +45,7 @@ return {
 			-- This assumes that Telescope is already loaded
 			vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
 			vim.keymap.set("n", "<leader>d", vim.lsp.buf.type_definition, opts)
-      -- use <leader>k for hover as K is used for navigation
-			vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, opts)
+			vim.keymap.set("n", "<Tab>", vim.lsp.buf.hover, opts)
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
 			-- Prevent C-i from being overwritten (no idea where this happens as there is no call to lsp.default_keymaps)

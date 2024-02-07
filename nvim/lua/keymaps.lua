@@ -125,3 +125,9 @@ map("n", "<leader>w", "<cmd>w<CR>")
 
 -- Remap M to m (m is used for flash)
 map("n", "M", "m")
+
+-- Move left/right in command/insert mode with A-h and A-l
+map("c", "<A-h>", "<Left>")
+map("c", "<A-l>", "<Right>")
+map("i", "<A-h>", "<Left>")
+map("i", "<A-l>", "<Right>")

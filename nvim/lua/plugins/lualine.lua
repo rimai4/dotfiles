@@ -14,16 +14,21 @@ return {
 			},
 			sections = {
 				lualine_a = { "mode" },
-				lualine_b = { "branch" },
-				lualine_c = {
+				lualine_b = {
 					{
 						"filename",
 						path = 1,
 					},
 				},
+				lualine_c = {
+					{
+						require("grapple").key,
+						cond = require("grapple").exists,
+					},
+				},
 				lualine_x = { "diagnostics" },
 				lualine_y = { cwd },
-				lualine_z = {},
+				lualine_z = { "branch" },
 			},
 		}
 	end,

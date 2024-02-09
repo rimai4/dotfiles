@@ -33,9 +33,9 @@ return {
 			end, { expr = true })
 
 			-- Actions
-			map("n", "<leader>gb", gs.toggle_current_line_blame)
-			map("n", "<leader>grh", gs.reset_hunk)
-			map("n", "<leader>grf", gs.reset_buffer)
+			map("n", "<leader>tb", gs.toggle_current_line_blame)
+			map("n", "<leader>gr", gs.reset_hunk)
+			map("n", "<leader>gR", gs.reset_buffer)
 		end,
 	},
 }

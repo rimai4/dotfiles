@@ -75,7 +75,6 @@ return {
 					cwd_only = true,
 				},
 				buffers = {
-					sort_lastused = false,
 					mappings = {
 						i = {
 							["<C-d>"] = "delete_buffer",

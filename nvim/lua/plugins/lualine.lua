@@ -13,7 +13,7 @@ return {
 				component_separators = "",
 			},
 			sections = {
-				lualine_a = { "mode" },
+				lualine_a = { "branch" },
 				lualine_b = {
 					{
 						"filename",
@@ -25,10 +25,11 @@ return {
 						require("grapple").key,
 						cond = require("grapple").exists,
 					},
+					"diagnostics",
 				},
-				lualine_x = { "diagnostics" },
-				lualine_y = { cwd },
-				lualine_z = { "branch" },
+				lualine_x = {},
+				lualine_y = {},
+				lualine_z = { cwd },
 			},
 		}
 	end,

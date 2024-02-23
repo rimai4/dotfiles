@@ -1,13 +1,13 @@
 return {
 	"akinsho/toggleterm.nvim",
-  keys = {
-    {"<C-t>"},
-    {"<leader>tt"},
-    {"<leader>tv"},
-  },
+	keys = {
+		{ "<C-t>" },
+		{ "<leader>tt" },
+		{ "<leader>tv" },
+	},
 	opts = {
 		open_mapping = [[<C-t>]],
-		direction = "vertical",
+		direction = "tab",
 		shade_terminals = false,
 		persist_mode = false,
 		size = function(term)

@@ -108,7 +108,7 @@ return {
 				end,
 				emmet_language_server = function()
 					require("lspconfig").emmet_language_server.setup({
-						filetypes = { "htmldjango", "html" },
+						filetypes = { "htmldjango", "html", "templ" },
 					})
 				end,
 			},

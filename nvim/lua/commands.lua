@@ -25,3 +25,6 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Set htmldjango filetype
 vim.cmd("autocmd BufRead,BufNewFile *.djhtml set filetype=htmldjango")
+
+-- Add templ filetype
+vim.filetype.add({ extension = { templ = "templ" } })

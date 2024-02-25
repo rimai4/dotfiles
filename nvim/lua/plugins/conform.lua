@@ -13,6 +13,7 @@ return {
 			scss = { "prettierd" },
 			json = { "prettierd" },
 			html = { "prettierd" },
+			templ = { "templ" },
 			go = { "gofmt", "goimports" },
 			htmldjango = { "djlint" },
 		},

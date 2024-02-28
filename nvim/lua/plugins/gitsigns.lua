@@ -33,9 +33,9 @@ return {
 			end, { expr = true })
 
 			-- Actions
-			map("n", "<leader>tb", gs.toggle_current_line_blame)
-			map("n", "<leader>gr", gs.reset_hunk)
-			map("n", "<leader>gR", gs.reset_buffer)
+			map("n", "<leader>gb", gs.toggle_current_line_blame, { desc = "Toggle [G]it [B]lame" })
+			map("n", "<leader>gr", gs.reset_hunk, { desc = "[G]it [r]eset hunk" })
+			map("n", "<leader>gR", gs.reset_buffer, { desc = "[G]it [Reset] buffer" })
 		end,
 	},
 }

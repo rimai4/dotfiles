@@ -35,12 +35,6 @@ map("v", "J", "<C-d>zz")
 map("i", "<A-BS>", "<C-w>")
 map("c", "<A-BS>", "<C-w>")
 
--- Skip word in insert and command mode
-map("i", "<A-Right>", "<S-Right>")
-map("i", "<A-Left>", "<S-Left>")
-map("c", "<A-Right>", "<S-Right>")
-map("c", "<A-Left>", "<S-Left>")
-
 -- Yank to clipboard
 map("v", "<leader>y", '"+y')
 map("n", "<leader>y", '"+y')
@@ -60,7 +54,7 @@ map("n", "]<Space>", ':<C-u>put =repeat(nr2char(10),v:count)<Bar>execute "\'[-1"
 -- Switch case
 map("n", "<leader>`", "~")
 
--- Substitute word under cursor, press . for next substitution
+-- Substitute word under cursor. Press . for next substitution
 map("n", "<leader>c", ":let @/='\\<'.expand('<cword>').'\\>'<CR>cgn")
 map("x", "<leader>c", '"sy:let @/=@s<CR>cgn')
 
@@ -90,28 +84,20 @@ map("s", "p", "<Nop>")
 map("n", "<leader>u", "gUiw")
 
 -- Go to the alternate file
-map("n", "<leader>a", "<C-6>")
+map("n", "<leader>a", "<C-6>zz")
 
--- Move between splits
+-- Move between splits in normal & terminal mode
 map("n", "<A-h>", "<C-w>h")
 map("n", "<A-j>", "<C-w>j")
 map("n", "<A-k>", "<C-w>k")
 map("n", "<A-l>", "<C-w>l")
-map("t", "<A-h>", "<C-\\><C-n><C-w>h")
-map("t", "<A-j>", "<C-\\><C-n><C-w>j")
-map("t", "<A-k>", "<C-\\><C-n><C-w>k")
-map("t", "<A-l>", "<C-\\><C-n><C-w>l")
+map("t", "<A-h>", "<cmd>wincmd h<CR>")
+map("t", "<A-j>", "<cmd>wincmd j<CR>")
+map("t", "<A-k>", "<cmd>wincmd k<CR>")
+map("t", "<A-l>", "<cmd>wincmd l<CR>")
 
 -- Escape in terminal mode
 map("t", "<Esc>", "<C-\\><C-n>")
-
--- Open terminals
-map("n", "<leader>tt", "<cmd>ToggleTerm direction=tab<CR>")
-map("n", "<leader>tv", "<cmd>ToggleTerm direction=vertical<CR>")
-map("n", "<leader>t2h", "<cmd>2ToggleTerm direction=horizontal<CR>")
-map("n", "<leader>t3h", "<cmd>3ToggleTerm direction=horizontal<CR>")
-map("n", "<leader>t2v", "<cmd>2ToggleTerm direction=vertical<CR>")
-map("n", "<leader>t3v", "<cmd>3ToggleTerm direction=vertical<CR>")
 
 -- Switch tabs
 map("n", "[t", "gT")

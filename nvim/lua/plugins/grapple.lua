@@ -19,4 +19,7 @@ return {
 			{ "<leader>4", function() grapple.select({ key = 4 }) end },
 		}
 	end,
+	opts = {
+		scope = "git_branch",
+	},
 }

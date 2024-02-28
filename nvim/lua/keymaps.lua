@@ -117,3 +117,7 @@ map("c", "<A-h>", "<Left>")
 map("c", "<A-l>", "<Right>")
 map("i", "<A-h>", "<Left>")
 map("i", "<A-l>", "<Right>")
+
+-- Create splits
+map("n", "<leader><right>", "<cmd>vs<cr>")
+map("n", "<leader><down>", "<cmd>sp<cr>")

@@ -23,6 +23,20 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+-- Always start terminals in insert mode
+vim.api.nvim_create_autocmd("BufWinEnter", {
+	pattern = "term://*",
+	callback = function()
+		vim.cmd("startinsert")
+	end,
+})
+vim.api.nvim_create_autocmd("WinEnter", {
+	pattern = "term://*",
+	callback = function()
+		vim.cmd("startinsert")
+	end,
+})
+
 -- Set htmldjango filetype
 vim.cmd("autocmd BufRead,BufNewFile *.djhtml set filetype=htmldjango")
 

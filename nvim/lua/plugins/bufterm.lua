@@ -16,7 +16,6 @@ return {
 	keys = {
 		{ "]]", "<cmd>BufTermNext<cr>" },
 		{ "[[", "<cmd>BufTermPrev<cr>" },
-		{ "<leader><cr>", "<cmd>BufTermEnter<cr>" },
 		{
 			"<leader><CR>",
 			"<cmd>BufTermEnter<cr>",

@@ -116,3 +116,7 @@ map("c", "<A-h>", "<Left>")
 map("c", "<A-l>", "<Right>")
 map("i", "<A-h>", "<Left>")
 map("i", "<A-l>", "<Right>")
+
+-- Escape in terminal mode
+map("t", "<C-[>", "<C-\\><C-n>")
+map("t", "<Esc>", "<Nop>") -- force myself to use C-[

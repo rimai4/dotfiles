@@ -17,8 +17,10 @@ map("n", "H", "^")
 map("n", "L", "$")
 map("v", "H", "^")
 map("v", "L", "$")
-map("s", "H", "H")
-map("s", "L", "L")
+map("s", "H", "^")
+map("s", "L", "$")
+map("o", "H", "^")
+map("o", "L", "$")
 
 -- Don't put single char deletes in register
 map("n", "x", '"_x')
@@ -96,9 +98,6 @@ map("t", "<A-j>", "<cmd>wincmd j<CR>")
 map("t", "<A-k>", "<cmd>wincmd k<CR>")
 map("t", "<A-l>", "<cmd>wincmd l<CR>")
 
--- Escape in terminal mode
-map("t", "<Esc>", "<C-\\><C-n>")
-
 -- Switch tabs
 map("n", "[t", "gT")
 map("n", "]t", "gt")
@@ -117,7 +116,3 @@ map("c", "<A-h>", "<Left>")
 map("c", "<A-l>", "<Right>")
 map("i", "<A-h>", "<Left>")
 map("i", "<A-l>", "<Right>")
-
--- Create splits
-map("n", "<leader><right>", "<cmd>vs<cr>")
-map("n", "<leader><down>", "<cmd>sp<cr>")

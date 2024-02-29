@@ -121,7 +121,5 @@ map("i", "<A-l>", "<Right>")
 map("t", "<C-[>", "<C-\\><C-n>")
 map("t", "<Esc>", "<Nop>") -- force myself to use C-[
 
--- Open split/tab
-map("n", "\\s", "<cmd>sp<cr>")
-map("n", "\\v", "<cmd>vs<cr>")
-map("n", "\\t", "<cmd>tabnew<cr>")
+-- Remap \ to C-w for window stuff
+map("n", "\\", "<C-w>")

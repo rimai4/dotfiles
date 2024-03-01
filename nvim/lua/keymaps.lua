@@ -3,35 +3,32 @@ local function map(mode, lhs, rhs, opts)
 	if opts then
 		options = vim.tbl_extend("force", options, opts)
 	end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+
+	if type(mode) == "table" then
+		for _, tablemode in ipairs(mode) do
+			vim.api.nvim_set_keymap(tablemode, lhs, rhs, options)
+		end
+	else
+		vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+	end
 end
 
 -- Swap ; and :
-map("n", ";", ":")
-map("n", ":", ";")
-map("v", ";", ":")
-map("v", ":", ";")
+map({ "n", "v" }, ";", ":")
+map({ "n", "v" }, ":", ";")
 
 -- Go to start and end of line with H and L
-map("n", "H", "^")
-map("n", "L", "$")
-map("v", "H", "^")
-map("v", "L", "$")
-map("s", "H", "^")
-map("s", "L", "$")
-map("o", "H", "^")
-map("o", "L", "$")
+map({ "n", "v", "s", "o" }, "H", "^")
+map({ "n", "v", "s", "o" }, "L", "$")
 
 -- Don't put single char deletes in register
 map("n", "x", '"_x')
 
 -- Page up/down & center
+map({ "n", "v" }, "K", "<C-u>zz")
+map({ "n", "v" }, "J", "<C-d>zz")
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
-map("n", "K", "<C-u>zz")
-map("n", "J", "<C-d>zz")
-map("v", "K", "<C-u>zz")
-map("v", "J", "<C-d>zz")
 
 -- Delete word in insert/command mode
 map("i", "<A-BS>", "<C-w>")
@@ -112,10 +109,8 @@ map("n", "<leader>w", "<cmd>w<CR>")
 map("n", "M", "m")
 
 -- Move left/right in command/insert mode with A-h and A-l
-map("c", "<A-h>", "<Left>")
-map("c", "<A-l>", "<Right>")
-map("i", "<A-h>", "<Left>")
-map("i", "<A-l>", "<Right>")
+map({ "c", "i" }, "<A-h>", "<Left>")
+map({ "c", "i" }, "<A-l>", "<Right>")
 
 -- Escape in terminal mode
 map("t", "<C-[>", "<C-\\><C-n>")

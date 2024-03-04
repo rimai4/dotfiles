@@ -35,8 +35,7 @@ map("i", "<A-BS>", "<C-w>")
 map("c", "<A-BS>", "<C-w>")
 
 -- Yank to clipboard
-map("v", "<leader>y", '"+y')
-map("n", "<leader>y", '"+y')
+map({ "n", "v" }, "<leader>y", '"+y')
 map("n", "<leader>Y", '"+yg_')
 map("n", "<leader>yy", '"+yy')
 
@@ -105,16 +104,12 @@ map("n", "<leader>tl", "<cmd>set number!<CR>")
 -- Save with <leader>w
 map("n", "<leader>w", "<cmd>w<CR>")
 
--- Remap M to m (mark) (m is used for flash)
-map("n", "M", "m")
-
 -- Move left/right in command/insert mode with A-h and A-l
 map({ "c", "i" }, "<A-h>", "<Left>")
 map({ "c", "i" }, "<A-l>", "<Right>")
 
 -- Escape in terminal mode
-map("t", "<C-[>", "<C-\\><C-n>")
-map("t", "<Esc>", "<Nop>") -- force myself to use C-[
+map("t", "<Esc>", "<C-\\><C-n>")
 
--- Remap \ to C-w for window stuff
+-- Remap \ to C-w
 map("n", "\\", "<C-w>")

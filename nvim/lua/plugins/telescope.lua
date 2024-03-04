@@ -6,44 +6,66 @@ return {
 		"debugloop/telescope-undo.nvim",
 		"nvim-telescope/telescope-file-browser.nvim",
 	},
-	keys = {
-		{ "<leader>sf", "<cmd>Telescope find_files<CR>", { desc = "[S]earch [f]iles" } },
-		{ "<leader>sb", "<cmd>Telescope buffers<CR>", { desc = "[S]earch [b]uffers" } },
-		{ "gb", "<cmd>Telescope buffers<CR>", { desc = "[g]o to [b]uffers" } },
-		{ "<leader>sw", "<cmd>Telescope grep_string<CR>", { desc = "[S]earch by [w]ord" } },
-		{ "<leader>sg", "<cmd>Telescope live_grep<CR>", { desc = "[S]earch by [g]rep" } },
-		{ "<leader>sh", "<cmd>Telescope help_tags<CR>", { desc = "[S]earch [h]elp" } },
-		{ "<leader>sd", "<cmd>Telescope diagnostics<CR>", { desc = "[S]earch [d]iagnostics" } },
-		{ "<leader>sc", "<cmd>Telescope command_history<CR>", { desc = "[S]earch [c]ommand history" } },
-		{ "<leader>ss", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "[S]earch [s]ymbols" } },
-		{
-			"<leader>sS",
-			"<cmd>Telescope lsp_dynamic_workspace_symbols<CR>",
-			{ desc = "[S]earch workspace [S]ymbols" },
-		},
-		{
-			"<leader>sr",
-			"<cmd>Telescope resume<CR>",
-			{ desc = "[S]earch [r]esume" },
-		},
-		{
-			"<leader>sR",
-			"<cmd>Telescope registers<CR>",
-			{ desc = "[S]earch [R]egisters" },
-		},
-		{ "<leader>su", "<cmd>Telescope undo<CR>", { desc = "[S]earch [u]ndo" } },
-		{ "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "[G]it [S]tatus" },
-		{
-			"<leader>so",
-			"<cmd>Telescope oldfiles<CR>",
-			{ desc = "[S]earch [o]ld files" },
-		},
-		{
-			"<leader>fb",
-			"<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>",
-			{ desc = "[F]ile [b]rowser" },
-		},
-	},
+	keys = function()
+		local telescope = require("telescope")
+		local builtin = require("telescope.builtin")
+
+		return {
+			{ "<leader>sf", builtin.find_files, { desc = "[S]earch [f]iles" } },
+			{ "<leader>sb", builtin.buffers, { desc = "[S]earch [b]uffers" } },
+			{ "gb", builtin.buffers, { desc = "[g]o to [b]uffers" } },
+			{ "<leader>sw", builtin.grep_string, { desc = "[S]earch by [w]ord" } },
+			{ "<leader>sg", builtin.live_grep, { desc = "[S]earch by [g]rep" } },
+			{ "<leader>sh", builtin.help_tags, { desc = "[S]earch [h]elp" } },
+			{ "<leader>sd", builtin.diagnostics, { desc = "[S]earch [d]iagnostics" } },
+			{ "<leader>sc", builtin.command_history, { desc = "[S]earch [c]ommand history" } },
+			{ "<leader>ss", builtin.lsp_document_symbols, { desc = "[S]earch [s]ymbols" } },
+			{
+				"<leader>sS",
+				builtin.lsp_dynamic_workspace_symbols,
+				{ desc = "[S]earch workspace [S]ymbols" },
+			},
+			{
+				"<leader>sr",
+				builtin.resume,
+				{ desc = "[S]earch [r]esume" },
+			},
+			{
+				"<leader>sR",
+				builtin.registers,
+				{ desc = "[S]earch [R]egisters" },
+			},
+			{ "<leader>gs", builtin.git_status, desc = "[G]it [S]tatus" },
+			{
+				"<leader>/",
+				function()
+					builtin.current_buffer_fuzzy_find({
+						previewer = false,
+					})
+				end,
+				desc = "[G]it [S]tatus",
+			},
+			{
+				"<leader>sn",
+				function()
+					builtin.find_files({ cwd = vim.fn.stdpath("config") })
+				end,
+				{ desc = "[S]ile [n]eovim config" },
+			},
+			{
+				"<leader>fb",
+				function()
+					telescope.extensions.file_browser.file_browser({
+						path = "%:p:h",
+						select_buffer = true,
+						hidden = true,
+					})
+				end,
+				{ desc = "[F]ile [b]rowser" },
+			},
+			{ "<leader>su", "<cmd>Telescope undo<cr>", { desc = "[S]earch [u]ndo" } },
+		}
+	end,
 	opts = function()
 		local actions = require("telescope.actions")
 		local layout = require("telescope.actions.layout")

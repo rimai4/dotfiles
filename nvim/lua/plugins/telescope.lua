@@ -104,6 +104,13 @@ return {
 					},
 					path_display = { "tail" },
 				},
+				git_status = {
+					mappings = {
+						i = {
+							["<C-s>"] = "git_staging_toggle",
+						},
+					},
+				},
 			},
 			extensions = {
 				file_browser = {

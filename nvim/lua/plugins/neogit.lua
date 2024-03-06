@@ -1,8 +1,7 @@
 return {
 	"NeogitOrg/neogit",
-  config = true,
-  	keys = {
-		{ "<leader>gg", "<cmd>Neogit<CR>", { desc = "[G]it [G]ood" } },
+	config = true,
+	keys = {
+		{ "<A-g>", "<cmd>Neogit kind=replace<CR>", { desc = "[G]it [G]ood" } },
 	},
 }
-

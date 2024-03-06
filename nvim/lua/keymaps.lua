@@ -78,9 +78,6 @@ map("n", "<leader>p", "a<space><esc>p")
 -- Unmap p in select mode (snippets)
 map("s", "p", "<Nop>")
 
--- Make word upper case
-map("n", "<leader>u", "gUiw")
-
 -- Go to the alternate file
 map("n", "<leader>a", "<C-6>zz")
 
@@ -113,3 +110,7 @@ map("t", "<Esc>", "<C-\\><C-n>")
 
 -- Remap \ to C-w
 map("n", "\\", "<C-w>")
+
+-- Resize splits horizontally
+map("n", "<A-Right>", "<cmd>vertical resize +5<CR>")
+map("n", "<A-Left>", "<cmd>vertical resize -5<CR>")

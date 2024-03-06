@@ -50,7 +50,7 @@ return {
 				function()
 					builtin.find_files({ cwd = vim.fn.stdpath("config") })
 				end,
-				{ desc = "[S]ile [n]eovim config" },
+				{ desc = "[S]earch [n]eovim config" },
 			},
 			{
 				"<leader>fb",
@@ -63,7 +63,11 @@ return {
 				end,
 				{ desc = "[F]ile [b]rowser" },
 			},
-			{ "<leader>su", "<cmd>Telescope undo<cr>", { desc = "[S]earch [u]ndo" } },
+			{
+				"<leader>su",
+				"<cmd>Telescope undo<cr>",
+				{ desc = "[S]earch [u]ndo" },
+			},
 		}
 	end,
 	opts = function()

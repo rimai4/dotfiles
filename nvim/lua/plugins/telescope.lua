@@ -124,6 +124,7 @@ return {
 						["i"] = {
 							["<S-CR>"] = fb_actions.create,
 							["<S-BS>"] = fb_actions.remove,
+							["<C-h>"] = fb_actions.toggle_respect_gitignore,
 						},
 					},
 				},

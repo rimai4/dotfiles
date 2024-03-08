@@ -110,7 +110,3 @@ map("t", "<Esc>", "<C-\\><C-n>")
 
 -- Remap \ to C-w
 map("n", "\\", "<C-w>")
-
--- Resize splits horizontally
-map("n", "<A-Right>", "<cmd>vertical resize +5<CR>")
-map("n", "<A-Left>", "<cmd>vertical resize -5<CR>")

@@ -22,7 +22,7 @@ return {
 				},
 				lualine_c = {
 					{
-						require("grapple").key,
+						require("grapple").statusline,
 						cond = require("grapple").exists,
 					},
 					"diagnostics",

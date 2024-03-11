@@ -1,23 +1,16 @@
 return {
 	"cbochs/grapple.nvim",
-	version = "0.8.1",
 	keys = function()
 		local grapple = require("grapple")
 
     -- stylua: ignore
 		return {
-			{
-        "<leader>ma",
-        function()
-          grapple.tag()
-          print("file marked")
-        end
-      },
-			{ "<leader>mm", function() grapple.popup_tags() end },
-			{ "<leader>1", function() grapple.select({ key = 1 }) end },
-			{ "<leader>2", function() grapple.select({ key = 2 }) end },
-			{ "<leader>3", function() grapple.select({ key = 3 }) end },
-			{ "<leader>4", function() grapple.select({ key = 4 }) end },
+			{ "<leader>ma", grapple.tag },
+			{ "<leader>mm", grapple.toggle_tags },
+			{ "<leader>1", function() grapple.select({ index = 1 }) end },
+			{ "<leader>2", function() grapple.select({ index = 2 }) end },
+			{ "<leader>3", function() grapple.select({ index = 3 }) end },
+			{ "<leader>4", function() grapple.select({ index = 4 }) end },
 		}
 	end,
 	opts = {

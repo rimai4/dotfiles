@@ -107,6 +107,7 @@ map({ "c", "i" }, "<A-l>", "<Right>")
 
 -- Escape in terminal mode
 map("t", "<Esc>", "<C-\\><C-n>")
+map("t", "jk", "<C-\\><C-n>")
 
 -- Remap \ to C-w
 map("n", "\\", "<C-w>")

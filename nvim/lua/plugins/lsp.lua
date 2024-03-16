@@ -48,9 +48,9 @@ return {
 			vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+			vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, opts)
 			-- This assumes that Telescope is already loaded
 			vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-			vim.keymap.set("n", "<leader>d", vim.lsp.buf.type_definition, opts)
 			vim.keymap.set("n", "<Tab>", vim.lsp.buf.hover, opts)
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 

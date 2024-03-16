@@ -3,7 +3,7 @@ return {
 	opts = {
 		modes = {
 			char = {
-				enabled = false,
+				enabled = true,
 			},
 			search = {
 				enabled = false,

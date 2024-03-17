@@ -7,10 +7,6 @@ return {
 		},
 		{
 			"<leader>D",
-			"<cmd>DiffviewClose<cr>",
-		},
-		{
-			"<leader>gp",
 			"<cmd>DiffviewOpen origin/main<cr>",
 		},
 	},

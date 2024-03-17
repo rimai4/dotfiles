@@ -24,16 +24,18 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Always start terminals in insert mode
-vim.api.nvim_create_autocmd("BufWinEnter", {
+vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
 	pattern = "term://*",
 	callback = function()
 		vim.cmd("startinsert")
 	end,
 })
-vim.api.nvim_create_autocmd("WinEnter", {
-	pattern = "term://*",
+
+-- Close diffview with q
+vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
+	pattern = "diffview://*",
 	callback = function()
-		vim.cmd("startinsert")
+		vim.api.nvim_buf_set_keymap(0, "n", "q", "<cmd>tabclose<cr>", {})
 	end,
 })
 

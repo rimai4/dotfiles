@@ -5,6 +5,10 @@ return {
 		"nvim-lua/plenary.nvim",
 		"debugloop/telescope-undo.nvim",
 		"nvim-telescope/telescope-file-browser.nvim",
+		{
+			"nvim-telescope/telescope-fzf-native.nvim",
+			build = "make",
+		},
 	},
 	keys = function()
 		local telescope = require("telescope")

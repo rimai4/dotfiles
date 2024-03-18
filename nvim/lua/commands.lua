@@ -32,7 +32,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 -- Close diffview with q
-vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
+vim.api.nvim_create_autocmd("BufEnter", {
 	pattern = "diffview://*",
 	callback = function()
 		vim.api.nvim_buf_set_keymap(0, "n", "q", "<cmd>tabclose<cr>", {})

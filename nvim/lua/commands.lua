@@ -24,7 +24,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Always start terminals in insert mode
-vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
+vim.api.nvim_create_autocmd("BufEnter", {
 	pattern = "term://*",
 	callback = function()
 		vim.cmd("startinsert")

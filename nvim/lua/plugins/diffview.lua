@@ -9,5 +9,9 @@ return {
 			"<leader>D",
 			"<cmd>DiffviewOpen origin/main<cr>",
 		},
+		{
+			"<leader>fh",
+			"<cmd>DiffviewFileHistory %<cr>",
+		},
 	},
 }

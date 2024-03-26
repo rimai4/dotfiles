@@ -30,6 +30,7 @@ return {
 					information = { "undercurl" },
 				},
 			},
+			neogit = true,
 			neotree = true,
 		},
 	},

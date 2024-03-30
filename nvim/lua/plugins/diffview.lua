@@ -14,4 +14,9 @@ return {
 			"<cmd>DiffviewFileHistory %<cr>",
 		},
 	},
+	opts = {
+		file_panel = {
+			listing_style = "list",
+		},
+	},
 }

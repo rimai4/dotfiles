@@ -5,6 +5,7 @@ return {
 		modes = {
 			char = {
 				enabled = true,
+				keys = { "f", "F", "t", "T", ",", [";"] = ":" },
 			},
 			search = {
 				enabled = false,

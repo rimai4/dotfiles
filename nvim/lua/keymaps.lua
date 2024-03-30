@@ -50,7 +50,7 @@ map("n", "[<Space>", ':<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "\']+1"
 map("n", "]<Space>", ':<C-u>put =repeat(nr2char(10),v:count)<Bar>execute "\'[-1"<CR>')
 
 -- Switch case
-map("n", "<leader>`", "~")
+map("n", "`", "~h")
 
 -- Substitute word under cursor. Press . for next substitution
 map("n", "<leader>c", ":let @/='\\<'.expand('<cword>').'\\>'<CR>cgn")

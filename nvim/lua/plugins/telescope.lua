@@ -47,7 +47,7 @@ return {
 						previewer = false,
 					})
 				end,
-				desc = "[G]it [S]tatus",
+				desc = "Current buffer fuzzy find",
 			},
 			{
 				"<leader>sn",
@@ -59,11 +59,17 @@ return {
 			{
 				"<leader>fb",
 				function()
-					telescope.extensions.file_browser.file_browser({
-						path = "%:p:h",
-						select_buffer = true,
-						hidden = true,
-					})
+					-- Height is at least 30 lines.
+					-- If half of the screen is more than 30 lines, use half of the screen.
+					local linecount = vim.api.nvim_win_get_height(0)
+					local minheight = 30
+					local height = linecount / 2 > minheight and linecount / 2 or minheight
+
+					telescope.extensions.file_browser.file_browser(require("telescope.themes").get_ivy({
+						layout_config = {
+							height = height,
+						},
+					}))
 				end,
 				{ desc = "[F]ile [b]rowser" },
 			},
@@ -115,7 +121,8 @@ return {
 			},
 			extensions = {
 				file_browser = {
-					display_stat = false,
+					path = "%:p:h",
+					select_buffer = true,
 					hidden = true,
 					mappings = {
 						["i"] = {

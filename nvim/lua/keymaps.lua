@@ -30,6 +30,10 @@ map({ "n", "v" }, "J", "<C-d>zz")
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 
+-- Move backwards/forwards in jumplist & center
+map("n", "<C-i>", "<C-i>zz")
+map("n", "<C-o>", "<C-o>zz")
+
 -- Delete word in insert/command mode
 map("i", "<A-BS>", "<C-w>")
 map("c", "<A-BS>", "<C-w>")

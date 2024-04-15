@@ -63,21 +63,17 @@ return {
 				require("conform").format()
 			end, opts)
 
-			-- Typescript imports
+			-- Typescript commands
 			if client.name == "vtsls" then
-				vim.keymap.set(
-					"n",
-					"<leader>ir",
-					"<cmd>VtsExec remove_unused_imports<CR>",
-					{ desc = "[I]mports - [R]emove unused" }
-				)
+				vim.keymap.set("n", "<leader>rf", "<cmd>VtsExec rename_file<CR>", { desc = "[R]ename [F]ile" })
+
+				-- Imports
 				vim.keymap.set(
 					"n",
 					"<leader>ia",
 					"<cmd>VtsExec add_missing_imports<CR>",
 					{ desc = "[I]mports - [A]dd missing" }
 				)
-				vim.keymap.set("n", "<leader>rf", "<cmd>VtsExec rename_file<CR>", { desc = "[R]ename [F]ile" })
 				vim.keymap.set(
 					"n",
 					"<leader>io",

@@ -1,4 +1,4 @@
-function l --wraps='ls -la' --wraps='ls -l' --wraps='exa -1 --icons' --description 'alias l exa -1 --icons'
-  exa -1 --icons $argv
+function l --wraps='ls -la' --wraps='ls -l' --wraps='eza -1 --icons' --description 'alias l eza -1 --icons'
+  eza -1 --icons $argv
         
 end

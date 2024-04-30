@@ -7,3 +7,5 @@ set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
 set --export PYTHONBREAKPOINT "ipdb.set_trace"
+
+source /opt/homebrew/opt/asdf/libexec/asdf.fish

@@ -34,10 +34,6 @@ map("n", "<C-u>", "<C-u>zz")
 map("n", "<C-i>", "<C-i>zz")
 map("n", "<C-o>", "<C-o>zz")
 
--- Delete word in insert/command mode
-map("i", "<A-BS>", "<C-w>")
-map("c", "<A-BS>", "<C-w>")
-
 -- Yank to clipboard
 map({ "n", "v" }, "<leader>y", '"+y')
 map("n", "<leader>Y", '"+yg_')
@@ -53,7 +49,7 @@ map("v", "p", '"_dP')
 map("n", "[<Space>", ':<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "\']+1"<CR>')
 map("n", "]<Space>", ':<C-u>put =repeat(nr2char(10),v:count)<Bar>execute "\'[-1"<CR>')
 
--- Switch case
+-- Switch case and stay on same character
 map("n", "`", "~h")
 
 -- Substitute word under cursor. Press . for next substitution

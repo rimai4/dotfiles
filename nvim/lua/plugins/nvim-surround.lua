@@ -13,6 +13,7 @@ return {
 			delete = "sd",
 			change = "sr",
 		},
+		-- Don't add whitespace to bracket surrounds
 		surrounds = {
 			["("] = {
 				add = { "(", ")" },

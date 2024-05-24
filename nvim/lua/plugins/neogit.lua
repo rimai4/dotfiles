@@ -1,7 +1,8 @@
 return {
 	"NeogitOrg/neogit",
-	config = true,
+	version = "0.0.1",
 	keys = {
 		{ "<A-g>", "<cmd>Neogit<CR>" },
 	},
+	config = true,
 }

@@ -4,14 +4,12 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"debugloop/telescope-undo.nvim",
-		"nvim-telescope/telescope-file-browser.nvim",
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
 			build = "make",
 		},
 	},
 	keys = function()
-		local telescope = require("telescope")
 		local builtin = require("telescope.builtin")
 
 		return {
@@ -57,17 +55,6 @@ return {
 				{ desc = "[S]earch [n]eovim config" },
 			},
 			{
-				"<leader>fb",
-				function()
-					telescope.extensions.file_browser.file_browser(require("telescope.themes").get_ivy({
-						layout_config = {
-							height = 0.7,
-						},
-					}))
-				end,
-				{ desc = "[F]ile [b]rowser" },
-			},
-			{
 				"<leader>su",
 				"<cmd>Telescope undo<cr>",
 				{ desc = "[S]earch [u]ndo" },
@@ -77,7 +64,6 @@ return {
 	opts = function()
 		local actions = require("telescope.actions")
 		local layout = require("telescope.actions.layout")
-		local fb_actions = require("telescope").extensions.file_browser.actions
 
 		return {
 			defaults = {
@@ -113,26 +99,11 @@ return {
 					path_display = { "tail" },
 				},
 			},
-			extensions = {
-				file_browser = {
-					path = "%:p:h",
-					select_buffer = true,
-					hidden = true,
-					mappings = {
-						["i"] = {
-							["<S-CR>"] = fb_actions.create,
-							["<S-BS>"] = fb_actions.remove,
-							["<C-h>"] = fb_actions.toggle_respect_gitignore,
-						},
-					},
-				},
-			},
 		}
 	end,
 	config = function(_, opts)
 		require("telescope").setup(opts)
 		require("telescope").load_extension("fzf")
 		require("telescope").load_extension("undo")
-		require("telescope").load_extension("file_browser")
 	end,
 }

@@ -23,26 +23,11 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
--- Always start terminals in insert mode
--- vim.api.nvim_create_autocmd({ "WinEnter", "BufWinEnter" }, {
--- 	pattern = "term://*",
--- 	callback = function()
--- 		vim.cmd("startinsert")
--- 	end,
--- })
-
 -- Close diffview with q
 vim.api.nvim_create_autocmd("BufEnter", {
 	pattern = "diffview://*",
 	callback = function()
 		vim.api.nvim_buf_set_keymap(0, "n", "q", "<cmd>tabclose<cr>", {})
-	end,
-})
-
--- Go to previous tab after closing a tab
-vim.api.nvim_create_autocmd("TabClosed", {
-	callback = function()
-		vim.cmd("tabprevious")
 	end,
 })
 

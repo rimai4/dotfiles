@@ -142,6 +142,11 @@ return {
 			completion = {
 				completeopt = "menuone,noselect",
 			},
+			snippet = {
+				expand = function(args)
+					luasnip.lsp_expand(args.body)
+				end,
+			},
 		})
 	end,
 }

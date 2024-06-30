@@ -34,7 +34,7 @@ map("n", "<C-u>", "<C-u>zz")
 map("n", "<C-i>", "<C-i>zz")
 map("n", "<C-o>", "<C-o>zz")
 
--- Yank to clipboard
+-- Yank to system clipboard with <leader>y
 map({ "n", "v" }, "<leader>y", '"+y')
 map("n", "<leader>Y", '"+yg_')
 map("n", "<leader>yy", '"+yy')
@@ -78,18 +78,8 @@ map("n", "<leader>p", "a<space><esc>p")
 -- Unmap p in select mode (snippets)
 map("s", "p", "<Nop>")
 
--- Go to the alternate file
+-- Go to the alternate file & center
 map("n", "<leader>a", "<C-6>zz")
-
--- Move between splits in normal & terminal mode
-map("n", "<A-h>", "<C-w>h")
-map("n", "<A-j>", "<C-w>j")
-map("n", "<A-k>", "<C-w>k")
-map("n", "<A-l>", "<C-w>l")
-map("t", "<A-h>", "<cmd>wincmd h<CR>")
-map("t", "<A-j>", "<cmd>wincmd j<CR>")
-map("t", "<A-k>", "<cmd>wincmd k<CR>")
-map("t", "<A-l>", "<cmd>wincmd l<CR>")
 
 -- Switch tabs
 map("n", "[t", "gT")
@@ -105,6 +95,20 @@ map("n", "<leader>w", "<cmd>w<CR>")
 map({ "c", "i" }, "<A-h>", "<Left>")
 map({ "c", "i" }, "<A-l>", "<Right>")
 
+-- TERMINAL MAPPINGS
+-- Move between splits in normal & terminal mode
+map("n", "<A-h>", "<C-w>h")
+map("n", "<A-j>", "<C-w>j")
+map("n", "<A-k>", "<C-w>k")
+map("n", "<A-l>", "<C-w>l")
+map("t", "<A-h>", "<cmd>wincmd h<CR>")
+map("t", "<A-j>", "<cmd>wincmd j<CR>")
+map("t", "<A-k>", "<cmd>wincmd k<CR>")
+map("t", "<A-l>", "<cmd>wincmd l<CR>")
+
 -- Escape in terminal mode
 map("t", "<Esc>", "<C-\\><C-n>")
 map("t", "jk", "<C-\\><C-n>")
+
+-- Open terminal in right split
+map("n", "tr", "<cmd>vs<cr><cmd>BufTermEnter<cr>")

@@ -15,12 +15,15 @@ return {
 		flavour = "macchiato",
 		no_italic = true,
 		integrations = {
-			flash = true,
 			cmp = true,
-			treesitter = true,
-			telescope = true,
+			diffview = true,
+			flash = true,
 			gitsigns = true,
 			mason = true,
+			neogit = true,
+			neotree = true,
+			telescope = true,
+			treesitter = true,
 			native_lsp = {
 				enabled = true,
 				underlines = {
@@ -30,8 +33,6 @@ return {
 					information = { "undercurl" },
 				},
 			},
-			neogit = true,
-			neotree = true,
 		},
 	},
 }

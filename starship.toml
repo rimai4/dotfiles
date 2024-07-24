@@ -4,7 +4,8 @@ $directory\
 $git_branch\
 $git_status\
 $line_break\
-$character"""
+$character
+"""
 
 [directory]
 style = "green"
@@ -21,14 +22,14 @@ format = "[$branch]($style)"
 style = "blue"
 
 [git_status]
-format = " [[(☢︎$conflicted$untracked$modified$staged$renamed$deleted)](218)]($style)"
-style = "cyan"
-conflicted = "​"
-untracked = "​"
-modified = "​"
-staged = "​"
-renamed = "​"
-deleted = "​"
+format = " [(☢︎$conflicted$untracked$modified$staged$renamed$deleted)]($style)"
+style = "yellow"
+conflicted = " "
+untracked = " "
+modified = " "
+staged = " "
+renamed = " "
+deleted = " "
 
 # add virtal env on separate line
 [python]

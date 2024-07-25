@@ -1,5 +1,5 @@
 # Commands to run in interactive sessions can go in the block below.
-# Interactive session means a terminal window. Non-interactive sessions are run without user input, such as:
+# Interactive session means a terminal session. Non-interactive sessions are run without user input, such as:
 # Cron jobs, scripts, docker entrypoints etc.
 # So put stuff here that is only required when running inside a terminal and not a script for example.
 # aliases, keybinds, environment variables that only affect terminal usage & setup for tools only used in the terminal
@@ -16,11 +16,8 @@ if status is-interactive
   # python debugger
   set -x PYTHONBREAKPOINT "ipdb.set_trace"
 
-  # asdf
-  source ~/.asdf/asdf.fish
-
-  # starship
-  starship init fish | source
+  # mise
+  ~/.local/bin/mise activate fish | source
 end
 
 # bun

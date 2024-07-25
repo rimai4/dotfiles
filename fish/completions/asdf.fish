@@ -1,1 +1,0 @@
-/Users/remy/.asdf/completions/asdf.fish

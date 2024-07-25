@@ -3,12 +3,12 @@ Tools
 - neovim
 - kitty
 - fish
+- mise
+- atuin
+- fzf
+- lucid prompt (installed with fisher)
+- zoxide
 - fd
 - rg
-- starship
-- zoxide
-- fzf
-- atuin
 - eza
-- asdf (mise?)
 - bat

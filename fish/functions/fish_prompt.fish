@@ -1,6 +1,6 @@
 # Default appearance options. Override in config.fish if you want.
 if ! set -q lucid_dirty_indicator
-    set -g lucid_dirty_indicator "☢"
+    set -g lucid_dirty_indicator "•"
 end
 
 if ! set -q lucid_prompt_symbol
@@ -24,17 +24,12 @@ if ! set -q lucid_clean_indicator
     set -g lucid_clean_indicator (string replace -r -a '.' ' ' $lucid_dirty_indicator)
 end
 
-# COLORS: cwd=green, branch=blue, dirty=yellow
 if ! set -q lucid_cwd_color
     set -g lucid_cwd_color green
 end
 
 if ! set -q lucid_git_color
     set -g lucid_git_color blue
-end
-
-if ! set -q lucid_dirty_color
-    set -g lucid_dirty_color yellow
 end
 
 # State used for memoization and async calls.
@@ -172,11 +167,10 @@ function __lucid_git_status
     set_color $lucid_git_color
     echo -n $__lucid_git_static ''
 
-    set_color $lucid_dirty_color
     if ! test -z $__lucid_dirty
         echo -n $__lucid_dirty
     else if ! test -z $prev_dirty
-        set_color --dim $lucid_dirty_color
+        set_color --dim $lucid_git_color
         echo -n $prev_dirty
         set_color normal
     end

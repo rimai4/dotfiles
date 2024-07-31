@@ -108,6 +108,7 @@ map("t", "<A-l>", "<cmd>wincmd l<CR>")
 
 -- Escape in terminal mode
 map("t", "<Esc>", "<C-\\><C-n>")
+map("t", "jk", "<C-\\><C-n>")
 
 -- Open terminal in right split
 map("n", "tr", "<cmd>vs<cr><cmd>BufTermEnter<cr>")

@@ -85,6 +85,9 @@ return {
 						["<Esc>"] = actions.close,
 					},
 				},
+				preview = {
+					filesize_limit = 5,
+				},
 			},
 			pickers = {
 				oldfiles = {

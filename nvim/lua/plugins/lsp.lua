@@ -1,7 +1,7 @@
 return {
 	"VonHeikemen/lsp-zero.nvim",
 	branch = "v3.x",
-	event = "InsertEnter",
+	event = { "BufReadPost", "BufNewFile" },
 	dependencies = {
 		-- LSP Support
 		{ "neovim/nvim-lspconfig" },
@@ -49,8 +49,6 @@ return {
 
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 			vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, opts)
-			-- This assumes that Telescope is already loaded
-			vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
 			vim.keymap.set("n", "<Tab>", vim.lsp.buf.hover, opts)
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 

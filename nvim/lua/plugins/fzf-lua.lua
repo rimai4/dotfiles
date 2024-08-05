@@ -39,28 +39,40 @@ return {
 		end
 
 		return {
-			winopts = {
-				width = 0.8,
-				height = 0.9,
-				preview = {
-					hidden = "nohidden",
-					vertical = "up:45%",
-					horizontal = "right:50%",
-					layout = "flex",
-					flip_columns = 120,
-					delay = 10,
-					winopts = {
-						number = false,
-					},
-				},
+			defaults = {
+				git_icons = false,
+				file_icons = false,
 			},
 			keymap = {
 				builtin = {
 					["<C-d>"] = "preview-page-down",
 					["<C-u>"] = "preview-page-up",
 				},
-				fzf = {
-					["ctrl-t"] = "toggle-all",
+			},
+			actions = {
+				files = {
+					["default"] = actions.file_edit_or_qf,
+					["ctrl-s"] = actions.file_split,
+					["ctrl-v"] = actions.file_vsplit,
+					["ctrl-q"] = actions.buf_sel_to_qf,
+				},
+				buffers = {
+					["default"] = actions.buf_edit,
+					["ctrl-s"] = actions.buf_split,
+					["ctrl-v"] = actions.buf_vsplit,
+				},
+			},
+			winopts = {
+				width = 0.8,
+				height = 0.9,
+				preview = {
+					hidden = "nohidden",
+					layout = "flex",
+					flip_columns = 140,
+					delay = 10,
+					winopts = {
+						number = false,
+					},
 				},
 			},
 			fzf_colors = {
@@ -93,23 +105,6 @@ return {
 				cursorline = hl_validate("TelescopeSelection"),
 				cursorlinenr = hl_validate("TelescopeSelection"),
 				search = hl_validate("IncSearch"),
-			},
-			actions = {
-				files = {
-					["default"] = actions.file_edit_or_qf,
-					["ctrl-s"] = actions.file_split,
-					["ctrl-v"] = actions.file_vsplit,
-					["ctrl-q"] = actions.buf_sel_to_qf,
-				},
-				buffers = {
-					["default"] = actions.buf_edit,
-					["ctrl-s"] = actions.buf_split,
-					["ctrl-v"] = actions.buf_vsplit,
-				},
-			},
-			defaults = {
-				git_icons = false,
-				file_icons = false,
 			},
 		}
 	end,

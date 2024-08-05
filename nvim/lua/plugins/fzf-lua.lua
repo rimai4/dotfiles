@@ -41,7 +41,7 @@ return {
 		return {
 			defaults = {
 				git_icons = false,
-				file_icons = false,
+				file_icons = true,
 			},
 			keymap = {
 				builtin = {
@@ -66,6 +66,7 @@ return {
 				width = 0.8,
 				height = 0.9,
 				preview = {
+					horizontal = "right:50%",
 					hidden = "nohidden",
 					layout = "flex",
 					flip_columns = 140,

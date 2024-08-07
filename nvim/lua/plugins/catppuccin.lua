@@ -18,6 +18,7 @@ return {
 			cmp = true,
 			diffview = true,
 			flash = true,
+			fzf = true,
 			gitsigns = true,
 			mason = true,
 			neogit = true,

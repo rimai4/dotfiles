@@ -31,12 +31,7 @@ return {
 		}
 	end,
 	opts = function()
-		local utils = require("fzf-lua").utils
 		local actions = require("fzf-lua").actions
-
-		local function hl_validate(hl)
-			return not utils.is_hl_cleared(hl) and hl or nil
-		end
 
 		return {
 			defaults = {
@@ -76,36 +71,24 @@ return {
 					},
 				},
 			},
+			-- Removed all non-existing telescope highlights that were present in telescope profile
+			-- See https://github.com/ibhagwan/fzf-lua/blob/main/lua/fzf-lua/profiles/telescope.lua
 			fzf_colors = {
-				["fg"] = { "fg", "TelescopeNormal" },
-				["bg"] = { "bg", "TelescopeNormal" },
 				["hl"] = { "fg", "TelescopeMatching" },
 				["fg+"] = { "fg", "TelescopeSelection" },
 				["bg+"] = { "bg", "TelescopeSelection" },
 				["hl+"] = { "fg", "TelescopeMatching" },
-				["info"] = { "fg", "TelescopeMultiSelection" },
 				["border"] = { "fg", "TelescopeBorder" },
-				["gutter"] = { "bg", "TelescopeNormal" },
-				["query"] = { "fg", "TelescopePromptNormal" },
-				["prompt"] = { "fg", "TelescopePromptPrefix" },
 				["pointer"] = { "fg", "TelescopeSelectionCaret" },
 				["marker"] = { "fg", "TelescopeSelectionCaret" },
-				["header"] = { "fg", "TelescopeTitle" },
 			},
-			hls = {
-				normal = hl_validate("TelescopeNormal"),
-				border = hl_validate("TelescopeBorder"),
-				title = hl_validate("TelescopePromptTitle"),
-				help_normal = hl_validate("TelescopeNormal"),
-				help_border = hl_validate("TelescopeBorder"),
-				preview_normal = hl_validate("TelescopeNormal"),
-				preview_border = hl_validate("TelescopeBorder"),
-				preview_title = hl_validate("TelescopePreviewTitle"),
-				-- builtin preview only
-				cursor = hl_validate("Cursor"),
-				cursorline = hl_validate("TelescopeSelection"),
-				cursorlinenr = hl_validate("TelescopeSelection"),
-				search = hl_validate("IncSearch"),
+			lsp = {
+				symbols = {
+					-- false: disable,    1: icon+kind
+					--     2: icon only,  3: kind only
+					symbol_style = 1,
+					child_prefix = false,
+				},
 			},
 		}
 	end,

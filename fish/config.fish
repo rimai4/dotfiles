@@ -20,7 +20,7 @@ if status is-interactive
   ~/.local/bin/mise activate fish | source
 
   # fzf
-  set -x FZF_DEFAULT_OPTS "--layout=reverse -m --bind=ctrl-t:toggle-all,tab:toggle"
+  set -x FZF_DEFAULT_OPTS "--layout=reverse -m --bind=ctrl-t:toggle-all"
 end
 
 # bun

@@ -1,110 +1,82 @@
 local wezterm = require("wezterm")
 
-return {
-  font_size = 16,
-  check_for_updates = false,
-  window_decorations = "RESIZE",
-  force_reverse_video_cursor = true,
-  hide_tab_bar_if_only_one_tab = true,
-  color_scheme = "Sonokai (Gogh)",
-  font = wezterm.font("SFMono Nerd Font"),
-  colors = {
-    background = "#262e3c",
-    ansi = {
-      "#181a1c",
-      "#ff6578",
-      "#9dd274",
-      "#eacb64",
-      "#f69c5e",
-      "#ba9cf3",
-      "#72cce8",
-      "#e1e3e4",
-    },
-  },
-  inactive_pane_hsb = {
-    saturation = 0.8,
-    brightness = 0.7,
-  },
-  quick_select_patterns = {
-    '"[^"]+"',
-  },
-  keys = {
-    { key = "x", mods = "CMD", action = wezterm.action.ActivateCopyMode },
-    { key = "s", mods = "CMD", action = wezterm.action.QuickSelect },
-    { key = "r", mods = "CMD", action = wezterm.action.RotatePanes("Clockwise") },
-    {
-      key = "z",
-      mods = "CMD",
-      action = wezterm.action.TogglePaneZoomState,
-    },
-    {
-      key = "Enter",
-      mods = "CMD",
-      action = wezterm.action.SplitHorizontal,
-    },
-    {
-      key = "Enter",
-      mods = "CMD|SHIFT",
-      action = wezterm.action.SplitVertical,
-    },
-    {
-      key = "w",
-      mods = "CMD",
-      action = wezterm.action.CloseCurrentPane({ confirm = true }),
-    },
-    {
-      key = "Backspace",
-      mods = "CMD",
-      action = wezterm.action.SendKey({
-        key = "u",
-        mods = "CTRL",
-      }),
-    },
-    {
-      key = "RightArrow",
-      mods = "CMD",
-      action = wezterm.action.SendKey({
-        key = "e",
-        mods = "CTRL",
-      }),
-    },
-    {
-      key = "LeftArrow",
-      mods = "CMD",
-      action = wezterm.action.SendKey({
-        key = "a",
-        mods = "CTRL",
-      }),
-    },
-    {
-      key = "[",
-      mods = "CMD",
-      action = wezterm.action.ActivatePaneDirection("Prev"),
-    },
-    {
-      key = "]",
-      mods = "CMD",
-      action = wezterm.action.ActivatePaneDirection("Next"),
-    },
-    {
-      key = "RightArrow",
-      mods = "SHIFT",
-      action = wezterm.action.AdjustPaneSize({ "Right", 8 }),
-    },
-    {
-      key = "LeftArrow",
-      mods = "SHIFT",
-      action = wezterm.action.AdjustPaneSize({ "Left", 8 }),
-    },
-    {
-      key = "UpArrow",
-      mods = "SHIFT",
-      action = wezterm.action.AdjustPaneSize({ "Up", 3 }),
-    },
-    {
-      key = "DownArrow",
-      mods = "SHIFT",
-      action = wezterm.action.AdjustPaneSize({ "Down", 3 }),
-    },
-  },
+local config = {}
+
+config.disable_default_key_bindings = false -- disable all default keybinds
+config.font_size = 17
+config.check_for_updates = false
+config.window_decorations = "RESIZE"
+config.force_reverse_video_cursor = true
+config.hide_tab_bar_if_only_one_tab = false
+config.color_scheme = "Catppuccin Macchiato"
+config.font = wezterm.font("SFMono Nerd Font")
+
+config.inactive_pane_hsb = {
+	brightness = 0.9,
 }
+
+config.quick_select_patterns = {
+	"\\d{5,}", -- numbers with at least 5 chars
+}
+
+config.leader = { key = "m", mods = "CTRL", timeout_milliseconds = 2000 }
+
+config.keys = {
+	{
+		key = "t",
+		mods = "CMD",
+		action = wezterm.action.SpawnTab("CurrentPaneDomain"),
+	},
+	{
+		key = "v",
+		mods = "CTRL",
+		action = wezterm.action.PasteFrom("Clipboard"),
+	},
+	{
+		key = "h",
+		mods = "LEADER",
+		action = wezterm.action.ActivatePaneDirection("Left"),
+	},
+	{
+		key = "l",
+		mods = "LEADER",
+		action = wezterm.action.ActivatePaneDirection("Right"),
+	},
+	{
+		key = "j",
+		mods = "LEADER",
+		action = wezterm.action.ActivatePaneDirection("Down"),
+	},
+	{
+		key = "k",
+		mods = "LEADER",
+		action = wezterm.action.ActivatePaneDirection("Up"),
+	},
+	{
+		key = "RightArrow",
+		mods = "OPT",
+		action = wezterm.action.AdjustPaneSize({ "Right", 8 }),
+	},
+	{
+		key = "LeftArrow",
+		mods = "OPT",
+		action = wezterm.action.AdjustPaneSize({ "Left", 8 }),
+	},
+	{
+		key = "UpArrow",
+		mods = "OPT",
+		action = wezterm.action.AdjustPaneSize({ "Up", 3 }),
+	},
+	{
+		key = "DownArrow",
+		mods = "OPT",
+		action = wezterm.action.AdjustPaneSize({ "Down", 3 }),
+	},
+	{ key = "c", mods = "LEADER", action = wezterm.action.ActivateCopyMode },
+	{ key = "y", mods = "LEADER", action = wezterm.action.QuickSelect },
+	{ key = "z", mods = "LEADER", action = wezterm.action.TogglePaneZoomState },
+	{ key = "s", mods = "LEADER", action = wezterm.action.SplitVertical },
+	{ key = "v", mods = "LEADER", action = wezterm.action.SplitHorizontal },
+}
+
+return config

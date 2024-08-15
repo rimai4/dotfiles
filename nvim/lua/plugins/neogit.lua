@@ -5,6 +5,7 @@ return {
 	},
 	config = true,
 	opts = {
+		kind = "replace",
 		integrations = {
 			-- should be autodetected but isn't
 			fzf_lua = true,

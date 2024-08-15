@@ -95,6 +95,9 @@ map("n", "<leader>w", "<cmd>w<CR>")
 map({ "c", "i" }, "<A-h>", "<Left>")
 map({ "c", "i" }, "<A-l>", "<Right>")
 
+-- Switch tab
+map({ "t", "i" }, "<C-Tab>", "<cmd>tabnext<cr>")
+
 -- TERMINAL MAPPINGS
 -- Move between splits in normal & terminal mode
 map("n", "<A-h>", "<C-w>h")

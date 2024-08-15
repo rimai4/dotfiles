@@ -42,6 +42,7 @@ return {
 				builtin = {
 					["<C-d>"] = "preview-page-down",
 					["<C-u>"] = "preview-page-up",
+					["<Esc>"] = "hide",
 				},
 			},
 			actions = {

@@ -5,6 +5,8 @@ vim.opt.termguicolors = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+vim.opt.cmdwinheight = 20
+
 -- Line numbers & status column
 -- vim.opt.number = true
 -- vim.opt.relativenumber = true

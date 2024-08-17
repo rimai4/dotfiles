@@ -16,8 +16,8 @@ if status is-interactive
   # python debugger
   set -x PYTHONBREAKPOINT "ipdb.set_trace"
 
-  # mise
-  ~/.local/bin/mise activate fish | source
+  # asdf
+  source ~/.asdf/asdf.fish
 
   # fzf
   set -x FZF_DEFAULT_OPTS "--layout=reverse -m --bind=ctrl-t:toggle-all"

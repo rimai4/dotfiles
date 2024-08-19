@@ -18,6 +18,6 @@ return {
 		}
 	end,
 	keys = {
-		{ "<A-b>", "<cmd>Neotree toggle right<CR>" },
+		{ "<leader>nt", "<cmd>Neotree toggle right<CR>" },
 	},
 }

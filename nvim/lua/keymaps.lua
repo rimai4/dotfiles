@@ -103,17 +103,10 @@ map("n", "<", "<<")
 
 -- TERMINAL MAPPINGS
 -- Move between splits in normal & terminal mode
-map("n", "<A-h>", "<C-w>h")
-map("n", "<A-j>", "<C-w>j")
-map("n", "<A-k>", "<C-w>k")
-map("n", "<A-l>", "<C-w>l")
-map("t", "<A-h>", "<cmd>wincmd h<CR>")
-map("t", "<A-j>", "<cmd>wincmd j<CR>")
-map("t", "<A-k>", "<cmd>wincmd k<CR>")
-map("t", "<A-l>", "<cmd>wincmd l<CR>")
-
--- Escape in terminal mode
-map("t", "<Esc>", "<C-\\><C-n>")
+map({ "n", "t" }, "<A-h>", "<cmd>wincmd h<CR>")
+map({ "n", "t" }, "<A-j>", "<cmd>wincmd j<CR>")
+map({ "n", "t" }, "<A-k>", "<cmd>wincmd k<CR>")
+map({ "n", "t" }, "<A-l>", "<cmd>wincmd l<CR>")
 
 -- Open terminal in right split
 map("n", "tr", "<cmd>vs<cr><cmd>BufTermEnter<cr>")

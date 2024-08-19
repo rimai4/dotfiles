@@ -51,3 +51,21 @@ vim.api.nvim_create_autocmd("CmdWinEnter", {
 		end
 	end,
 })
+
+-- Escape/jk in terminal, but not when lazygit is opened
+-- Cannot use better-escape for this because of lazygit
+vim.api.nvim_create_autocmd("TermEnter", {
+	callback = function()
+		if string.find(vim.api.nvim_buf_get_name(0), "lazygit") then
+			return
+		end
+
+		vim.keymap.set("t", "jk", function()
+			vim.cmd("stopinsert")
+		end, { buffer = true })
+
+		vim.keymap.set("t", "<Esc>", function()
+			vim.cmd("stopinsert")
+		end, { buffer = true })
+	end,
+})

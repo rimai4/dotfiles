@@ -3,7 +3,7 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	opts = {
 		on_attach = function(bufnr)
-			local gs = package.loaded.gitsigns
+			local gs = require("gitsigns")
 
 			local function map(mode, l, r, opts)
 				opts = opts or {}
@@ -14,23 +14,19 @@ return {
 			-- Navigation
 			map("n", "]h", function()
 				if vim.wo.diff then
-					return "]h"
+					vim.cmd.normal({ "]h", bang = true })
+				else
+					gs.nav_hunk("next")
 				end
-				vim.schedule(function()
-					gs.next_hunk()
-				end)
-				return "<Ignore>"
-			end, { expr = true })
+			end)
 
 			map("n", "[h", function()
 				if vim.wo.diff then
-					return "[h"
+					vim.cmd.normal({ "[h", bang = true })
+				else
+					gs.nav_hunk("prev")
 				end
-				vim.schedule(function()
-					gs.prev_hunk()
-				end)
-				return "<Ignore>"
-			end, { expr = true })
+			end)
 
 			-- Actions
 			map("n", "<leader>gb", gs.toggle_current_line_blame, { desc = "Toggle [G]it [B]lame" })

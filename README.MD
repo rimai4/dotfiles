@@ -1,9 +1,10 @@
-Tools
+## Tools
 
+### Terminal
 - neovim
 - kitty
 - fish
-- mise
+- asdf
 - atuin
 - fzf
 - lucid prompt (installed with fisher)
@@ -12,3 +13,7 @@ Tools
 - rg
 - eza
 - bat
+
+### Desktop
+- Aerospace
+- Alfred

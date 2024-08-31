@@ -16,8 +16,8 @@ outer.right =      16
 
 [mode.main.binding]
 # These mappings create the workspaces on startup
-alt-u = 'workspace 1' # safety because alt-u performs undo in nvim
 alt-i = 'workspace 1'
+alt-u = 'workspace 1' # typo safety because alt-u performs undo in nvim
 alt-o = 'workspace 2'
 alt-p = 'workspace 3'
 
@@ -35,7 +35,7 @@ alt-shift-o = ['move-node-to-workspace 2', 'workspace 2']
 alt-shift-p = ['move-node-to-workspace 3', 'workspace 3']
 
 # Move node to other monitor
-ctrl-alt-cmd-left = ['move-node-to-monitor --wrap-around prev',  'focus-monitor --wrap-around next']
+ctrl-alt-cmd-left = ['move-node-to-monitor --wrap-around prev',  'focus-monitor --wrap-around prev']
 ctrl-alt-cmd-right = ['move-node-to-monitor --wrap-around next',  'focus-monitor --wrap-around next']
 
 # Open apps

@@ -15,21 +15,28 @@ outer.top =        16
 outer.right =      16
 
 [mode.main.binding]
-# [ and ] mappings are for switching between workspaces & nodes in a workspace
-# Switch between workspaces with <Alt-[> and <Alt-]>
-alt-leftSquareBracket = 'workspace prev --wrap-around'
-alt-rightSquareBracket = 'workspace next --wrap-around'
-# Move focus in workspace with <Alt-Shift-]> and <alt-shift-]>
-alt-shift-leftSquareBracket = 'focus left'
-alt-shift-rightSquareBracket = 'focus right'
+# These mappings create the workspaces on startup
+alt-u = 'workspace 1' # safety because alt-u performs undo in nvim
+alt-i = 'workspace 1'
+alt-o = 'workspace 2'
+alt-p = 'workspace 3'
 
-# H/L mappings are for moving node to different workspace/monitor
-# Move node to other workspace
-alt-shift-h = 'move-node-to-workspace prev --wrap-around'
-alt-shift-l = 'move-node-to-workspace next --wrap-around'
+# Focus window
+alt-leftSquareBracket = 'focus left'
+alt-rightSquareBracket = 'focus right'
+
+# Move window
+alt-shift-leftSquareBracket = 'move left'
+alt-shift-rightSquareBracket = 'move right'
+
+# Move window to workspace
+alt-shift-i = ['move-node-to-workspace 1', 'workspace 1']
+alt-shift-o = ['move-node-to-workspace 2', 'workspace 2']
+alt-shift-p = ['move-node-to-workspace 3', 'workspace 3']
+
 # Move node to other monitor
-ctrl-alt-cmd-h = ['move-node-to-monitor --wrap-around prev',  'focus-monitor --wrap-around next']
-ctrl-alt-cmd-l = ['move-node-to-monitor --wrap-around next',  'focus-monitor --wrap-around next']
+ctrl-alt-cmd-left = ['move-node-to-monitor --wrap-around prev',  'focus-monitor --wrap-around next']
+ctrl-alt-cmd-right = ['move-node-to-monitor --wrap-around next',  'focus-monitor --wrap-around next']
 
 # Open apps
 # k = kitty, b = arc, c = calendar, r = reminders
@@ -43,11 +50,6 @@ alt-m = 'focus-monitor --wrap-around next'
 
 # Toggle between accordion & tiles
 alt-comma = 'layout accordion tiles'
-
-# These mappings are needed to create the workspaces on startup
-alt-1 = 'workspace 1'
-alt-2 = 'workspace 2'
-alt-3 = 'workspace 3'
 
 # Move kitty to workspace 1
 [[on-window-detected]]

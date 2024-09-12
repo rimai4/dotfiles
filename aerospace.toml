@@ -14,49 +14,65 @@ outer.bottom =     16
 outer.top =        16
 outer.right =      16
 
+
+# ======================= MAIN MODE
 [mode.main.binding]
-# These mappings create the workspaces on startup
-alt-i = 'workspace 1'
-alt-u = 'workspace 1' # typo safety because alt-u performs undo in nvim
-alt-o = 'workspace 2'
-alt-p = 'workspace 3'
+# These mappings create the workspaces on startup, so there will only be 3.
+# A fourth will be created when using a second monitor.
+# In a lot of browsers, cmd-1/2/3 moves to tab 1/2/3. But in Arc I never use this.
+cmd-1 = 'workspace 1'
+cmd-2 = 'workspace 2'
+cmd-3 = 'workspace 3'
 
-# Focus window
-alt-leftSquareBracket = 'focus left'
-alt-rightSquareBracket = 'focus right'
+# Change focus in workspace
+alt-comma = 'focus left'
+alt-period = 'focus right'
 
-# Move window
-alt-shift-leftSquareBracket = 'move left'
-alt-shift-rightSquareBracket = 'move right'
+# Focus other display
+alt-d = 'focus-monitor --wrap-around next'
 
-# Move window to workspace
-alt-shift-i = ['move-node-to-workspace 1', 'workspace 1']
-alt-shift-o = ['move-node-to-workspace 2', 'workspace 2']
-alt-shift-p = ['move-node-to-workspace 3', 'workspace 3']
-
-# Move node to other monitor
-ctrl-alt-cmd-left = ['move-node-to-monitor --wrap-around prev',  'focus-monitor --wrap-around prev']
-ctrl-alt-cmd-right = ['move-node-to-monitor --wrap-around next',  'focus-monitor --wrap-around next']
-
-# Open apps
-# k = kitty, b = arc, c = calendar, r = reminders
-alt-k = 'exec-and-forget open -a "Kitty"'
-alt-b = 'exec-and-forget open -a "Arc"'
-alt-r = 'exec-and-forget open -a "Reminders"'
-alt-c = 'exec-and-forget open -a "Calendar"'
-
-# Focus other monitor
-alt-m = 'focus-monitor --wrap-around next'
+# Enter move mode
+alt-m = 'mode move'
 
 # Toggle between accordion & tiles
-alt-comma = 'layout accordion tiles'
+alt-slash = 'layout accordion tiles'
+# ======================= END MAIN MODE
+
+# It's preferable to have a single mode because you need less keypresses.
+# However, these actions do not occur often and it's hard to find bindings that
+# do not conflict with vim or macos.
+# ======================= MOVE MODE
+[mode.move.binding]
+# Move window to workspace
+1 = ['move-node-to-workspace 1', 'workspace 1', 'mode main']
+2 = ['move-node-to-workspace 2', 'workspace 2', 'mode main']
+3 = ['move-node-to-workspace 3', 'workspace 3', 'mode main']
+
+# Move window in the same workspace
+h = ['move left', 'mode main']
+l = ['move right', 'mode main']
+
+# Move window to other monitor
+shift-h = ['move-node-to-monitor --wrap-around next',  'focus-monitor --wrap-around next', 'mode main']
+shift-l = ['move-node-to-monitor --wrap-around prev',  'focus-monitor --wrap-around prev', 'mode main']
+
+# Switch to main mode
+esc = 'mode main'
+enter = 'mode main'
+alt-m = 'mode main'
+# ======================= END MOVE MODE
 
 # Move kitty to workspace 1
 [[on-window-detected]]
 if.app-id = 'net.kovidgoyal.kitty'
 run = ['move-node-to-workspace 1']
 
-# Move Arc to workspace 2
+# Move Arc browser to workspace 2
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
 run = ['move-node-to-workspace 2']
+
+# Move all other apps to workspace 3
+[[on-window-detected]]
+if.app-name-regex-substring = '^(?!.*\b(net\.kovidgoyal\.kitty|company\.thebrowser\.Browser)\b).*'
+run = ['move-node-to-workspace 3']

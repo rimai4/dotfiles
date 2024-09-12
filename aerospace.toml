@@ -3,7 +3,7 @@ start-at-login = true
 
 # Enable janky borders with flamingo color
 after-startup-command = [
-  'exec-and-forget borders active_color=0xfff0c6c6 inactive_color=0xff494d64 width=5.0',
+  'exec-and-forget borders active_color=0xfff0c6c6 inactive_color=0xff494d64 width=8.0',
 ]
 
 [gaps]

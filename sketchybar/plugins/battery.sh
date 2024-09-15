@@ -8,11 +8,11 @@ fi
 case ${PERCENTAGE} in
   [8-9][0-9] | 100)
     ICON=""
-    ICON_COLOR=0xff000000
+    ICON_COLOR=0xffffffff
     ;;
   7[0-9])
     ICON=""
-    ICON_COLOR=0xff000000
+    ICON_COLOR=0xffffffff
     ;;
   [4-6][0-9])
     ICON=""

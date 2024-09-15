@@ -16,12 +16,16 @@ inner.horizontal = 16
 inner.vertical =   16
 outer.left =       16
 outer.bottom =     16
-outer.top =        64
+outer.top =        56
 outer.right =      16
-
 
 # ======================= MAIN MODE
 [mode.main.binding]
+# Overrides
+cmd-h = [] # Disable "hide application"
+cmd-alt-h = [] # Disable "hide others"
+
+
 # These mappings create the workspaces on startup, so there will only be 4.
 # A fifth will be created when using a second monitor.
 # In a lot of browsers, cmd-1/2/3/4 moves to tab 1/2/3/4. But in Arc I never use this.
@@ -44,7 +48,7 @@ alt-m = 'mode move'
 alt-slash = 'layout accordion tiles'
 # ======================= END MAIN MODE
 
-# It's preferable to have a single mode because you need less keypresses.
+# It's preferable to have a single mode because you need less key presses.
 # However, these actions do not occur often and it's hard to find bindings that
 # do not conflict with vim or macos.
 # ======================= MOVE MODE

@@ -1,15 +1,10 @@
 return {
-	"jiaoshijie/undotree",
+	"mbbill/undotree",
 	dependencies = "nvim-lua/plenary.nvim",
 	keys = {
 		{
 			"<leader>su",
-			function()
-				require("undotree").toggle()
-			end,
+			"<cmd>UndotreeToggle<cr>",
 		},
-	},
-	opts = {
-		float_diff = false,
 	},
 }

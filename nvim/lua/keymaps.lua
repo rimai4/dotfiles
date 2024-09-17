@@ -60,9 +60,6 @@ map("x", "<leader>c", '"sy:let @/=@s<CR>cgn')
 map("n", "<leader>C", ":%s/<C-r><C-w>//<Left>")
 map("x", "<leader>C", '"sy:%s/<C-r>s//<Left>')
 
--- Go to start of command
-map("c", "<C-A>", "<Home>")
-
 -- Quickfix list mappings
 map("n", "<leader>qo", "<cmd>copen<CR>")
 map("n", "<leader>qq", "<cmd>cclose<CR>")
@@ -91,17 +88,13 @@ map("n", "<leader>tl", "<cmd>set number!<CR>")
 -- Save with <leader>w
 map("n", "<leader>w", "<cmd>w<CR>")
 
--- Move left/right in command/insert mode with A-h and A-l
-map({ "c", "i" }, "<A-h>", "<Left>")
-map({ "c", "i" }, "<A-l>", "<Right>")
-
 -- Switch tab
 map({ "t", "i" }, "<C-Tab>", "<cmd>tabnext<cr>")
 
+-- Indent with single < or >
 map("n", ">", ">>")
 map("n", "<", "<<")
 
--- TERMINAL MAPPINGS
 -- Move between splits in normal & terminal mode
 map({ "n", "t" }, "<A-h>", "<cmd>wincmd h<CR>")
 map({ "n", "t" }, "<A-j>", "<cmd>wincmd j<CR>")

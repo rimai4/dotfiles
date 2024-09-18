@@ -20,7 +20,6 @@ outer.right =      16
 # Disable macos keymaps
 cmd-m = [] # Disable "minimize application"
 cmd-h = [] # Disable "hide application"
-cmd-alt-h = [] # Disable "hide others"
 
 # These keymaps create the workspaces on startup, so there will only be 3.
 # A fourth will be created when using a second monitor.

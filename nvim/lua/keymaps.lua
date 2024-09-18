@@ -24,6 +24,8 @@ map({ "n", "v", "s", "o" }, "L", "$")
 -- Don't put single char deletes in register
 map("n", "x", '"_x')
 
+map("c", "<C-a>", "<Home>")
+
 -- Page up/down & center
 map({ "n", "v" }, "K", "<C-u>zz")
 map({ "n", "v" }, "J", "<C-d>zz")

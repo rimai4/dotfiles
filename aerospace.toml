@@ -16,8 +16,6 @@ outer.bottom =     16
 outer.top =        16
 outer.right =      16
 
-# ======================= MAIN MODE
-
 [mode.main.binding]
 # Disable macos keymaps
 cmd-m = [] # Disable "minimize application"
@@ -30,14 +28,17 @@ alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
 
+# Move window to workspace
+alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
+alt-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
+alt-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
+
 # Change focus in workspace
 # alt-h and alt-l sound like a logical mapping here but I use those for switching windows in neovim.
 # Using ctrl-h and ctrl-l in neovim is not great because it overrides the ctrl-l (clear) command in the terminal.
 # ctrl (i.e. caps lock) is also easier to press than alt, and this mapping will probably be used the most.
 ctrl-leftSquareBracket = 'focus left'
 ctrl-rightSquareBracket = 'focus right'
-
-alt-d = 'focus-monitor --wrap-around next'
 
 # Move window within workspace
 alt-shift-h = 'move left'
@@ -51,35 +52,16 @@ alt-equal = 'balance-sizes'
 # Toggle between accordion & tiles
 alt-slash = 'layout accordion tiles'
 
-# Enter move mode
-alt-m = 'mode move'
-
 # Float/unfloat window
 alt-f = 'layout floating tiling'
 
-# ======================= END MAIN MODE
-
-# ======================= MOVE MODE
-
-# It's preferable to have a single mode because you need less key presses.
-# However, these actions do not occur often and it's hard to find bindings that
-# do not conflict with vim or macos.
-
-[mode.move.binding]
-# Move window to workspace
-1 = ['move-node-to-workspace 1', 'workspace 1', 'mode main']
-2 = ['move-node-to-workspace 2', 'workspace 2', 'mode main']
-3 = ['move-node-to-workspace 3', 'workspace 3', 'mode main']
+# Focus other monitor
+alt-m = ['focus-monitor --wrap-around next']
 
 # Move window to other monitor
-m = ['move-node-to-monitor --wrap-around next',  'focus-monitor --wrap-around next', 'mode main']
+alt-shift-m = ['move-node-to-monitor --wrap-around next',  'focus-monitor --wrap-around next']
 
-# Switch to main mode
-esc = 'mode main'
-enter = 'mode main'
-alt-m = 'mode main'
-
-# ======================= END MOVE MODE
+alt-r = 'reload-config'
 
 # Move kitty to workspace 1
 [[on-window-detected]]

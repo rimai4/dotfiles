@@ -1,89 +1,112 @@
 # Start AeroSpace at login
 start-at-login = true
 
-# Enable sketchybar and janky borders with sapphire color
+# Enable janky borders with sapphire color
 after-startup-command = [
-  'exec-and-forget sketchybar',
   'exec-and-forget borders active_color=0xff7dc4e4 inactive_color=0xff494d64 width=8.0',
 ]
 
-exec-on-workspace-change = ['/bin/bash', '-c',
-  'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
-]
+accordion-padding = 32
 
 [gaps]
 inner.horizontal = 16
 inner.vertical =   16
 outer.left =       16
 outer.bottom =     16
-outer.top =        56
+outer.top =        16
 outer.right =      16
 
 # ======================= MAIN MODE
+
 [mode.main.binding]
-# Overrides
+# Disable macos keymaps
+cmd-m = [] # Disable "minimize application"
 cmd-h = [] # Disable "hide application"
 cmd-alt-h = [] # Disable "hide others"
 
-
-# These mappings create the workspaces on startup, so there will only be 4.
-# A fifth will be created when using a second monitor.
-# In a lot of browsers, cmd-1/2/3/4 moves to tab 1/2/3/4. But in Arc I never use this.
-cmd-1 = 'workspace 1'
-cmd-2 = 'workspace 2'
-cmd-3 = 'workspace 3'
-cmd-4 = 'workspace 4'
+# These keymaps create the workspaces on startup, so there will only be 3.
+# A fourth will be created when using a second monitor.
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
 
 # Change focus in workspace
-alt-comma = 'focus left'
-alt-period = 'focus right'
+# alt-h and alt-l sound like a logical mapping here but I use those for switching windows in neovim.
+# Using ctrl-h and ctrl-l in neovim is not great because it overrides the ctrl-l (clear) command in the terminal.
+# ctrl (i.e. caps lock) is also easier to press than alt, and this mapping will probably be used the most.
+ctrl-leftSquareBracket = 'focus left'
+ctrl-rightSquareBracket = 'focus right'
 
-# Focus other display
 alt-d = 'focus-monitor --wrap-around next'
+
+# Move window within workspace
+alt-shift-h = 'move left'
+alt-shift-l = 'move right'
+
+# Resize window
+alt-shift-minus = 'resize smart -75'
+alt-shift-equal = 'resize smart +75'
+alt-equal = 'balance-sizes'
+
+# Toggle between accordion & tiles
+alt-slash = 'layout accordion tiles'
 
 # Enter move mode
 alt-m = 'mode move'
 
-# Toggle between accordion & tiles
-alt-slash = 'layout accordion tiles'
+# Float/unfloat window
+alt-f = 'layout floating tiling'
+
 # ======================= END MAIN MODE
+
+# ======================= MOVE MODE
 
 # It's preferable to have a single mode because you need less key presses.
 # However, these actions do not occur often and it's hard to find bindings that
 # do not conflict with vim or macos.
-# ======================= MOVE MODE
+
 [mode.move.binding]
 # Move window to workspace
 1 = ['move-node-to-workspace 1', 'workspace 1', 'mode main']
 2 = ['move-node-to-workspace 2', 'workspace 2', 'mode main']
 3 = ['move-node-to-workspace 3', 'workspace 3', 'mode main']
-4 = ['move-node-to-workspace 4', 'workspace 4', 'mode main']
-
-# Move window in the same workspace
-h = ['move left', 'mode main']
-l = ['move right', 'mode main']
 
 # Move window to other monitor
-shift-h = ['move-node-to-monitor --wrap-around next',  'focus-monitor --wrap-around next', 'mode main']
-shift-l = ['move-node-to-monitor --wrap-around prev',  'focus-monitor --wrap-around prev', 'mode main']
+m = ['move-node-to-monitor --wrap-around next',  'focus-monitor --wrap-around next', 'mode main']
 
 # Switch to main mode
 esc = 'mode main'
 enter = 'mode main'
 alt-m = 'mode main'
+
 # ======================= END MOVE MODE
 
 # Move kitty to workspace 1
 [[on-window-detected]]
 if.app-id = 'net.kovidgoyal.kitty'
-run = ['move-node-to-workspace 1']
+run = 'move-node-to-workspace 1'
 
-# Move Arc browser to workspace 2
+# Move Arc browser to workspace 1
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
-run = ['move-node-to-workspace 2']
+run = 'move-node-to-workspace 1'
 
-# Move all other apps to workspace 3
+# Move Spotify to workspace 3
 [[on-window-detected]]
-if.app-name-regex-substring = '^(?!.*\b(net\.kovidgoyal\.kitty|company\.thebrowser\.Browser)\b).*'
-run = ['move-node-to-workspace 3']
+if.app-id = 'com.spotify.client'
+run = 'move-node-to-workspace 3'
+
+# Float calendar
+[[on-window-detected]]
+if.app-id = 'com.apple.iCal'
+run = 'layout floating'
+
+# Float reminders
+[[on-window-detected]]
+if.app-id = 'com.apple.reminders'
+run = 'layout floating'
+
+# Float system settings
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'

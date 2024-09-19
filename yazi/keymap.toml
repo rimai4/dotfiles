@@ -6,4 +6,6 @@ prepend_keymap = [
   { on = [ "g", "p" ],       run = "cd ~/projects",   desc = "~/projects" },
   { on = [ "Z" ],         run = "plugin zoxide",              desc = "Jump to a directory using zoxide" },
 	{ on = [ "z" ],         run = "plugin fzf",                 desc = "Jump to a directory, or reveal a file using fzf" },
+	{ on = "J", run = 'arrow 5' },
+	{ on = "K", run = 'arrow -5' },
 ]

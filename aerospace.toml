@@ -27,17 +27,17 @@ alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
 
+# Move to previous/next workspace
+alt-comma = 'workspace prev'
+alt-period = 'workspace next'
+
 # Move window to workspace
-alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
-alt-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
-alt-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
+alt-shift-comma = 'move-node-to-workspace --wrap-around prev'
+alt-shift-period = 'move-node-to-workspace --wrap-around next'
 
 # Change focus in workspace
-# alt-h and alt-l sound like a logical mapping here but I use those for switching windows in neovim.
-# Using ctrl-h and ctrl-l in neovim is not great because it overrides the ctrl-l (clear) command in the terminal.
-# ctrl (i.e. caps lock) is also easier to press than alt, and this mapping will probably be used the most.
-ctrl-leftSquareBracket = 'focus left'
-ctrl-rightSquareBracket = 'focus right'
+alt-h = 'focus left'
+alt-l = 'focus right'
 
 # Move window within workspace
 alt-shift-h = 'move left'

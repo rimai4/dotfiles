@@ -21,6 +21,10 @@ if status is-interactive
 
   # fzf
   set -x FZF_DEFAULT_OPTS "--layout=reverse -m --bind=ctrl-t:toggle-all"
+
+  # Key bindings
+  bind \cK history-search-backward
+  bind \cJ history-search-forward
 end
 
 # bun

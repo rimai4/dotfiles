@@ -1,11 +1,13 @@
 [manager]
 prepend_keymap = [
-  { on = [ "g", "f" ],       run = "cd ~/files",   desc = "~/files" },
-  { on = [ "g", "D" ],       run = "cd ~/Desktop",   desc = "~/Desktop" },
-  { on = [ "g", "y" ],       run = "cd ~/dotfiles/yazi",   desc = "~/.config/yazi" },
-  { on = [ "g", "p" ],       run = "cd ~/projects",   desc = "~/projects" },
-  { on = [ "Z" ],         run = "plugin zoxide",              desc = "Jump to a directory using zoxide" },
-	{ on = [ "z" ],         run = "plugin fzf",                 desc = "Jump to a directory, or reveal a file using fzf" },
-	{ on = "J", run = 'arrow 5' },
-	{ on = "K", run = 'arrow -5' },
+  { on = [ "g", "f", ], run = "cd ~/files", desc = "~/files" },
+  { on = [ "g", "D", ], run = "cd ~/Desktop", desc = "~/Desktop" },
+  { on = [ "g", "y", ], run = "cd ~/dotfiles/yazi", desc = "~/.config/yazi" },
+  { on = [ "g", "p", ], run = "cd ~/projects", desc = "~/projects" },
+  { on = [ "Z", ], run = "plugin zoxide", desc = "Jump to a directory using zoxide" },
+  { on = [ "z", ], run = "plugin fzf", desc = "Jump to a directory, or reveal a file using fzf" },
+  { on = "e", run = 'open' },
 ]
+
+[input]
+prepend_keymap = [{ on = "<Esc>", run = "close" }]

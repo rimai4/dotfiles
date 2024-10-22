@@ -23,14 +23,6 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
--- Close diffview with q
-vim.api.nvim_create_autocmd("BufEnter", {
-	pattern = "diffview://*",
-	callback = function()
-		vim.api.nvim_buf_set_keymap(0, "n", "q", "<cmd>tabclose<cr>", {})
-	end,
-})
-
 -- Set htmldjango filetype
 vim.cmd("autocmd BufRead,BufNewFile *.djhtml set filetype=htmldjango")
 
@@ -52,7 +44,7 @@ vim.api.nvim_create_autocmd("CmdWinEnter", {
 	end,
 })
 
--- Escape/jk in terminal, but not for lazygit/fzf terminals
+-- Escape/jk in terminal, but not for lazygit/fzf/yazi terminals
 vim.api.nvim_create_autocmd("TermEnter", {
 	callback = function()
 		if string.find(vim.api.nvim_buf_get_name(0), "lazygit") then
@@ -60,6 +52,10 @@ vim.api.nvim_create_autocmd("TermEnter", {
 		end
 		-- Fzf
 		if string.find(vim.api.nvim_buf_get_name(0), "bin/sh") then
+			return
+		end
+		-- Yazi
+		if string.find(vim.api.nvim_buf_get_name(0), "yazi") then
 			return
 		end
 

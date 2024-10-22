@@ -1,5 +1,5 @@
 # Start AeroSpace at login
-start-at-login = true
+start-at-login = false
 
 # Enable janky borders with sapphire color
 after-startup-command = [
@@ -10,16 +10,15 @@ accordion-padding = 32
 
 [gaps]
 inner.horizontal = 16
-inner.vertical =   16
-outer.left =       16
-outer.bottom =     16
-outer.top =        16
-outer.right =      16
+inner.vertical = 16
+outer.left = 16
+outer.bottom = 16
+outer.top = 16
+outer.right = 16
 
 [mode.main.binding]
 # Disable macos keymaps
 cmd-m = [] # Disable "minimize application"
-cmd-h = [] # Disable "hide application"
 
 # These keymaps create the workspaces on startup, so there will only be 3.
 # A fourth will be created when using a second monitor.
@@ -49,16 +48,16 @@ alt-shift-equal = 'resize smart +75'
 alt-equal = 'balance-sizes'
 
 # Toggle between accordion & tiles
-alt-slash = 'layout accordion tiles'
-
-# Float/unfloat window
-alt-f = 'layout floating tiling'
+alt-space = 'layout accordion tiles'
 
 # Focus other monitor
 alt-m = ['focus-monitor --wrap-around next']
 
 # Move window to other monitor
-alt-shift-m = ['move-node-to-monitor --wrap-around next',  'focus-monitor --wrap-around next']
+alt-shift-m = [
+  'move-node-to-monitor --wrap-around next',
+  'focus-monitor --wrap-around next',
+]
 
 alt-r = 'reload-config'
 

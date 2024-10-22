@@ -6,6 +6,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 vim.opt.cmdwinheight = 20
+vim.opt.cmdheight = 2
 
 -- Line numbers & status column
 -- vim.opt.number = true

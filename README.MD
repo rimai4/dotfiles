@@ -12,8 +12,8 @@
 - fd
 - rg
 - eza
-- bat
+- moar
 
 ### Desktop
-- Aerospace
+- Rectangle
 - Alfred

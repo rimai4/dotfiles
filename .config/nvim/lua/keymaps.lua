@@ -97,6 +97,9 @@ map({ "t", "i" }, "<C-Tab>", "<cmd>tabnext<cr>")
 map("n", ">", ">>")
 map("n", "<", "<<")
 
+-- Center screen with a single z
+map("n", "z", "zz")
+
 -- Move between splits in normal & terminal mode
 map({ "n", "t" }, "<C-h>", "<cmd>wincmd h<CR>")
 map({ "n", "t" }, "<C-j>", "<cmd>wincmd j<CR>")

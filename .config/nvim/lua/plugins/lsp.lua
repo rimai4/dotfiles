@@ -52,6 +52,8 @@ return {
 			vim.keymap.set("n", "<Tab>", vim.lsp.buf.hover, opts)
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
+			vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help, opts)
+
 			-- Prevent C-i from being overwritten (no idea where this happens as there is no call to lsp.default_keymaps)
 			-- C-i is used to move forward in the jump list
 			vim.keymap.set("n", "<C-i>", "<C-i>", opts)

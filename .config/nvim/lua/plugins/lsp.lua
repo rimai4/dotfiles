@@ -1,151 +1,132 @@
 return {
-	"VonHeikemen/lsp-zero.nvim",
-	branch = "v3.x",
+	"neovim/nvim-lspconfig",
 	event = { "BufReadPost", "BufNewFile" },
 	dependencies = {
-		-- LSP Support
-		{ "neovim/nvim-lspconfig" },
 		{
-			-- Optional
 			"williamboman/mason.nvim",
-			build = function()
-				vim.cmd([[ MasonUpdate ]])
+			config = true,
+		},
+		{
+			"williamboman/mason-lspconfig.nvim",
+			config = function()
+				-- Get default capabilities from cmp
+				local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+				-- Add custom server setup below
+				local servers = {}
+
+				-- Set up mason & configure language servers installed with mason
+				require("mason-lspconfig").setup({
+					handlers = {
+						function(server_name)
+							local server = servers[server_name] or {}
+
+							server.capabilities =
+								vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+							require("lspconfig")[server_name].setup(server)
+						end,
+					},
+				})
 			end,
 		},
-		{ "williamboman/mason-lspconfig.nvim" },
-
-		-- Autocompletion
+		{
+			-- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
+			-- used for completion, annotations and signatures of Neovim apis
+			"folke/lazydev.nvim",
+			ft = "lua",
+			opts = {
+				library = {
+					-- Load luvit types when the `vim.uv` word is found
+					{ path = "luvit-meta/library", words = { "vim%.uv" } },
+				},
+			},
+		},
+		-- nvim-cmp & sources
 		{ "hrsh7th/nvim-cmp" },
 		{ "hrsh7th/cmp-buffer" },
 		{ "hrsh7th/cmp-path" },
-		{ "saadparwaiz1/cmp_luasnip" },
 		{ "hrsh7th/cmp-nvim-lsp" },
-		{ "hrsh7th/cmp-nvim-lua" },
 		{ "hrsh7th/cmp-nvim-lsp-signature-help" },
+		{ "dcampos/cmp-snippy" },
 
 		-- Snippets
-		{ "L3MON4D3/LuaSnip" },
-		{ "rafamadriz/friendly-snippets" },
+		{ "dcampos/nvim-snippy" },
+		{ "honza/vim-snippets" },
 	},
 	config = function()
-		local lsp = require("lsp-zero")
-
-		-----------------------------------------------------------------
-		-----------------------------------------------------------------
 		-- Add keybindings when lsp attaches to buffer
-		lsp.on_attach(function(client, bufnr)
-			local opts = { buffer = bufnr, remap = false }
+		vim.api.nvim_create_autocmd("LspAttach", {
+			desc = "LSP actions",
+			callback = function(event)
+				local opts = { buffer = event.buf }
+				-- diagnostics
+				vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+				vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+				vim.keymap.set("n", "[e", function()
+					vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
+				end, opts)
+				vim.keymap.set("n", "]e", function()
+					vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
+				end, opts)
+				vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 
-			-- diagnostics
-			vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-			vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-			vim.keymap.set("n", "[e", function()
-				vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
-			end, opts)
-			vim.keymap.set("n", "]e", function()
-				vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
-			end, opts)
-			vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
+				vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+				vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, opts)
+				vim.keymap.set("n", "<Tab>", vim.lsp.buf.hover, opts)
+				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-			vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, opts)
-			vim.keymap.set("n", "<Tab>", vim.lsp.buf.hover, opts)
-			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+				vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help, opts)
 
-			vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help, opts)
+				local client = vim.lsp.get_client_by_id(event.data.client_id)
+				if client and client.name == "vtsls" then
+					-- Typescript import mappings
+					vim.keymap.set(
+						"n",
+						"<leader>ia",
+						"<cmd>VtsExec add_missing_imports<CR>",
+						{ desc = "[I]mports - [A]dd missing" }
+					)
+					vim.keymap.set(
+						"n",
+						"<leader>io",
+						"<cmd>VtsExec organize_imports<CR>",
+						{ desc = "[I]mports - [O]rganize" }
+					)
+				end
+			end,
+		})
 
-			-- Prevent C-i from being overwritten (no idea where this happens as there is no call to lsp.default_keymaps)
-			-- C-i is used to move forward in the jump list
-			vim.keymap.set("n", "<C-i>", "<C-i>", opts)
-
-			-- Format
-			vim.keymap.set("n", "<leader>ff", function()
-				require("conform").format()
-			end, opts)
-
-			-- Typescript commands
-			if client.name == "vtsls" then
-				vim.keymap.set("n", "<leader>rf", "<cmd>VtsExec rename_file<CR>", { desc = "[R]ename [F]ile" })
-
-				-- Imports
-				vim.keymap.set(
-					"n",
-					"<leader>ia",
-					"<cmd>VtsExec add_missing_imports<CR>",
-					{ desc = "[I]mports - [A]dd missing" }
-				)
-				vim.keymap.set(
-					"n",
-					"<leader>io",
-					"<cmd>VtsExec organize_imports<CR>",
-					{ desc = "[I]mports - [O]rganize" }
-				)
-			end
-
-			-- Disable semantic highlighting
-			-- client.server_capabilities.semanticTokensProvider = nil
-
-			-- Disable virtual text
-			vim.diagnostic.config({
-				virtual_text = true,
-			})
-		end)
-
-		-----------------------------------------------------------------
-		-----------------------------------------------------------------
-		-- Setup mason & configure language servers
-		require("mason").setup({})
-		require("mason-lspconfig").setup({
-			handlers = {
-				lsp.default_setup,
-				lua_ls = function()
-					local lua_opts = lsp.nvim_lua_ls()
-					require("lspconfig").lua_ls.setup(lua_opts)
-				end,
-				emmet_language_server = function()
-					require("lspconfig").emmet_language_server.setup({
-						filetypes = { "htmldjango", "html", "templ" },
-					})
-				end,
+		-- Set up snippets
+		local snippy = require("snippy")
+		snippy.setup({
+			mappings = {
+				is = {
+					["<C-f>"] = "next",
+					["<C-b>"] = "previous",
+				},
 			},
 		})
 
-		-----------------------------------------------------------------
-		-----------------------------------------------------------------
-		-- Configure nvim-cmp
 		local cmp = require("cmp")
-		local cmp_format = lsp.cmp_format()
-		local luasnip = require("luasnip")
-		local cmp_action = require("lsp-zero").cmp_action()
-
-		-- Load snippets
-		require("luasnip.loaders.from_vscode").lazy_load()
-		-- Add extra rails snippets
-		luasnip.filetype_extend("ruby", { "rails" })
-
 		cmp.setup({
+			snippet = {
+				expand = function(args)
+					snippy.expand_snippet(args.body)
+				end,
+			},
 			mapping = {
 				["<CR>"] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }),
-				["<C-f>"] = cmp_action.luasnip_jump_forward(),
-				["<C-b>"] = cmp_action.luasnip_jump_backward(),
+				["<C-n>"] = cmp.mapping.select_next_item(),
+				["<C-p>"] = cmp.mapping.select_prev_item(),
 			},
-			formatting = cmp_format,
 			select_behavior = "insert",
 			preselect = cmp.PreselectMode.None,
 			sources = {
 				{ name = "path" },
 				{ name = "nvim_lsp", keyword_length = 1 },
-				{ name = "buffer", keyword_length = 2 },
-				{ name = "luasnip", keyword_length = 2 },
+				{ name = "snippy", keyword_length = 2 },
+				{ name = "buffer", keyword_length = 3 },
 				{ name = "nvim_lsp_signature_help" },
-			},
-			completion = {
-				completeopt = "menuone,noselect",
-			},
-			snippet = {
-				expand = function(args)
-					luasnip.lsp_expand(args.body)
-				end,
 			},
 		})
 	end,

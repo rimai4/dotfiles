@@ -1,18 +1,7 @@
+-- This plugin only makes sure that comments work in tsx files
+-- For commenting/uncommenting the built-in functionality is used
 return {
-	"terrortylor/nvim-comment",
-	dependencies = {
-		"JoosepAlviste/nvim-ts-context-commentstring",
-	},
-	event = "VeryLazy",
-	config = function()
-		require("ts_context_commentstring").setup({
-			enable_autocmd = false,
-		})
-
-		require("nvim_comment").setup({
-			hook = function()
-				require("ts_context_commentstring").update_commentstring()
-			end,
-		})
-	end,
+	"folke/ts-comments.nvim",
+	event = "BufReadPre",
+	config = true,
 }

@@ -1,12 +1,12 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
+	event = { "BufReadPost", "BufNewFile" },
 	dependencies = {
 		"RRethy/nvim-treesitter-endwise",
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		"windwp/nvim-ts-autotag",
 	},
-	event = { "BufReadPost", "BufNewFile" },
 	opts = {
 		ensure_installed = {
 			"help",

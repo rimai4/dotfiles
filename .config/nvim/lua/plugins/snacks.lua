@@ -12,6 +12,7 @@ return {
 			configure = false,
 		},
 		quickfile = { enabled = true },
+		bufdelete = { enabled = true },
 	},
 	keys = {
 		{
@@ -19,14 +20,18 @@ return {
 			function()
 				Snacks.lazygit()
 			end,
-			desc = "Lazygit",
 		},
 		{
 			"<leader>fh",
 			function()
 				Snacks.lazygit.log_file()
 			end,
-			desc = "Lazygit",
+		},
+		{
+			"<leader>bd",
+			function()
+				Snacks.bufdelete()
+			end,
 		},
 	},
 }

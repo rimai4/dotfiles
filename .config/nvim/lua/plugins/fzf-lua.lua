@@ -25,7 +25,7 @@ return {
 			{
 				"<leader>sn",
 				function()
-					fzflua.files({ cwd = "~/dotfiles/nvim" })
+					fzflua.files({ cwd = "~/dotfiles/.config/nvim" })
 				end,
 			},
 		}

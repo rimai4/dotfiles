@@ -38,6 +38,12 @@ return {
 				git_icons = false,
 				file_icons = false,
 			},
+			files = {
+				formatter = "path.filename_first",
+			},
+			buffers = {
+				formatter = "path.filename_first",
+			},
 			keymap = {
 				builtin = {
 					["<C-d>"] = "preview-page-down",

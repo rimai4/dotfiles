@@ -1,5 +1,5 @@
--- 	This comment is needed to load the types
--- 	require("snacks")
+-- For some reason, this comment is needed to load the types
+-- require("snacks")
 return {
 	"folke/snacks.nvim",
 	priority = 1000,
@@ -16,6 +16,16 @@ return {
 		},
 		quickfile = { enabled = true },
 		bufdelete = { enabled = true },
+		picker = {
+			win = {
+				-- input window
+				input = {
+					keys = {
+						["<Esc>"] = { "close", mode = { "n", "i" } },
+					},
+				},
+			},
+		},
 	},
 	keys = {
 		{
@@ -34,6 +44,78 @@ return {
 			"<leader>bd",
 			function()
 				Snacks.bufdelete()
+			end,
+		},
+		{
+			"<leader>sf",
+			function()
+				Snacks.picker.files({ hidden = true })
+			end,
+		},
+		{
+			"gb",
+			function()
+				Snacks.picker.buffers()
+			end,
+		},
+		{
+			"<leader>sg",
+			function()
+				Snacks.picker.grep()
+			end,
+		},
+		{
+			"<leader>sw",
+			function()
+				Snacks.picker.grep_word()
+			end,
+		},
+		{
+			"<leader>sh",
+			function()
+				Snacks.picker.help()
+			end,
+		},
+		{
+			"<leader>sr",
+			function()
+				Snacks.picker.resume()
+			end,
+		},
+		{
+			"gr",
+			function()
+				Snacks.picker.lsp_references()
+			end,
+		},
+		{
+			"<leader>gs",
+			function()
+				Snacks.picker.git_status()
+			end,
+		},
+		{
+			"<leader>ss",
+			function()
+				Snacks.picker.lsp_symbols()
+			end,
+		},
+		{
+			"<leader>sS",
+			function()
+				Snacks.picker.lsp_workspace_symbols()
+			end,
+		},
+		{
+			"<leader>sc",
+			function()
+				Snacks.picker.command_history()
+			end,
+		},
+		{
+			"<leader>/",
+			function()
+				Snacks.picker.lines()
 			end,
 		},
 	},

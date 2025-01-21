@@ -1,5 +1,3 @@
--- For some reason, this comment is needed to load the types
--- require("snacks")
 return {
 	"folke/snacks.nvim",
 	priority = 1000,
@@ -23,6 +21,16 @@ return {
 					keys = {
 						["<Esc>"] = { "close", mode = { "n", "i" } },
 					},
+				},
+				preview = {
+					wo = {
+						number = false,
+					},
+				},
+			},
+			formatters = {
+				file = {
+					filename_first = true,
 				},
 			},
 		},
@@ -116,6 +124,12 @@ return {
 			"<leader>/",
 			function()
 				Snacks.picker.lines()
+			end,
+		},
+		{
+			"<leader>su",
+			function()
+				Snacks.picker.undo()
 			end,
 		},
 	},

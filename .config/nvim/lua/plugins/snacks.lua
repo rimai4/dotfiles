@@ -61,6 +61,15 @@ return {
 			end,
 		},
 		{
+			"<leader>sn",
+			function()
+				Snacks.picker.files({
+					hidden = true,
+					dirs = { "~/dotfiles/.config/nvim" },
+				})
+			end,
+		},
+		{
 			"gb",
 			function()
 				Snacks.picker.buffers()

@@ -1,6 +1,6 @@
 [manager]
-linemode = "size_and_mtime"
-sort_by = 'modified'
+linemode = 'size_and_mtime'
+sort_by = 'mtime'
 sort_reverse = true
 sort_dir_first = false
-show_hidden = false
+show_hidden = true

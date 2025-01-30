@@ -1,8 +1,9 @@
 [manager]
 prepend_keymap = [
   { on = [ "g", "f", ], run = "cd ~/files", desc = "~/files" },
+  { on = [ "g", "v", ], run = "cd ~/files/verhuizing", desc = "~/files/verhuizing" },
   { on = [ "g", "D", ], run = "cd ~/Desktop", desc = "~/Desktop" },
-  { on = [ "g", "y", ], run = "cd ~/dotfiles/yazi", desc = "~/.config/yazi" },
+  { on = [ "g", "y", ], run = "cd ~/dotfiles/.config/yazi", desc = "~/.config/yazi" },
   { on = [ "g", "p", ], run = "cd ~/projects", desc = "~/projects" },
   { on = [ "Z", ], run = "plugin zoxide", desc = "Jump to a directory using zoxide" },
   { on = [ "z", ], run = "plugin fzf", desc = "Jump to a directory, or reveal a file using fzf" },

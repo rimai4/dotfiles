@@ -141,5 +141,11 @@ return {
 				Snacks.picker.undo()
 			end,
 		},
+		{
+			"<leader>fe",
+			function()
+				Snacks.picker.explorer()
+			end,
+		},
 	},
 }

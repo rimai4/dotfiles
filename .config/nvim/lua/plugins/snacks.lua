@@ -15,8 +15,11 @@ return {
 		quickfile = { enabled = true },
 		bufdelete = { enabled = true },
 		picker = {
+			layout = {
+				preview = false, -- disable all previewers by default. can be enabled per previewer
+			},
+			sources = { explorer = { layout = { layout = { position = "right" } } } },
 			win = {
-				-- input window
 				input = {
 					keys = {
 						["<Esc>"] = { "close", mode = { "n", "i" } },
@@ -102,13 +105,21 @@ return {
 		{
 			"gr",
 			function()
-				Snacks.picker.lsp_references()
+				Snacks.picker.lsp_references({
+					layout = {
+						preview = true,
+					},
+				})
 			end,
 		},
 		{
 			"<leader>gs",
 			function()
-				Snacks.picker.git_status()
+				Snacks.picker.git_status({
+					layout = {
+						preview = true,
+					},
+				})
 			end,
 		},
 		{
@@ -138,7 +149,11 @@ return {
 		{
 			"<leader>su",
 			function()
-				Snacks.picker.undo()
+				Snacks.picker.undo({
+					layout = {
+						preview = true,
+					},
+				})
 			end,
 		},
 		{

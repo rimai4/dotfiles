@@ -23,6 +23,7 @@ return {
 			mason = true,
 			neogit = true,
 			neotree = true,
+			snacks = true,
 			telescope = true,
 			treesitter = true,
 			native_lsp = {

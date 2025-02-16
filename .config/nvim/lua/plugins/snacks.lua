@@ -81,7 +81,9 @@ return {
 		{
 			"<leader>sg",
 			function()
-				Snacks.picker.grep()
+				Snacks.picker.grep({
+					hidden = true,
+				})
 			end,
 		},
 		{
@@ -159,8 +161,33 @@ return {
 		{
 			"<leader>fe",
 			function()
-				Snacks.picker.explorer()
+				Snacks.picker.explorer({
+					hidden = true,
+					ignored = true,
+				})
 			end,
+		},
+		{
+			"<leader>sd",
+			function()
+				local directories = vim.fn.systemlist(
+					"fd . -t d -I --hidden --exclude .git --exclude .mypy_cache --exclude .ruff_cache"
+				)
+
+				vim.ui.select(directories, {
+					prompt = "Select a directory",
+					format_item = function(item)
+						return item
+					end,
+				}, function(choice)
+					if choice then
+						require("oil").open(choice)
+					else
+						print("No directory selected")
+					end
+				end)
+			end,
+			desc = "Search directories and open in oil",
 		},
 	},
 }

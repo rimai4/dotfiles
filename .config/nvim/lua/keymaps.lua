@@ -108,3 +108,17 @@ map({ "n" }, "<C-l>", "<cmd>wincmd l<CR>")
 
 -- Open terminal in right split
 map("n", "tr", "<cmd>vs<cr><cmd>BufTermEnter<cr>")
+
+-- Copy file path
+vim.keymap.set("n", "<leader>fn", function()
+	local relative_path = vim.fn.fnamemodify(vim.fn.expand("%"), ":.")
+	vim.fn.setreg('"', relative_path)
+	print("Copied path: " .. relative_path)
+end)
+
+-- Copy file path to system clipboard
+vim.keymap.set("n", "<leader>FN", function()
+	local relative_path = vim.fn.fnamemodify(vim.fn.expand("%"), ":.")
+	vim.fn.setreg("+", relative_path)
+	print("Copied path to system clipboard: " .. relative_path)
+end)

@@ -44,28 +44,3 @@ vim.api.nvim_create_autocmd("CmdWinEnter", {
 		end
 	end,
 })
-
--- Escape/jk in terminal, but not for lazygit/fzf/yazi terminals
-vim.api.nvim_create_autocmd("TermEnter", {
-	callback = function()
-		if string.find(vim.api.nvim_buf_get_name(0), "lazygit") then
-			return
-		end
-		-- Fzf
-		if string.find(vim.api.nvim_buf_get_name(0), "bin/sh") then
-			return
-		end
-		-- Yazi
-		if string.find(vim.api.nvim_buf_get_name(0), "yazi") then
-			return
-		end
-
-		vim.keymap.set("t", "jk", function()
-			vim.cmd("stopinsert")
-		end, { buffer = true })
-
-		vim.keymap.set("t", "<Esc>", function()
-			vim.cmd("stopinsert")
-		end, { buffer = true })
-	end,
-})

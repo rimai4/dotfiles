@@ -34,6 +34,7 @@ return {
 			formatters = {
 				file = {
 					filename_first = true,
+					truncate = 80,
 				},
 			},
 		},
@@ -60,7 +61,10 @@ return {
 		{
 			"<leader>sf",
 			function()
-				Snacks.picker.files({ hidden = true })
+				Snacks.picker.smart({
+					hidden = true,
+					filter = { cwd = true },
+				})
 			end,
 		},
 		{

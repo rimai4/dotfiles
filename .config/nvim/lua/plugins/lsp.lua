@@ -13,7 +13,11 @@ return {
 				local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 				-- Add custom server setup below
-				local servers = {}
+				local servers = {
+					html = {
+						filetypes = { "html", "templ" },
+					},
+				}
 
 				-- Set up mason & configure language servers installed with mason
 				require("mason-lspconfig").setup({
@@ -50,7 +54,6 @@ return {
 		{ "hrsh7th/cmp-nvim-lsp" },
 		{ "hrsh7th/cmp-nvim-lsp-signature-help" },
 		{ "dcampos/cmp-snippy" },
-
 		-- Snippets
 		{ "dcampos/nvim-snippy" },
 		{ "honza/vim-snippets" },
@@ -129,6 +132,7 @@ return {
 				{ name = "snippy", keyword_length = 2 },
 				{ name = "buffer", keyword_length = 3 },
 				{ name = "nvim_lsp_signature_help" },
+				{ name = "vim-dadbod-completion" },
 			},
 		})
 	end,

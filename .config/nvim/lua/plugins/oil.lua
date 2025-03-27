@@ -25,6 +25,6 @@ return {
 		},
 	},
 	keys = {
-		{ "<leader>-", "<Cmd>Oil<CR>" },
+		{ "<leader>-", "<Cmd>Oil --float<CR>" },
 	},
 }

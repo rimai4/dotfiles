@@ -12,7 +12,6 @@
 - fd
 - rg
 - eza
-- moar
 
 ### Desktop
 - Rectangle

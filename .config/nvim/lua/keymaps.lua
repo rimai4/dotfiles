@@ -24,6 +24,7 @@ map({ "n", "v", "s", "o" }, "L", "$")
 -- Don't put single char deletes in register
 map("n", "x", '"_x')
 
+-- Go to start of command
 map("c", "<C-a>", "<Home>")
 
 -- Page up/down & center
@@ -47,10 +48,6 @@ map("n", "<Esc>", "<cmd>noh<CR><Esc>")
 -- Don't replace register after pasting
 map("v", "p", '"_dP')
 
--- Insert blank lines
-map("n", "[<Space>", ':<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "\']+1"<CR>')
-map("n", "]<Space>", ':<C-u>put =repeat(nr2char(10),v:count)<Bar>execute "\'[-1"<CR>')
-
 -- Switch case and stay on same character
 map("n", "`", "~h")
 
@@ -61,12 +58,6 @@ map("x", "<leader>c", '"sy:let @/=@s<CR>cgn')
 -- File-wide substitute word under cursor
 map("n", "<leader>C", ":%s/<C-r><C-w>//<Left>")
 map("x", "<leader>C", '"sy:%s/<C-r>s//<Left>')
-
--- Quickfix list mappings
-map("n", "<leader>qo", "<cmd>copen<CR>")
-map("n", "<leader>qq", "<cmd>cclose<CR>")
-map("n", "[q", "<cmd>cprevious<CR>")
-map("n", "]q", "<cmd>cnext<CR>")
 
 -- Join lines (J is already used for vertical navigation)
 map("n", "<leader>j", "J")
@@ -84,14 +75,15 @@ map("n", "<leader>a", "<C-6>zz")
 map("n", "[t", "gT")
 map("n", "]t", "gt")
 
+-- Move tabs
+map("n", "[T", "<cmd>-tabmove<CR>")
+map("n", "]T", "<cmd>+tabmove<CR>")
+
 -- Toggle line numbers
 map("n", "<leader>tl", "<cmd>set number!<CR>")
 
 -- Save with <leader>w
 map("n", "<leader>w", "<cmd>w<CR>")
-
--- Switch tab
-map({ "t", "i" }, "<C-Tab>", "<cmd>tabnext<cr>")
 
 -- Indent with single < or >
 map("n", ">", ">>")
@@ -105,9 +97,6 @@ map({ "n", "t" }, "<C-h>", "<cmd>wincmd h<CR>")
 map({ "n", "t" }, "<C-j>", "<cmd>wincmd j<CR>")
 map({ "n", "t" }, "<C-k>", "<cmd>wincmd k<CR>")
 map({ "n" }, "<C-l>", "<cmd>wincmd l<CR>")
-
--- Open terminal in right split
-map("n", "tr", "<cmd>vs<cr><cmd>BufTermEnter<cr>")
 
 -- Copy file path
 vim.keymap.set("n", "<leader>fn", function()

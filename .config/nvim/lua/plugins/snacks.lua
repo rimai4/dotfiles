@@ -175,7 +175,7 @@ return {
 			"<leader>sd",
 			function()
 				local directories = vim.fn.systemlist(
-					"fd . -t d -I --hidden --exclude .git --exclude .mypy_cache --exclude .ruff_cache"
+					"fd . -t d -I --hidden --exclude .git --exclude .mypy_cache --exclude .ruff_cache --exclude .venv"
 				)
 
 				vim.ui.select(directories, {
@@ -185,7 +185,7 @@ return {
 					end,
 				}, function(choice)
 					if choice then
-						require("oil").open(choice)
+						require("oil").open_float(choice)
 					else
 						print("No directory selected")
 					end

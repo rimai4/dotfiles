@@ -8,11 +8,7 @@ vim.opt.smartcase = true
 vim.opt.cmdwinheight = 20
 vim.opt.cmdheight = 2
 
--- Line numbers & status column
--- vim.opt.number = true
--- vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
--- vim.o.statuscolumn = "%s%=%{v:relnum?v:relnum:v:lnum} "
 
 -- Highlight current line
 vim.o.cursorline = true
@@ -40,9 +36,6 @@ vim.opt.writebackup = false
 -- save undo file
 vim.o.undofile = true
 
--- Speed up loading ts_context_commentstring
-vim.g.skip_ts_context_commentstring_module = true
-
 -- Global status bar
 vim.opt.laststatus = 3
 
@@ -53,3 +46,8 @@ vim.opt.swapfile = false
 vim.opt.shortmess = {
 	I = true,
 }
+
+-- Diagnostics
+vim.diagnostic.config({
+	jump = { float = true },
+})

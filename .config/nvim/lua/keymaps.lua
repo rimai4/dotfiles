@@ -111,3 +111,9 @@ vim.keymap.set("n", "<leader>FN", function()
 	vim.fn.setreg("+", relative_path)
 	print("Copied path to system clipboard: " .. relative_path)
 end)
+
+-- Delete default LSP keymaps
+vim.keymap.del("n", "gri")
+vim.keymap.del("n", "grr") -- gr
+vim.keymap.del("n", "grn") -- <leader>rn
+vim.keymap.del("n", "gra")

@@ -117,3 +117,13 @@ vim.keymap.del("n", "gri")
 vim.keymap.del("n", "grr") -- gr
 vim.keymap.del("n", "grn") -- <leader>rn
 vim.keymap.del("n", "gra")
+
+-- Toggle color column
+vim.keymap.set("n", "<leader>tc", function()
+	local current = vim.wo.colorcolumn
+	if current == "120" then
+		vim.wo.colorcolumn = ""
+	else
+		vim.wo.colorcolumn = "120"
+	end
+end)

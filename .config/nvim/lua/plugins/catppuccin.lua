@@ -35,7 +35,7 @@ return {
 				-- Slightly increase the luminosity of non-active lines
 				-- vim.cmd([[highlight LineNr guifg=#606685]])
 				SnacksPickerDir = { fg = colors.sapphire },
-				WinSeparator = { fg = colors.overlay2 },
+				WinSeparator = { fg = colors.overlay1 },
 			}
 		end,
 	},

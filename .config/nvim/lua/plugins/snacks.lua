@@ -185,7 +185,7 @@ return {
 					end,
 				}, function(choice)
 					if choice then
-						require("oil").open_float(choice)
+						require("oil").open(choice)
 					else
 						print("No directory selected")
 					end

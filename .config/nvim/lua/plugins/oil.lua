@@ -14,17 +14,16 @@ return {
 		columns = {
 			"icon",
 		},
+		use_default_keymaps = false,
 		keymaps = {
 			["<BS>"] = { "actions.parent", mode = "n" },
-			["~"] = {
-				function()
-					require("oil").open("~")
-				end,
-				mode = "n",
-			},
+			["<CR>"] = "actions.select",
+			["<C-p>"] = "actions.preview",
+			["gs"] = { "actions.change_sort", mode = "n" },
+			["g?"] = { "actions.show_help", mode = "n" },
 		},
 	},
 	keys = {
-		{ "<leader>-", "<Cmd>Oil --float<CR>" },
+		{ "<leader>-", "<Cmd>Oil<CR>" },
 	},
 }

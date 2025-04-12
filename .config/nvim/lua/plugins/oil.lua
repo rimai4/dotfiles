@@ -19,6 +19,7 @@ return {
 			["<BS>"] = { "actions.parent", mode = "n" },
 			["<CR>"] = "actions.select",
 			["<C-p>"] = "actions.preview",
+			["<C-c>"] = { "actions.close", mode = "n" },
 			["gs"] = { "actions.change_sort", mode = "n" },
 			["g?"] = { "actions.show_help", mode = "n" },
 		},

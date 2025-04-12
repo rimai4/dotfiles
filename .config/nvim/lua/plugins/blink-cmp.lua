@@ -22,7 +22,7 @@ return {
 			nerd_font_variant = "mono",
 		},
 		cmdline = {
-			-- sources = {},
+			enabled = false,
 		},
 		completion = {
 			keyword = {

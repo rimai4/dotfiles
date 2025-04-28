@@ -38,6 +38,10 @@ return {
 				},
 			},
 		},
+		scratch = {
+			enabled = true,
+			ft = "markdown",
+		},
 	},
 	keys = {
 		{
@@ -192,6 +196,13 @@ return {
 				end)
 			end,
 			desc = "Search directories and open in oil",
+		},
+		{
+			"<leader>.",
+			function()
+				Snacks.scratch()
+			end,
+			desc = "Toggle Scratch Buffer",
 		},
 	},
 }

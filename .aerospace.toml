@@ -20,19 +20,17 @@ outer.right = 16
 # Disable macos keymaps
 cmd-m = [] # Disable "minimize application"
 
-# These keymaps create the workspaces on startup, so there will only be 3.
-# A fourth will be created when using a second monitor.
-alt-1 = 'workspace 1'
-alt-2 = 'workspace 2'
-alt-3 = 'workspace 3'
-
-# Move to previous/next workspace
-alt-comma = 'workspace prev'
-alt-period = 'workspace next'
+# These keymaps create the workspaces on startup
+alt-k = 'workspace k' # kitty
+alt-b = 'workspace b' # browser
+alt-i = 'workspace i' # ai
+alt-m = 'workspace m' # misc
 
 # Move window to workspace
-alt-shift-comma = 'move-node-to-workspace --wrap-around prev'
-alt-shift-period = 'move-node-to-workspace --wrap-around next'
+alt-shift-k = ['move-node-to-workspace k', 'workspace k']
+alt-shift-b = ['move-node-to-workspace b', 'workspace b']
+alt-shift-i = ['move-node-to-workspace i', 'workspace i']
+alt-shift-m = ['move-node-to-workspace m', 'workspace m']
 
 # Change focus in workspace
 alt-h = 'focus left'
@@ -42,39 +40,47 @@ alt-l = 'focus right'
 alt-shift-h = 'move left'
 alt-shift-l = 'move right'
 
-# Resize window
-alt-shift-minus = 'resize smart -75'
-alt-shift-equal = 'resize smart +75'
-alt-equal = 'balance-sizes'
-
 # Toggle between accordion & tiles
-alt-space = 'layout accordion tiles'
+alt-slash = 'layout accordion tiles'
 
 # Focus other monitor
-alt-m = ['focus-monitor --wrap-around next']
+alt-enter = ['focus-monitor --wrap-around next']
 
 # Move window to other monitor
-alt-shift-m = [
+alt-shift-enter = [
   'move-node-to-monitor --wrap-around next',
   'focus-monitor --wrap-around next',
 ]
 
-alt-r = 'reload-config'
-
-# Move kitty to workspace 1
+# Move kitty to workspace k
 [[on-window-detected]]
 if.app-id = 'net.kovidgoyal.kitty'
-run = 'move-node-to-workspace 1'
+run = 'move-node-to-workspace k'
 
-# Move Arc browser to workspace 1
+# Move Arc browser to workspace b
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
-run = 'move-node-to-workspace 1'
+run = 'move-node-to-workspace b'
 
-# Move Spotify to workspace 3
+# Move ChatGPT to workspace i
+[[on-window-detected]]
+if.app-id = 'com.openai.chat'
+run = 'move-node-to-workspace i'
+
+# Move Spotify to workspace m
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
-run = 'move-node-to-workspace 3'
+run = 'move-node-to-workspace m'
+
+# Move DBeaver to workspace m
+[[on-window-detected]]
+if.app-id = 'org.jkiss.dbeaver.core.product'
+run = 'move-node-to-workspace m'
+
+# Move LibreOffice to workspace m
+[[on-window-detected]]
+if.app-id = 'org.libreoffice.script'
+run = 'move-node-to-workspace m'
 
 # Float calendar
 [[on-window-detected]]

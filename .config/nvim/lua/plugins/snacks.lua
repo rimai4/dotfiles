@@ -113,6 +113,12 @@ return {
 			end,
 		},
 		{
+			"<leader>sR",
+			function()
+				Snacks.picker.registers()
+			end,
+		},
+		{
 			"gr",
 			function()
 				Snacks.picker.lsp_references({

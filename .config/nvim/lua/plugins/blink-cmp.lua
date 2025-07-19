@@ -5,6 +5,8 @@ return {
 	},
 	event = "InsertEnter",
 	version = "*",
+	---@module 'blink.cmp'
+	---@type blink.cmp.Config
 	opts = {
 		keymap = {
 			preset = "none",
@@ -53,7 +55,7 @@ return {
 				dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
 				buffer = {
 					min_keyword_length = 2,
-					max_items = 5,
+					score_offset = 20,
 				},
 				snippets = {
 					min_keyword_length = 2,

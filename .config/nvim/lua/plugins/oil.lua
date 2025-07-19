@@ -10,6 +10,10 @@ return {
 		watch_for_changes = true,
 		view_options = {
 			show_hidden = true,
+			sort = {
+				-- show last modified items on top
+				{ "mtime", "desc" },
+			},
 		},
 		columns = {
 			"icon",

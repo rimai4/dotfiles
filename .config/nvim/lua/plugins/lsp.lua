@@ -40,6 +40,7 @@ return {
 					{ path = "luvit-meta/library", words = { "vim%.uv" } },
 					{ path = "snacks.nvim", words = { "Snacks" } },
 					{ path = "oil.nvim", words = { "oil" } },
+					{ path = "blink.cmp", words = { "blink" } },
 				},
 			},
 		},

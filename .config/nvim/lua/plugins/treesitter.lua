@@ -9,7 +9,6 @@ return {
 	},
 	opts = {
 		ensure_installed = {
-			"help",
 			"html",
 			"lua",
 			"javascript",

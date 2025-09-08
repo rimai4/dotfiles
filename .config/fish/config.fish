@@ -16,9 +16,6 @@ if status is-interactive
   # python debugger
   set -x PYTHONBREAKPOINT "ipdb.set_trace"
 
-  # asdf
-  source ~/.asdf/asdf.fish
-
   # fzf
   set -x FZF_DEFAULT_OPTS "--layout=reverse -m --bind=ctrl-t:toggle-all"
 
@@ -26,7 +23,3 @@ if status is-interactive
   bind \cK history-search-backward
   bind \cJ history-search-forward
 end
-
-# bun
-set -x BUN_INSTALL "$HOME/.bun"
-set -x PATH $BUN_INSTALL/bin $PATH
